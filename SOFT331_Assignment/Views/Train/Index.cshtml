@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SOFT331_Assignment.Models.Train>
+
+@{
+    ViewBag.Title = "Trains";
+}
+
+<h2>Trains</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table>
+    @foreach (var item in Model)
+    {
+
+        <td>
+            <strong>
+                No.@Html.DisplayFor(modelItem => item.TrainNumber)
+
+                &nbsp;@Html.DisplayFor(modelItem => item.Name)
+            </strong>
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TrainID })
+            |
+            @Html.ActionLink("Details", "Details", new { id = item.TrainID })
+            |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TrainID })
+        </td>
+
+    }
+</table>
