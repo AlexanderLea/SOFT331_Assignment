@@ -16,20 +16,18 @@ namespace SOFT331_Assignment.Models
         [Required]
         public string Description { get; set; }
 
-        //[ScaffoldColumn(false)]
-        
+        [ForeignKey("FareType")]
         public virtual int FareTypeID { get; set; }
-        [DisplayName("Fare Type")]
-        [ForeignKey("FareTypeID")]
-        public virtual FareType Type { get; set; }
+        public virtual FareType FareType { get; set; }
 
-        public virtual int TicketTypeID { get; set; }
-        [DisplayName("Ticket Type")]
-        [ForeignKey("TicketTypeID")]
-        public virtual EventType TypeOfTicket { get; set; }
+        [ForeignKey("EventType")]
+        public virtual int EventTypeID { get; set; }
+        public virtual EventType EventType { get; set; }
 
+        [DisplayName("Basic Price")]
         [Required(ErrorMessage = "Fare must have a basic price")]
         public double BasicPrice { get; set; }
+        [DisplayName("Gift Aid Price")]
         public double GiftAidPrice { get; set; }
 
         public Fare()

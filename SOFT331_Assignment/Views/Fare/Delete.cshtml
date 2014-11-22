@@ -12,19 +12,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Type.FareTypeDescription)
+            @Html.DisplayNameFor(model => model.EventType.EventName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Type.FareTypeDescription)
+            @Html.DisplayFor(model => model.EventType.EventName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TypeOfTicket.EventName)
+            @Html.DisplayNameFor(model => model.FareType.FareTypeDescription)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TypeOfTicket.EventName)
+            @Html.DisplayFor(model => model.FareType.FareTypeDescription)
         </dd>
 
         <dt>
@@ -33,6 +33,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BasicPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BasicPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftAidPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftAidPrice)
         </dd>
 
     </dl>

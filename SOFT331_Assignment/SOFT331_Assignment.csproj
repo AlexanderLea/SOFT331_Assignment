@@ -175,6 +175,10 @@
     <Compile Include="Migrations\201411221523207_InitialMigration.Designer.cs">
       <DependentUpon>201411221523207_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411221755303_delete_ticket_type.cs" />
+    <Compile Include="Migrations\201411221755303_delete_ticket_type.Designer.cs">
+      <DependentUpon>201411221755303_delete_ticket_type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -243,11 +247,6 @@
     <Content Include="Views\EventType\Details.cshtml" />
     <Content Include="Views\EventType\Edit.cshtml" />
     <Content Include="Views\EventType\Index.cshtml" />
-    <Content Include="Views\Journey\Create.cshtml" />
-    <Content Include="Views\Journey\Delete.cshtml" />
-    <Content Include="Views\Journey\Details.cshtml" />
-    <Content Include="Views\Journey\Edit.cshtml" />
-    <Content Include="Views\Journey\Index.cshtml" />
     <Content Include="Views\Ticket\Create.cshtml" />
     <Content Include="Views\Ticket\Delete.cshtml" />
     <Content Include="Views\Ticket\Details.cshtml" />
@@ -263,11 +262,6 @@
     <Content Include="Views\Traveller\Details.cshtml" />
     <Content Include="Views\Traveller\Edit.cshtml" />
     <Content Include="Views\Traveller\Index.cshtml" />
-    <Content Include="Views\Fare\Create.cshtml" />
-    <Content Include="Views\Fare\Delete.cshtml" />
-    <Content Include="Views\Fare\Details.cshtml" />
-    <Content Include="Views\Fare\Edit.cshtml" />
-    <Content Include="Views\Fare\Index.cshtml" />
     <Content Include="Views\FareType\Create.cshtml" />
     <Content Include="Views\FareType\Delete.cshtml" />
     <Content Include="Views\FareType\Details.cshtml" />
@@ -278,6 +272,16 @@
     <Content Include="Views\Station\Details.cshtml" />
     <Content Include="Views\Station\Edit.cshtml" />
     <Content Include="Views\Station\Index.cshtml" />
+    <Content Include="Views\Journey\Create.cshtml" />
+    <Content Include="Views\Journey\Delete.cshtml" />
+    <Content Include="Views\Journey\Details.cshtml" />
+    <Content Include="Views\Journey\Edit.cshtml" />
+    <Content Include="Views\Journey\Index.cshtml" />
+    <Content Include="Views\Fare\Create.cshtml" />
+    <Content Include="Views\Fare\Delete.cshtml" />
+    <Content Include="Views\Fare\Details.cshtml" />
+    <Content Include="Views\Fare\Edit.cshtml" />
+    <Content Include="Views\Fare\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -292,6 +296,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201411221523207_InitialMigration.resx">
       <DependentUpon>201411221523207_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411221755303_delete_ticket_type.resx">
+      <DependentUpon>201411221755303_delete_ticket_type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

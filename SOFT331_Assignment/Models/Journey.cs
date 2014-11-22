@@ -19,19 +19,18 @@ namespace SOFT331_Assignment.Models
         public virtual Train Train { get; set; }
 
         [Required]
-        [ForeignKey("Station")]
-        public virtual int StationID { get; set; }
-        public virtual Station Station { get; set; }
+        public virtual int DepartureStationID { get; set; }
+        public virtual Station DepartureStation { get; set; }
 
-        //[Required]
-        //[ForeignKey("Station")]
-        //public virtual int ArrivalStationID { get; set; }
-        //public virtual Station ArrivalStation { get; set; }
+        [Required]
+        public virtual int ArrivalStationID { get; set; }
+        public virtual Station ArrivalStation { get; set; }
         
         
         [DisplayName("Departure Time")]
         [Required]
         public DateTime DepartureTime { get; set; }
+
         [DisplayName("Arrival Time")]
         [Required]
         public DateTime ArrivalTime { get; set; }

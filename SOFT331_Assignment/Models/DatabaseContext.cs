@@ -16,6 +16,24 @@ namespace SOFT331_Assignment.Models
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Train> Trains { get; set; }
         public DbSet<Traveller> Travellers { get; set; }
-        
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Journey>()
+                    .HasRequired(m => m.ArrivalStation)
+                    .WithMany(t => t.arrivalJournies)
+                    .HasForeignKey(m => m.ArrivalStationID)
+                    .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Journey>()
+                    .HasRequired(m => m.DepartureStation)
+                    .WithMany(t => t.departureJournies)
+                    .HasForeignKey(m => m.DepartureStationID)
+                    .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }

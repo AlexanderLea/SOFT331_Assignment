@@ -14,14 +14,14 @@ namespace SOFT331_Assignment.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
-        // GET: /Journey/
+        // GET: Journey
         public ActionResult Index()
         {
-            var journies = db.Journies.Include(j => j.Station).Include(j => j.Train);
+            var journies = db.Journies.Include(j => j.ArrivalStation).Include(j => j.DepartureStation).Include(j => j.Train);
             return View(journies.ToList());
         }
 
-        // GET: /Journey/Details/5
+        // GET: Journey/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,20 +36,21 @@ namespace SOFT331_Assignment.Controllers
             return View(journey);
         }
 
-        // GET: /Journey/Create
+        // GET: Journey/Create
         public ActionResult Create()
         {
-            ViewBag.StationID = new SelectList(db.Stations, "StationID", "StationID");
+            ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName");
+            ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName");
             ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name");
             return View();
         }
 
-        // POST: /Journey/Create
+        // POST: Journey/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="JourneyID,TrainID,StationID,DepartureTime,ArrivalTime,AdvanceTickets,NumberOfSeats")] Journey journey)
+        public ActionResult Create([Bind(Include = "JourneyID,TrainID,DepartureStationID,ArrivalStationID,DepartureTime,ArrivalTime,JourneyType,AdvanceTickets,NumberOfSeats")] Journey journey)
         {
             if (ModelState.IsValid)
             {
@@ -58,12 +59,13 @@ namespace SOFT331_Assignment.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StationID = new SelectList(db.Stations, "StationID", "StationID", journey.StationID);
+            ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName", journey.ArrivalStationID);
+            ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName", journey.DepartureStationID);
             ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name", journey.TrainID);
             return View(journey);
         }
 
-        // GET: /Journey/Edit/5
+        // GET: Journey/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,17 +77,18 @@ namespace SOFT331_Assignment.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StationID = new SelectList(db.Stations, "StationID", "StationID", journey.StationID);
+            ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName", journey.ArrivalStationID);
+            ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName", journey.DepartureStationID);
             ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name", journey.TrainID);
             return View(journey);
         }
 
-        // POST: /Journey/Edit/5
+        // POST: Journey/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="JourneyID,TrainID,StationID,DepartureTime,ArrivalTime,AdvanceTickets,NumberOfSeats")] Journey journey)
+        public ActionResult Edit([Bind(Include = "JourneyID,TrainID,DepartureStationID,ArrivalStationID,DepartureTime,ArrivalTime,JourneyType,AdvanceTickets,NumberOfSeats")] Journey journey)
         {
             if (ModelState.IsValid)
             {
@@ -93,12 +96,13 @@ namespace SOFT331_Assignment.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StationID = new SelectList(db.Stations, "StationID", "StationID", journey.StationID);
+            ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName", journey.ArrivalStationID);
+            ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName", journey.DepartureStationID);
             ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name", journey.TrainID);
             return View(journey);
         }
 
-        // GET: /Journey/Delete/5
+        // GET: Journey/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +117,7 @@ namespace SOFT331_Assignment.Controllers
             return View(journey);
         }
 
-        // POST: /Journey/Delete/5
+        // POST: Journey/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
