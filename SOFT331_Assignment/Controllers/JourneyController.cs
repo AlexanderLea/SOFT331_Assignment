@@ -21,6 +21,62 @@ namespace SOFT331_Assignment.Controllers
             return View(journies.ToList());
         }
 
+        // GET: Journey/Book/5
+        public ActionResult Book(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            } 
+
+            //get all form data
+            List<Fare> fares = db.Fares.Include(f => f.EventType).Include(f => f.FareType).ToList();
+            Journey journey = db.Journies.Find(id);
+            
+            if (journey == null || fares == null)
+            {
+                return HttpNotFound();
+            }
+            
+            var model = new BookViewModel 
+            {
+                Fares = fares,
+                Traveller = new Traveller(),
+                Journey = journey
+            };
+
+            return View(model);
+        }
+
+        // POST: Journey/Book
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Book([Bind(Include = "JourneyID,TrainID,DepartureStationID,ArrivalStationID,DepartureTime,ArrivalTime,JourneyType,AdvanceTickets,NumberOfSeats")] Journey journey)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    db.Journies.Add(journey);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            //ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName", journey.ArrivalStationID);
+            //ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName", journey.DepartureStationID);
+            //ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name", journey.TrainID);
+            //return View(journey);
+
+
+            //work out which boxes are have values
+
+            //save traveller
+
+            //do something else
+
+            return View();
+        }
+
         // GET: Journey/Details/5
         public ActionResult Details(int? id)
         {

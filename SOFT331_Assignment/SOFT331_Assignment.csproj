@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -107,12 +115,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -171,16 +173,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201411221523207_InitialMigration.cs" />
-    <Compile Include="Migrations\201411221523207_InitialMigration.Designer.cs">
-      <DependentUpon>201411221523207_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201411221755303_delete_ticket_type.cs" />
-    <Compile Include="Migrations\201411221755303_delete_ticket_type.Designer.cs">
-      <DependentUpon>201411221755303_delete_ticket_type.cs</DependentUpon>
+    <Compile Include="Migrations\201411231439499_Reset.cs" />
+    <Compile Include="Migrations\201411231439499_Reset.Designer.cs">
+      <DependentUpon>201411231439499_Reset.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Fare.cs" />
     <Compile Include="Models\FareType.cs" />
@@ -282,6 +281,10 @@
     <Content Include="Views\Fare\Details.cshtml" />
     <Content Include="Views\Fare\Edit.cshtml" />
     <Content Include="Views\Fare\Index.cshtml" />
+    <Content Include="Views\Journey\Book.cshtml" />
+    <Content Include="Views\Fare\_allFaresPartial.cshtml" />
+    <Content Include="Views\Shared\_createTravellerPartial.cshtml" />
+    <Content Include="Views\Shared\_viewFaresPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,11 +297,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201411221523207_InitialMigration.resx">
-      <DependentUpon>201411221523207_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201411221755303_delete_ticket_type.resx">
-      <DependentUpon>201411221755303_delete_ticket_type.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201411231439499_Reset.resx">
+      <DependentUpon>201411231439499_Reset.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

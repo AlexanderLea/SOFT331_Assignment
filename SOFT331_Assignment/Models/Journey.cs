@@ -42,6 +42,7 @@ namespace SOFT331_Assignment.Models
         [Required]
         [DisplayName("Advance Tickets")]
         public int AdvanceTickets { get; set; }
+
         [DisplayName("# Seats")]
         public int NumberOfSeats { get; set; }
 

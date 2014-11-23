@@ -1,0 +1,66 @@
+﻿@model SOFT331_Assignment.Models.BookViewModel
+
+@{
+    ViewBag.Title = "Book";
+}
+
+<h2>Book a Ticket</h2>
+
+@Html.HiddenFor(model => Model.Journey.JourneyID)
+@Html.HiddenFor(model => Model.Traveller.TravellerID)
+
+<h3>Selected Journey</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Journey.ArrivalStation.StationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journey.DepartureStation.StationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journey.Train.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journey.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journey.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journey.JourneyType)
+        </th>
+
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Journey.ArrivalStation.StationName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Journey.DepartureStation.StationName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Journey.Train.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Journey.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Journey.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Journey.JourneyType)
+        </td>
+</table>
+
+<h3>Tickets</h3>
+<!--Fare details-->
+@{Html.RenderPartial("_viewFaresPartial", Model.Fares);}
+
+<!--Traveller details-->
+@{Html.RenderPartial("_createTravellerPartial", Model.Traveller);}
+
+
+<input type="submit" value="Book Ticket" class="btn btn-default"  />
+
+

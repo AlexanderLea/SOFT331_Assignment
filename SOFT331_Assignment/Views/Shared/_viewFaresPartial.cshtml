@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SOFT331_Assignment.Models.Fare>
+
+<h4>Fares</h4>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventType.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FareType.FareTypeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BasicPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiftAidPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <select name="ticketQ">
+                    <option>None</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventType.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FareType.FareTypeDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiftAidPrice)
+            </td>
+        </tr>
+    }
+
+</table>

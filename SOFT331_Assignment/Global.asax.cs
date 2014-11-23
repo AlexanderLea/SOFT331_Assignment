@@ -19,11 +19,11 @@ namespace SOFT331_Assignment
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer<DatabaseContext>(new DatabaseInitialiser());
-            using (DatabaseContext context = new DatabaseContext())
-            {
-                context.Database.Initialize(false);
-            }
+            //Database.SetInitializer<DatabaseContext>(new DatabaseInitialiser());
+            //using (DatabaseContext context = new DatabaseContext())
+            //{
+            //    context.Database.Initialize(false);
+            //}
 
         }
     }
