@@ -9,7 +9,7 @@ namespace SOFT331_Assignment.Models
 {
     public class Ticket
     {
-        [ScaffoldColumn(true)]
+        [Key]
         public int TicketID { get; set; }
 
         [Required]
@@ -30,6 +30,10 @@ namespace SOFT331_Assignment.Models
         public Ticket()
         {
 
+
+
         }
+
+
     }
 }
