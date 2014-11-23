@@ -282,7 +282,6 @@
     <Content Include="Views\Fare\Edit.cshtml" />
     <Content Include="Views\Fare\Index.cshtml" />
     <Content Include="Views\Journey\Book.cshtml" />
-    <Content Include="Views\Fare\_allFaresPartial.cshtml" />
     <Content Include="Views\Shared\_createTravellerPartial.cshtml" />
     <Content Include="Views\Shared\_viewFaresPartial.cshtml" />
   </ItemGroup>

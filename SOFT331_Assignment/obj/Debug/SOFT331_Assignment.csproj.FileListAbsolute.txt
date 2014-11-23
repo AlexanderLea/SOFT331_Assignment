@@ -110,7 +110,6 @@ F:\_Applications\Dropbox\University\_Final Year\SOFT331 - Object-Oriented Web Ap
 F:\_Applications\Dropbox\University\_Final Year\SOFT331 - Object-Oriented Web Application Development\Assignment\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.InitialMigration.resources
 F:\_Applications\Dropbox\University\_Final Year\SOFT331 - Object-Oriented Web Application Development\Assignment\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csprojResolveAssemblyReference.cache
-C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.InitialMigration.resources
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.dll
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\SOFT331_Assignment.dll.config
@@ -166,7 +165,6 @@ C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\Mi
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.pdb
-C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.delete_ticket_type.resources
 C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-master\SOFT331_Assignment\bin\SOFT331_Assignment.dll.config
 C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-master\SOFT331_Assignment\bin\SOFT331_Assignment.dll
 C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-master\SOFT331_Assignment\bin\SOFT331_Assignment.pdb
@@ -224,3 +222,4 @@ C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-maste
 C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-master\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.pdb
 C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-master\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.Reset.resources
 C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-master\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csproj.GenerateResource.Cache
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.Reset.resources
