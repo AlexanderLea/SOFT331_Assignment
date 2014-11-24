@@ -10,26 +10,25 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<table>
+<table class="table">
+    @*<tr>
+        <th></th>
+        <th></th>
+    </tr>*@
     @foreach (var item in Model)
     {
+        <tr>
+            <td>
+                @item.ToString()
+            </td>
 
-        <td>
-            <strong>
-                No.@Html.DisplayFor(modelItem => item.TrainNumber)
-
-                &nbsp;@Html.DisplayFor(modelItem => item.Name)
-            </strong>
-
-        </td>
-
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.TrainID })
-            |
-            @Html.ActionLink("Details", "Details", new { id = item.TrainID })
-            |
-            @Html.ActionLink("Delete", "Delete", new { id = item.TrainID })
-        </td>
-
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TrainID })
+                |
+                @Html.ActionLink("Details", "Details", new { id = item.TrainID })
+                |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TrainID })
+            </td>
+        </tr>
     }
 </table>

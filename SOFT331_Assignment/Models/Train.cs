@@ -80,7 +80,13 @@ namespace SOFT331_Assignment.Models
 
         public override string ToString()
         {
-            return "No." + this.TrainNumber + " " + this.Name;
+            return "No." + this.TrainNumber 
+                + " " 
+                + this.Name
+                + " - "
+                + this.Maker
+                + ", "
+                + this.Year;
         }
 
         

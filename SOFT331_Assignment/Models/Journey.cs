@@ -85,7 +85,7 @@ namespace SOFT331_Assignment.Models
 
         public bool canBookDisabled()
         {
-           // DatabaseContext db = new DatabaseContext();
+            DatabaseContext db = new DatabaseContext();
 
             throw new NotImplementedException();
 
