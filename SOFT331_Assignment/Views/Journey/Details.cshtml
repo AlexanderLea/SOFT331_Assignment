@@ -1,11 +1,10 @@
 ﻿@model SOFT331_Assignment.Models.Journey
+@using SOFT331_Assignment.Models
 
 @{
     ViewBag.Title = "Details";
 }
-
 <h2>Details</h2>
-
 <div>
     <h4>Journey</h4>
     <hr />
@@ -13,70 +12,77 @@
         <dt>
             @Html.DisplayNameFor(model => model.ArrivalStation.StationName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ArrivalStation.StationName)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.DepartureStation.StationName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.DepartureStation.StationName)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Train.Name)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Train.Name)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.DepartureTime)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.DepartureTime)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.ArrivalTime)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ArrivalTime)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.JourneyType)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.JourneyType)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.AdvanceTickets)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.AdvanceTickets)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.NumberOfSeats)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.NumberOfSeats)
         </dd>
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @*@foreach (Ticket t in Model.Tickets)*@
+        @foreach (var item in Model.Tickets)
+        {
+            <td>@Html.DisplayFor(modelItem => item.TicketID)</td>
+            <td>@Html.DisplayFor(modelItem => item.Traveller.FirstName)
+                &nbsp;
+                @Html.DisplayFor(modelItem => item.Traveller.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Fare.FareType.FareTypeDescription)</td>
+            <td></td>
+            <td></td>
+        }
+</table>
+
+</div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
