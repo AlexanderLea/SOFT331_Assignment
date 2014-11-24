@@ -13,13 +13,13 @@ namespace SOFT331_Assignment
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
-        {
+        {         
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            //Database.SetInitializer<DatabaseContext>(new DatabaseInitialiser());
+            
+            //Database.SetInitializer<DatabaseContext>(new DropCreateDatabaseIfModelChanges<DatabaseContext>());
             //using (DatabaseContext context = new DatabaseContext())
             //{
             //    context.Database.Initialize(false);

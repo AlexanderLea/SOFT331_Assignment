@@ -166,6 +166,7 @@
     <Compile Include="Controllers\FareTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JourneyController.cs" />
+    <Compile Include="Controllers\JourneyTypesController.cs" />
     <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
@@ -173,9 +174,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201411231439499_Reset.cs" />
-    <Compile Include="Migrations\201411231439499_Reset.Designer.cs">
-      <DependentUpon>201411231439499_Reset.cs</DependentUpon>
+    <Compile Include="Migrations\201411241648470_initial.cs" />
+    <Compile Include="Migrations\201411241648470_initial.Designer.cs">
+      <DependentUpon>201411241648470_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411241651453_addedSeed.cs" />
+    <Compile Include="Migrations\201411241651453_addedSeed.Designer.cs">
+      <DependentUpon>201411241651453_addedSeed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -186,6 +191,7 @@
     <Compile Include="Models\DatabaseInitialiser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Journey.cs" />
+    <Compile Include="Models\JourneyType.cs" />
     <Compile Include="Models\Station.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\EventType.cs" />
@@ -284,6 +290,11 @@
     <Content Include="Views\Journey\Book.cshtml" />
     <Content Include="Views\Shared\_createTravellerPartial.cshtml" />
     <Content Include="Views\Shared\_viewFaresPartial.cshtml" />
+    <Content Include="Views\JourneyTypes\Create.cshtml" />
+    <Content Include="Views\JourneyTypes\Delete.cshtml" />
+    <Content Include="Views\JourneyTypes\Details.cshtml" />
+    <Content Include="Views\JourneyTypes\Edit.cshtml" />
+    <Content Include="Views\JourneyTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,8 +307,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201411231439499_Reset.resx">
-      <DependentUpon>201411231439499_Reset.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201411241648470_initial.resx">
+      <DependentUpon>201411241648470_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411241651453_addedSeed.resx">
+      <DependentUpon>201411241651453_addedSeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

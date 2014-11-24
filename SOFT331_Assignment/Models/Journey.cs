@@ -35,10 +35,11 @@ namespace SOFT331_Assignment.Models
         [Required]
         public DateTime ArrivalTime { get; set; }
 
-        [DisplayName("Journey Type")]
-        [Required]
-        public string JourneyType { get; set; } //E.g. "Christmas", "Super special awesome journey" etc
-
+        [ForeignKey("JourneyType")]
+        //[DisplayName("Journey Type")]
+        public virtual int JourneyTypeID { get; set; } //E.g. "Christmas", "Super special awesome journey" etc
+        public virtual JourneyType JourneyType { get; set; }
+        
         [Required]
         [DisplayName("Advance Tickets")]
         public int AdvanceTickets { get; set; }
