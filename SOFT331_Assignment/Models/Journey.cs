@@ -10,6 +10,7 @@ namespace SOFT331_Assignment.Models
 {
     public class Journey
     {
+        #region instance variables
         [Key]
         public int JourneyID { get; set; }
 
@@ -25,7 +26,6 @@ namespace SOFT331_Assignment.Models
         [Required]
         public virtual int ArrivalStationID { get; set; }
         public virtual Station ArrivalStation { get; set; }
-
 
         [DisplayName("Departure Time")]
         [Required]
@@ -47,6 +47,8 @@ namespace SOFT331_Assignment.Models
         public int NumberOfSeats { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        #endregion
 
         public Journey()
         {
@@ -90,6 +92,16 @@ namespace SOFT331_Assignment.Models
             throw new NotImplementedException();
 
             return true;
+        }
+
+        public override string ToString()
+        {
+            return
+                DepartureStation.StationName
+                + " to "
+                + ArrivalStation.StationName
+                + " on "
+                + DepartureTime.ToShortDateString();
         }
     }
 }

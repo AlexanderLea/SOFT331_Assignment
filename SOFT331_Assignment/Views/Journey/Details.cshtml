@@ -2,11 +2,11 @@
 @using SOFT331_Assignment.Models
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Journey Details";
 }
-<h2>Details</h2>
+<h2>Journey Details</h2>
 <div>
-    <h4>Journey</h4>
+    <h4>@Model.ToString()</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -60,6 +60,15 @@
     </dl>
 </div>
 <div>
+    <ul>
+        <li>
+            Total Tickets booked: @Model.Tickets.Count()
+            <ul>
+                <li>Types of tickets per train</li>   
+            </ul>
+        </li>
+    </ul>
+
     <table class="table">
         <tr>
             <th></th>
@@ -72,17 +81,19 @@
         @foreach (var item in Model.Tickets)
         {
             <td>@Html.DisplayFor(modelItem => item.TicketID)</td>
-            <td>@Html.DisplayFor(modelItem => item.Traveller.FirstName)
-                &nbsp;
-                @Html.DisplayFor(modelItem => item.Traveller.LastName)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Traveller.FirstName)
+            &nbsp;
+            @Html.DisplayFor(modelItem => item.Traveller.LastName)
+        </td>
             <td>@Html.DisplayFor(modelItem => item.Fare.FareType.FareTypeDescription)</td>
             <td></td>
             <td></td>
         }
-</table>
+    </table>
 
 </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
