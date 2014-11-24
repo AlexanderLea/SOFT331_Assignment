@@ -1,17 +1,17 @@
 ﻿@model SOFT331_Assignment.Models.Journey
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Journey";
 }
 
-<h2>Edit</h2>
+<h2>Edit Journey</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Journey</h4>
+        <h4>@Model.ToString()</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.JourneyID)

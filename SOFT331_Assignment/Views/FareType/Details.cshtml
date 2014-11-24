@@ -1,13 +1,13 @@
 ﻿@model SOFT331_Assignment.Models.FareType
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Fare Type Details";
 }
 
-<h2>Details</h2>
+<h2>Fare Type Details</h2>
 
 <div>
-    <h4>FareType</h4>
+    <h4>@Model.FareTypeDescription</h4>
 	<hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,22 +16,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.FareTypeDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BasicPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BasicPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GiftAidPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GiftAidPrice)
         </dd>
 
     </dl>

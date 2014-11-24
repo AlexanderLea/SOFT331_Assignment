@@ -1,17 +1,17 @@
 ﻿@model SOFT331_Assignment.Models.FareType
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Fare Type";
 }
 
-<h2>Edit</h2>
+<h2>Edit Fare Type</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>FareType</h4>
+        <h4>@Model.FareTypeDescription</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.FaretypeID)

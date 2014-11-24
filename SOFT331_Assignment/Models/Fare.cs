@@ -37,5 +37,14 @@ namespace SOFT331_Assignment.Models
                 GiftAidPrice = BasicPrice;
             }
         }
+
+        public override string ToString()
+        {
+
+            return 
+                this.EventType.EventName 
+                + " - " 
+                + this.FareType.FareTypeDescription;
+        }
     }
 }
