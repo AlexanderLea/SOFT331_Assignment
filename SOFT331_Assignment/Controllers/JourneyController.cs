@@ -98,6 +98,7 @@ namespace SOFT331_Assignment.Controllers
             ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName");
             ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName");
             ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name");
+            ViewBag.JourneyTypeID = new SelectList(db.JourneyTypes, "JourneyTypeID", "JourneyTypeName");
             return View();
         }
 
@@ -106,7 +107,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "JourneyID,TrainID,DepartureStationID,ArrivalStationID,DepartureTime,ArrivalTime,JourneyType,AdvanceTickets,NumberOfSeats")] Journey journey)
+        public ActionResult Create([Bind(Include = "JourneyID,TrainID,DepartureStationID,ArrivalStationID,DepartureTime,ArrivalTime,JourneyTypeID,AdvanceTickets,NumberOfSeats")] Journey journey)
         {
             if (ModelState.IsValid)
             {
@@ -118,6 +119,7 @@ namespace SOFT331_Assignment.Controllers
             ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName", journey.ArrivalStationID);
             ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName", journey.DepartureStationID);
             ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name", journey.TrainID);
+            ViewBag.JourneyTypeID = new SelectList(db.JourneyTypes, "JourneyTypeID", "JourneyTypeName", journey.JourneyTypeID);
             return View(journey);
         }
 

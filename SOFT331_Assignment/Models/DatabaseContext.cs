@@ -12,6 +12,7 @@ namespace SOFT331_Assignment.Models
         public DbSet<Fare> Fares { get; set; }
         public DbSet<FareType> FareTypes { get; set; }
         public DbSet<Journey> Journies { get; set; }
+        public DbSet<JourneyType> JourneyTypes { get; set; }
         public DbSet<Station> Stations { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Train> Trains { get; set; }

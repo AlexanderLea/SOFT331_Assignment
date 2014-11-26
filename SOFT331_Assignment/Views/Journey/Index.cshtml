@@ -30,12 +30,6 @@
         <th>
             @Html.DisplayNameFor(model => model.JourneyType)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AdvanceTickets)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfSeats)
-        </th>
         <th></th>
     </tr>
 
@@ -58,14 +52,8 @@
             @Html.DisplayFor(modelItem => item.ArrivalTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JourneyType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdvanceTickets)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfSeats)
-        </td>
+            @Html.DisplayFor(modelItem => item.JourneyType.JourneyTypeName)
+        </td> 
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.JourneyID }) |
             @Html.ActionLink("Details", "Details", new { id=item.JourneyID }) |

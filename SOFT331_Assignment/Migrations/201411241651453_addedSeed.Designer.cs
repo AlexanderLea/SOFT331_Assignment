@@ -6,14 +6,14 @@ namespace SOFT331_Assignment.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class InitialMigration : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
+    public sealed partial class addedSeed : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedSeed));
         
         string IMigrationMetadata.Id
         {
-            get { return "201411221523207_InitialMigration"; }
+            get { return "201411241651453_addedSeed"; }
         }
         
         string IMigrationMetadata.Source
