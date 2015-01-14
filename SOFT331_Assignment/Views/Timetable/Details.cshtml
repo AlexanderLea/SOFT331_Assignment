@@ -1,0 +1,82 @@
+﻿@model SOFT331_Assignment.Models.Journey
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Journey</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalStation.StationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalStation.StationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureStation.StationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureStation.StationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyType.JourneyTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Train.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Train.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvanceTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvanceTickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSeats)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,88 @@
+﻿@model SOFT331_Assignment.Models.Journey
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Journey</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalStation.StationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalStation.StationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureStation.StationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureStation.StationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JourneyType.JourneyTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Train.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Train.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvanceTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvanceTickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSeats)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

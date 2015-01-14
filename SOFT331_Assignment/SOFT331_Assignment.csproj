@@ -169,6 +169,7 @@
     <Compile Include="Controllers\JourneyTypesController.cs" />
     <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
+    <Compile Include="Controllers\TimetableController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
     <Compile Include="Controllers\TravellerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -295,6 +296,11 @@
     <Content Include="Views\JourneyTypes\Details.cshtml" />
     <Content Include="Views\JourneyTypes\Edit.cshtml" />
     <Content Include="Views\JourneyTypes\Index.cshtml" />
+    <Content Include="Views\Timetable\Create.cshtml" />
+    <Content Include="Views\Timetable\Delete.cshtml" />
+    <Content Include="Views\Timetable\Details.cshtml" />
+    <Content Include="Views\Timetable\Edit.cshtml" />
+    <Content Include="Views\Timetable\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

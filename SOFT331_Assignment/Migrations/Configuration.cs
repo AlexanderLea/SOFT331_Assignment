@@ -21,7 +21,10 @@ namespace SOFT331_Assignment.Migrations
             var fareTypes = new List<FareType> {           
                 new FareType { FareTypeDescription = "Adult"},
                 new FareType { FareTypeDescription = "Over 60"},
-                new FareType { FareTypeDescription = "Child"}
+                new FareType { FareTypeDescription = "Child"},
+                new FareType { FareTypeDescription = "Dog Rover"},
+                new FareType { FareTypeDescription = "Under 5"},
+                new FareType { FareTypeDescription = "1st Class Upgrade"}
             };
             fareTypes.ForEach(f => context.FareTypes.Add(f));
             context.SaveChanges();

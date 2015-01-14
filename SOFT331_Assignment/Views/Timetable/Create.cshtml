@@ -1,10 +1,10 @@
 ﻿@model SOFT331_Assignment.Models.Journey
 
 @{
-    ViewBag.Title = "Create Journey";
+    ViewBag.Title = "Create";
 }
 
-<h2>Create Journey</h2>
+<h2>Create</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -14,9 +14,8 @@
         <h4>Journey</h4>
         <hr />
         @Html.ValidationSummary(true)
-
         <div class="form-group">
-            @Html.LabelFor(model => model.TrainID, "Train ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TrainID, "TrainID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TrainID", String.Empty)
                 @Html.ValidationMessageFor(model => model.TrainID)
@@ -24,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DepartureStationID, "Departure Station", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DepartureStationID, "DepartureStationID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("DepartureStationID", String.Empty)
                 @Html.ValidationMessageFor(model => model.DepartureStationID)
@@ -32,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ArrivalStationID, "Arrival Station", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ArrivalStationID, "ArrivalStationID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("ArrivalStationID", String.Empty)
                 @Html.ValidationMessageFor(model => model.ArrivalStationID)
@@ -56,7 +55,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.JourneyTypeID, "Journey Type", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.JourneyTypeID, "JourneyTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("JourneyTypeID", String.Empty)
                 @Html.ValidationMessageFor(model => model.JourneyTypeID)
@@ -75,7 +74,7 @@
             @Html.LabelFor(model => model.NumberOfSeats, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfSeats)
-                @*@Html.ValidationMessageFor(model => model.NumberOfSeats)*@
+                @Html.ValidationMessageFor(model => model.NumberOfSeats)
             </div>
         </div>
 

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<SOFT331_Assignment.Models.Journey>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="datepicker"></div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript">
+    var activeDays = [1, 4, 10, 21, 22, 23, 27, 28, 30];  
+
+    $('#datepicker').datepicker(
+        {
+            beforeShowDay: function (date) {
+                var hilight = [false, ''];
+
+                if (activeDays.indexOf(date.getDate()) > -1) {
+                    hilight = [true, 'isActive'];
+                }
+
+                return hilight;
+            },
+
+            onSelect: function (d, instance) {
+
+                var date = new Date(d);
+
+                var a = date.toUTCString();
+                var b = a.substr(5, 11);
+                var c = b.replace(/\ /g, '_');
+                var url = '/Timetable/Details/' + c;
+                window.location.href = url;
+            }
+        }
+    );
+
+</script>
+@*
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalStation.StationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureStation.StationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Train.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdvanceTickets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSeats)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalStation.StationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureStation.StationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JourneyType.JourneyTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Train.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdvanceTickets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSeats)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.JourneyID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.JourneyID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.JourneyID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
