@@ -16,67 +16,32 @@ namespace SOFT331_Assignment.Controllers
 
         // GET: Timetable
         public ActionResult Index()
-        {
-            //get days of month
-            int daysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-            DayOfWeek startDay = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).DayOfWeek;
-
-            int daysSinceStartOfWeek = 0;
-
-            switch (startDay.ToString())
-            {
-                case "Monday":
-                    daysSinceStartOfWeek = 0;
-                    break;
-                case "Tuesday":
-                    daysSinceStartOfWeek = 1;
-                    break;
-                case "Wednesday":
-                    daysSinceStartOfWeek = 2;
-                    break;
-                case "Thursday":
-                    daysSinceStartOfWeek = 3;
-                    break;
-                case "Friday":
-                    daysSinceStartOfWeek = 4;
-                    break;
-                case "Saturday":
-                    daysSinceStartOfWeek = 5;
-                    break;
-                case "Sunday":
-                    daysSinceStartOfWeek = 6;
-                    break;
-                default:
-                    daysSinceStartOfWeek = 0;
-                    break;
-            }
-
-            double weeksInMonth = (daysInMonth + daysSinceStartOfWeek) / 7;
-
-            //create list
-
-
-            //construct table with hyperlinks
-
-
-
+        {           
             var journies = db.Journies.Include(j => j.ArrivalStation).Include(j => j.DepartureStation).Include(j => j.JourneyType).Include(j => j.Train);
             return View(journies.ToList());
         }
 
         // GET: Timetable/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Journey journey = db.Journies.Find(id);
-            if (journey == null)
+
+            //replace id variable with one that makes sense
+            string dateString = id;
+
+            //IEnumerable<Journey> journies = db.Journies.;//.Where(j => j.DepartureTime.ToString("dd_MMM_yyyy").ToLower() == dateString);
+
+            var journies = db.Journies.Include(j => j.ArrivalStation).Include(j => j.DepartureStation).Include(j => j.Train);
+
+            //Journey journey = db.Journies.Find(id);
+            if (journies == null)
             {
                 return HttpNotFound();
             }
-            return View(journey);
+            return View(journies.ToList());
         }
 
         // GET: Timetable/Create

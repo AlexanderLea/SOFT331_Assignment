@@ -1,82 +1,62 @@
-﻿@model SOFT331_Assignment.Models.Journey
+﻿@model IEnumerable<SOFT331_Assignment.Models.Journey>
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Timetable: day x";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>Journey</h4>
+    <h4>Journies for day x (see title) TODO: Actually search this properly based on URL param</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrivalStation.StationName)
-        </dt>
+    <table class="table">
+        <tr>
+            <th>
+                Departure Station
+                @*@Html.DisplayNameFor(model => model.DepartureStation.StationName)*@
+            </th>
+            <th>
+                Arrival Station
+                @*@Html.DisplayNameFor(model => model.ArrivalStation.StationName)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Train.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JourneyType)
+            </th>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArrivalStation.StationName)
-        </dd>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureStation.StationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArrivalStation.StationName)
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DepartureStation.StationName)
-        </dt>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Train.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArrivalTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JourneyType.JourneyTypeName)
+                </td>
+            </tr>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.DepartureStation.StationName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JourneyType.JourneyTypeName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Train.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Train.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DepartureTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DepartureTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrivalTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ArrivalTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AdvanceTickets)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AdvanceTickets)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfSeats)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfSeats)
-        </dd>
-
-    </dl>
+    </table>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

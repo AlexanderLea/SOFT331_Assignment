@@ -69,7 +69,6 @@ namespace SOFT331_Assignment.Controllers
             //ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name", journey.TrainID);
             //return View(journey);
 
-
             //work out which boxes are have values
 
             //save traveller

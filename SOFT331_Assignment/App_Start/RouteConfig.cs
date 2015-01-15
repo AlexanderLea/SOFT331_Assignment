@@ -13,6 +13,12 @@ namespace SOFT331_Assignment
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "Timetable",
+            //    url: "{controller}/{action}/{date}",
+            //    defaults: new { controller = "Timetable", action = "Details", date = UrlParameter.Optional }
+            //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
