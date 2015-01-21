@@ -3,11 +3,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ArrivalStation.StationName)
+            Departure Station
+            @*@Html.DisplayNameFor(model => model.DepartureStation.StationName)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DepartureStation.StationName)
-        </th>
+            Arrival Station
+            @*@Html.DisplayNameFor(model => model.ArrivalStation.StationName)*@
+        </th>        
         <th>
             @Html.DisplayNameFor(model => model.Train.Name)
         </th>
@@ -26,11 +28,11 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(model => item.ArrivalStation.StationName)
-            </td>
-            <td>
                 @Html.DisplayFor(model => item.DepartureStation.StationName)
             </td>
+            <td>
+                @Html.DisplayFor(model => item.ArrivalStation.StationName)
+            </td>            
             <td>
                 @Html.DisplayFor(model => item.Train.Name)
             </td>
