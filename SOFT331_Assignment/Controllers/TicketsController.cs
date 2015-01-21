@@ -33,7 +33,8 @@ namespace SOFT331_Assignment.Controllers
             DateTime maxDate = minDate.AddDays(1);
 
             //return valid journies
-            IEnumerable<Journey> journies = db.Journies.Where(j => j.DepartureTime >= minDate && j.ArrivalTime < maxDate);
+            List<Journey> journies = db.Journies.Where(j => j.DepartureTime >= minDate && j.ArrivalTime < maxDate).ToList();
+
             List<Fare> fares = db.Fares.Include(f => f.EventType).Include(f => f.FareType).ToList(); 
 
             if (journies == null || fares == null)
@@ -42,7 +43,7 @@ namespace SOFT331_Assignment.Controllers
             }            
 
             //create collection for combined view
-            var model = new BookTicketModel
+            var model = new BookTicketCollection
             {
                 Fares = fares,
                 Traveller = new Traveller(),

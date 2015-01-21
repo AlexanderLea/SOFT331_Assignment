@@ -1,5 +1,5 @@
 ﻿@*@model IEnumerable<SOFT331_Assignment.Models.Journey>*@
-@model SOFT331_Assignment.Models.BookTicketModel
+@model SOFT331_Assignment.Models.BookTicketCollection
 
 
 @{
@@ -13,7 +13,7 @@
 
     <!--Journeys on selected day-->
     @{Html.RenderPartial("_viewJourneysPartial", Model.Journeys);}
-
+    
     <h3>Tickets</h3>
     <!--Fare details-->
     @{Html.RenderPartial("_viewFaresPartial", Model.Fares);}

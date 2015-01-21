@@ -189,7 +189,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BookTicketModel.cs" />
+    <Compile Include="Models\BookTicketCollection.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Fare.cs" />
     <Compile Include="Models\FareType.cs" />

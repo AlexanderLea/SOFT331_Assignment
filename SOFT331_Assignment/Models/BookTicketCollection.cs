@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SOFT331_Assignment.Models
 {
-    public class BookTicketModel
+    public class BookTicketCollection
     {
         public IEnumerable<Journey> Journeys { get; set; }
         public Traveller Traveller { get; set; }
