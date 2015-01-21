@@ -1,9 +1,9 @@
 ﻿@model SOFT331_Assignment.Models.Traveller
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Your Details</h4>
         <hr />
@@ -41,10 +41,16 @@
             </div>
         </div>
 
+
+        @*@{
+            Html.RenderAction("Create", "Traveller");
+        }*@
+
+
         @*<div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>*@
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>*@
     </div>
 }
