@@ -1,0 +1,26 @@
+﻿@*@model IEnumerable<SOFT331_Assignment.Models.Journey>*@
+@model SOFT331_Assignment.Models.BookTicketModel
+
+
+@{
+    ViewBag.Title = "Book tickets - [date]";
+}
+
+<h2>Tickets for @ViewBag.Date</h2>
+
+<h3>Timetable</h3>
+<div>   
+
+    <!--Journeys on selected day-->
+    @{Html.RenderPartial("_viewJourneysPartial", Model.Journeys);}
+
+    <h3>Tickets</h3>
+    <!--Fare details-->
+    @{Html.RenderPartial("_viewFaresPartial", Model.Fares);}
+
+    <!--Traveller details-->
+    @{Html.RenderPartial("_createTravellerPartial", Model.Traveller);}
+
+
+    <input type="submit" value="Book Ticket" class="btn btn-default" />
+</div>

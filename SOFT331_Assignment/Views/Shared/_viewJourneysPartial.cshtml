@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SOFT331_Assignment.Models.Journey>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalStation.StationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureStation.StationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Train.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.ArrivalStation.StationName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DepartureStation.StationName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Train.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.JourneyType.JourneyTypeName)
+            </td>
+        </tr>
+    }
+    </table>

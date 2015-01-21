@@ -26,28 +26,28 @@ namespace SOFT331_Assignment.Controllers
         // GET: Journey/Book/5
         public ActionResult Book(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            } 
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //} 
 
-            //get all form data
-            List<Fare> fares = db.Fares.Include(f => f.EventType).Include(f => f.FareType).ToList();
-            Journey journey = db.Journies.Find(id);
+            ////get all form data
+            //List<Fare> fares = db.Fares.Include(f => f.EventType).Include(f => f.FareType).ToList();
+            //Journey journey = db.Journies.Find(id);
             
-            if (journey == null || fares == null)
-            {
-                return HttpNotFound();
-            }
+            //if (journey == null || fares == null)
+            //{
+            //    return HttpNotFound();
+            //}
             
-            var model = new BookViewModel 
-            {
-                Fares = fares,
-                Traveller = new Traveller(),
-                Journey = journey
-            };
+            //var model = new BookTicketModel 
+            //{
+            //    Fares = fares,
+            //    Traveller = new Traveller(),
+            //    //Journey = journey
+            //};
 
-            return View(model);
+            return View();
         }
 
         // POST: Journey/Book

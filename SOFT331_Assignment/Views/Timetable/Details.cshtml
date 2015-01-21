@@ -7,54 +7,57 @@
 <h2>Journies for @ViewBag.Date</h2>
 
 <div>
-    <table class="table">
-        <tr>
-            <th>
-                Departure Station
-                @*@Html.DisplayNameFor(model => model.DepartureStation.StationName)*@
-            </th>
-            <th>
-                Arrival Station
-                @*@Html.DisplayNameFor(model => model.ArrivalStation.StationName)*@
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Train.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartureTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArrivalTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JourneyType)
-            </th>
-        </tr>
+    <!--Journeys on selected day-->
+    @{Html.RenderPartial("_viewJourneysPartial", Model);}
 
-        @foreach (var item in Model)
-        {
+
+    @*    <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DepartureStation.StationName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ArrivalStation.StationName)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Train.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DepartureTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ArrivalTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JourneyType.JourneyTypeName)
-                </td>
+                <th>
+                    Departure Station
+                </th>
+                <th>
+                    Arrival Station
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Train.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartureTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivalTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JourneyType)
+                </th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureStation.StationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalStation.StationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Train.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JourneyType.JourneyTypeName)
+                    </td>
+                </tr>
+            }
+
+        </table>*@
+
+    @Html.ActionLink("Book tickets for [date]", "Book", "Tickets")
 </div>

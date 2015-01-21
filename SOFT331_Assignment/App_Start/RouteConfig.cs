@@ -32,6 +32,12 @@ namespace SOFT331_Assignment
                 url: "{controller}/{action}/{year}/{month}/{day}",
                 defaults: new { controller = "Timetable", action = "Details", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional}
             );
+
+            routes.MapRoute(
+                name: "DateTicket",
+                url: "{controller}/{action}/{year}/{month}/{day}",
+                defaults: new { controller = "Tickets", action = "Book", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
+            );
         }
     }
 }
