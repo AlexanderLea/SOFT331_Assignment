@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201411241651453_addedSeed.Designer.cs">
       <DependentUpon>201411241651453_addedSeed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501211647395_Changed ticket to work properly.cs" />
+    <Compile Include="Migrations\201501211647395_Changed ticket to work properly.Designer.cs">
+      <DependentUpon>201501211647395_Changed ticket to work properly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookViewModel.cs" />
@@ -312,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411241651453_addedSeed.resx">
       <DependentUpon>201411241651453_addedSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501211647395_Changed ticket to work properly.resx">
+      <DependentUpon>201501211647395_Changed ticket to work properly.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

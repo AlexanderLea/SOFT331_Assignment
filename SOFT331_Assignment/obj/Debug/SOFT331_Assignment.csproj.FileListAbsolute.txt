@@ -224,3 +224,4 @@ C:\Users\Student_SA\Downloads\SOFT331_Assignment-master\SOFT331_Assignment-maste
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.initial.resources
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.addedSeed.resources
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.Changedtickettoworkproperly.resources
