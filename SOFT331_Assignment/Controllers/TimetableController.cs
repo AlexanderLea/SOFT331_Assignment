@@ -16,31 +16,33 @@ namespace SOFT331_Assignment.Controllers
 
         // GET: Timetable
         public ActionResult Index()
-        {           
+        {
             var journies = db.Journies.Include(j => j.ArrivalStation).Include(j => j.DepartureStation).Include(j => j.JourneyType).Include(j => j.Train);
             return View(journies.ToList());
         }
 
         // GET: Timetable/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(string year, string month, string day)
         {
-            if (id == null)
+            if (year == null || month == null || day == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            //replace id variable with one that makes sense
-            string dateString = id;
+            //Construct date objects for searching
+            DateTime minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day), 0, 0, 0, 0);
+            DateTime maxDate = minDate.AddDays(1);
 
-            //IEnumerable<Journey> journies = db.Journies.;//.Where(j => j.DepartureTime.ToString("dd_MMM_yyyy").ToLower() == dateString);
+            //return valid journies
+            var journies = db.Journies.Where(j => j.DepartureTime >= minDate && j.ArrivalTime < maxDate);
 
-            var journies = db.Journies.Include(j => j.ArrivalStation).Include(j => j.DepartureStation).Include(j => j.Train);
-
-            //Journey journey = db.Journies.Find(id);
             if (journies == null)
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Date = minDate.ToShortDateString();
+
             return View(journies.ToList());
         }
 

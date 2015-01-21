@@ -12,28 +12,35 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script type="text/javascript">
-    var activeDays = [1, 4, 10, 21, 22, 23, 27, 28, 30];  
+   // var activeDays = [1, 4, 10, 21, 22, 23, 27, 28, 30];  
 
     $('#datepicker').datepicker(
         {
-            beforeShowDay: function (date) {
-                var hilight = [false, ''];
+            //beforeShowDay: function (date) {
+            //    var hilight = [false, ''];
 
-                if (activeDays.indexOf(date.getDate()) > -1) {
-                    hilight = [true, 'isActive'];
-                }
+            //    if (activeDays.indexOf(date.getDate()) > -1) {
+            //        hilight = [true, 'isActive'];
+            //    }
 
-                return hilight;
-            },
+            //    return hilight;
+            //},
 
             onSelect: function (d, instance) {
 
                 var date = new Date(d);
 
-                var a = date.toUTCString();
-                var b = a.substr(5, 11);
-                var c = b.replace(/\ /g, '_');
-                var url = '/Timetable/Details/' + c;
+                // var a = date.toUTCString();
+                // var b = a.substr(5, 11);
+                // var c = b.replace(/\ /g, '_');
+
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear();
+
+                //console.log(year + "/" + month + "/" + day);
+
+                var url = "Timetable/Details/" + year + "/" + month + "/" + day;
                 window.location.href = url;
             }
         }

@@ -26,7 +26,9 @@ namespace SOFT331_Assignment.Models
 
         [DisplayName("Basic Price")]
         [Required(ErrorMessage = "Fare must have a basic price")]
+
         public double BasicPrice { get; set; }
+
         [DisplayName("Gift Aid Price")]
         public double GiftAidPrice { get; set; }
 
