@@ -30,20 +30,18 @@ namespace SOFT331_Assignment.Controllers
             }
 
             //Construct date objects for searching
-            DateTime minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day), 0, 0, 0, 0);
-            DateTime maxDate = minDate.AddDays(1);
+            DateTime date = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day), 0, 0, 0, 0);
+            
+            Timetable t = new Timetable(date);
 
-            //return valid journies
-            var journies = db.Journies.Where(j => j.DepartureTime >= minDate && j.ArrivalTime < maxDate);
-
-            if (journies == null)
+            if (t.Journeys == null)
             {
                 return HttpNotFound();
             }
 
-            ViewBag.Date = minDate.ToShortDateString();
+            ViewBag.Date = date.ToShortDateString();
 
-            return View(journies.ToList());
+            return View(t);
         }
 
         // GET: Timetable/Create

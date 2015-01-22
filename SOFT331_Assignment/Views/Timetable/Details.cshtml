@@ -1,14 +1,15 @@
-﻿@model IEnumerable<SOFT331_Assignment.Models.Journey>
+﻿@*@model IEnumerable<SOFT331_Assignment.Models.Journey>*@
+@model SOFT331_Assignment.Models.Timetable
 
 @{
     ViewBag.Title = "Timetable: day " + @ViewBag.Date;
 }
 
-<h2>Timetable for @ViewBag.Date</h2>
+<h2>Timetable for @Model.Date</h2>
 <br />
     <div>
         <!--Journeys on selected day-->
-        @{ Html.RenderPartial("_viewJourneysPartial", Model); }
+        @{ Html.RenderPartial("_viewJourneysPartial", Model.Journeys); }
 
 
         @*    <table class="table">
@@ -59,5 +60,5 @@
 
             </table>*@
 
-        @Html.ActionLink("Book tickets for [date]", "Book/2015/02/17", "Tickets")
+        @Html.ActionLink("Book tickets for " + Model.Date.ToShortDateString(), "Book/" + Model.Date.Year + "/" + Model.Date.Month + "/" + Model.Date.Day, "Tickets")
     </div>

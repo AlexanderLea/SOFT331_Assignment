@@ -9,18 +9,28 @@
 <h2>Tickets for @ViewBag.Date</h2>
 
 <h3>Timetable</h3>
-<div>   
+<div>
 
     <!--Journeys on selected day-->
     @{Html.RenderPartial("_viewJourneysPartial", Model.Journeys);}
-    
+
     <h3>Tickets</h3>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
     <!--Fare details-->
-    @{Html.RenderPartial("_viewFaresPartial", Model.Fares);}
+        { Html.RenderPartial("_viewFaresPartial", Model.Fares); }
 
     <!--Traveller details-->
-    @{Html.RenderPartial("_createTravellerPartial", Model.Traveller);}
+        { Html.RenderPartial("_createTravellerPartial", Model.Traveller); }
 
+        <div class="form-group">
 
-    <input type="submit" value="Book Ticket" class="btn btn-default" />
+            <input type="submit" value="Book Tickets" class="btn btn-default" />
+
+        </div>
+    }
+
 </div>

@@ -55,6 +55,33 @@ namespace SOFT331_Assignment.Controllers
             return View(model);
         }
 
+        // POST: Tickets/Book/yyyy/mm/dd
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Book([Bind(Include = "TravellerID,FirstName,LastName,Address1,PostCode")] Traveller traveller)
+        {
+            //TODO: Traveller should be part of travellerController
+            //[Bind(Include = "TicketID,TravellerID,TicketDate,FareType,EventType,TicketPrice")] Ticket ticket, 
+
+            if (ModelState.IsValid)
+            {
+                //save traveller
+                db.Travellers.Add(traveller);
+                db.SaveChanges();
+
+                //save tickets
+                //db.Tickets.Add(ticket);
+                //db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            //ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName", ticket.TravellerID);
+            return View();
+        }
+
+
         // GET: Tickets/Details/5
         public ActionResult Details(int? id)
         {

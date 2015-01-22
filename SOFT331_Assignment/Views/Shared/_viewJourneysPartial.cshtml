@@ -1,5 +1,26 @@
 ﻿@model IEnumerable<SOFT331_Assignment.Models.Journey>
 
+
+<!-- Assuming there are journeys, display train and journey name at top of page-->
+@{
+    if (Model.Count() > 0)
+    {
+        string trainName = Model.FirstOrDefault().Train.ToString();
+        string journeyType = Model.FirstOrDefault().JourneyType.JourneyTypeName;
+
+        <table>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.Train.Name)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => trainName)</td>
+            </tr>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => journeyType)</td>
+            </tr>
+        </table>
+    }
+}
+<br />
 <table class="table">
     <tr>
         <th>
@@ -9,19 +30,19 @@
         <th>
             Arrival Station
             @*@Html.DisplayNameFor(model => model.ArrivalStation.StationName)*@
-        </th>        
-        <th>
-            @Html.DisplayNameFor(model => model.Train.Name)
         </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Train.Name)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.DepartureTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ArrivalTime)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.JourneyType.JourneyTypeName)
+            </th>*@
     </tr>
 
     @foreach (var item in Model)
@@ -32,19 +53,19 @@
             </td>
             <td>
                 @Html.DisplayFor(model => item.ArrivalStation.StationName)
-            </td>            
-            <td>
-                @Html.DisplayFor(model => item.Train.Name)
             </td>
+            @*<td>
+                    @Html.DisplayFor(model => item.Train.Name)
+                </td>*@
             <td>
                 @Html.DisplayFor(model => item.DepartureTime)
             </td>
             <td>
                 @Html.DisplayFor(model => item.ArrivalTime)
             </td>
-            <td>
-                @Html.DisplayFor(model => item.JourneyType.JourneyTypeName)
-            </td>
+            @*<td>
+                    @Html.DisplayFor(model => item.JourneyType.JourneyTypeName)
+                </td>*@
         </tr>
     }
-    </table>
+</table>

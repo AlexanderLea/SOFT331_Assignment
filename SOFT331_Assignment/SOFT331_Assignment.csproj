@@ -200,6 +200,7 @@
     <Compile Include="Models\Station.cs" />
     <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\Timetable.cs" />
     <Compile Include="Models\Train.cs" />
     <Compile Include="Models\Traveller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
