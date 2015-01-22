@@ -1,25 +1,24 @@
 ﻿@model SOFT331_Assignment.Models.Journey
 
-@{
-    ViewBag.Title = "Create Timetable";
-}
-
-<h2>Create</h2>
+@using (Html.BeginForm("Create", "Journey", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>New Journey</h4>
-        <hr />       
-        
-        @*@{ Html.RenderPartial("_viewJourneysPartial", Model.Journeys); }*@
-
-        @{ Html.RenderPartial("_createJourneyPartial"); }
-
-        @*@Html.ValidationSummary(true)
+        @Html.ValidationSummary(true)
         <div class="form-group">
             @Html.LabelFor(model => model.TrainID, "TrainID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TrainID", String.Empty)
                 @Html.ValidationMessageFor(model => model.TrainID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JourneyTypeID, "JourneyTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("JourneyTypeID", String.Empty)
+                @Html.ValidationMessageFor(model => model.JourneyTypeID)
             </div>
         </div>
 
@@ -53,15 +52,7 @@
                 @Html.EditorFor(model => model.ArrivalTime)
                 @Html.ValidationMessageFor(model => model.ArrivalTime)
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.JourneyTypeID, "JourneyTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("JourneyTypeID", String.Empty)
-                @Html.ValidationMessageFor(model => model.JourneyTypeID)
-            </div>
-        </div>
+        </div>        
 
         <div class="form-group">
             @Html.LabelFor(model => model.AdvanceTickets, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -83,10 +74,6 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </div>*@
+        </div>
     </div>
-
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+}

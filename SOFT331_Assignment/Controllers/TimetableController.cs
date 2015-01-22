@@ -44,6 +44,32 @@ namespace SOFT331_Assignment.Controllers
             return View(t);
         }
 
+        // GET: Timetable/Create/yyyy/mm/dd
+        //public ActionResult Create(string year, string month, string day)
+        //{
+        //    if (year == null || month == null || day == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+
+        //    //Construct date objects for searching
+        //    DateTime date = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day), 0, 0, 0, 0);
+
+        //    Timetable t = new Timetable(date);
+
+        //    if (t.Journeys == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    ViewBag.Date = date.ToShortDateString();
+        //    ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName");
+        //    ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName");
+        //    ViewBag.JourneyTypeID = new SelectList(db.JourneyTypes, "JourneyTypeID", "JourneyTypeName");
+        //    ViewBag.TrainID = new SelectList(db.Trains, "TrainID", "Name");
+        //    return View(t);
+        //}
+
         // GET: Timetable/Create
         public ActionResult Create()
         {

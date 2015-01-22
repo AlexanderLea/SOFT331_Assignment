@@ -2,63 +2,15 @@
 @model SOFT331_Assignment.Models.Timetable
 
 @{
-    ViewBag.Title = "Timetable: day " + @ViewBag.Date;
+    ViewBag.Title = "Timetable for " + @ViewBag.Date;
 }
 
 <h2>Timetable for @Model.Date</h2>
 <br />
-    <div>
-        <!--Journeys on selected day-->
-        @{ Html.RenderPartial("_viewJourneysPartial", Model.Journeys); }
+<div>
 
+    <!--Journeys on selected day-->
+    @{ Html.RenderPartial("_viewJourneysPartial", Model.Journeys); }
 
-        @*    <table class="table">
-                <tr>
-                    <th>
-                        Departure Station
-                    </th>
-                    <th>
-                        Arrival Station
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Train.Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DepartureTime)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ArrivalTime)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.JourneyType)
-                    </th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DepartureStation.StationName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ArrivalStation.StationName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Train.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DepartureTime)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ArrivalTime)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.JourneyType.JourneyTypeName)
-                        </td>
-                    </tr>
-                }
-
-            </table>*@
-
-        @Html.ActionLink("Book tickets for " + Model.Date.ToShortDateString(), "Book/" + Model.Date.Year + "/" + Model.Date.Month + "/" + Model.Date.Day, "Tickets")
-    </div>
+    @Html.ActionLink("Book tickets for " + Model.Date.ToShortDateString(), "Book/" + Model.Date.Year + "/" + Model.Date.Month + "/" + Model.Date.Day, "Tickets")
+</div>

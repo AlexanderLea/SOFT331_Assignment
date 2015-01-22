@@ -114,7 +114,10 @@ namespace SOFT331_Assignment.Controllers
             {
                 db.Journies.Add(journey);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                DateTime date = journey.DepartureTime;
+
+                return RedirectToAction("Details/" + date.Year + "/" + date.Month + "/" + date.Day, "Timetable");
             }
 
             ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName", journey.ArrivalStationID);
