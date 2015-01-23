@@ -48,8 +48,8 @@ namespace SOFT331_Assignment.Models
         [DisplayName("Mainline Station Near")]
         public bool MainlineStationNear { get; set; }
 
-        public virtual ICollection<Journey> arrivalJournies { get; set; }
-        public virtual ICollection<Journey> departureJournies { get; set; }
+        public virtual ICollection<TicketType> arrivalTicketTypes { get; set; }
+        public virtual ICollection<TicketType> departureTicketTypes { get; set; }
 
         public Station()
         {

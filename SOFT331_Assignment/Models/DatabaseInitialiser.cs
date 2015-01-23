@@ -19,10 +19,10 @@ namespace SOFT331_Assignment.Models
             fareTypes.ForEach(f => context.FareTypes.Add(f));
             context.SaveChanges();
 
-            var eventTypes = new List<EventType> {
-                new EventType { EventName="Full Line Return & Day Rover", EventDescription="Full Line Return & Day Rover"},
-                new EventType { EventName="Trwyn to Dolgoch Return", EventDescription="Trwyn to Dolgoch Return"},
-                new EventType { EventName="Other Tickets", EventDescription="Other Tickets"}
+            var eventTypes = new List<TicketType> {
+                new TicketType { EventName="Full Line Return & Day Rover", EventDescription="Full Line Return & Day Rover"},
+                new TicketType { EventName="Trwyn to Dolgoch Return", EventDescription="Trwyn to Dolgoch Return"},
+                new TicketType { EventName="Other Tickets", EventDescription="Other Tickets"}
             };
             eventTypes.ForEach(e => context.EventTypes.Add(e));
             context.SaveChanges();

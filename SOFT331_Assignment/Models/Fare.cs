@@ -27,7 +27,7 @@ namespace SOFT331_Assignment.Models
         public virtual FareType FareType { get; set; }
 
         [ForeignKey("TicketType")]
-        public virtual int TicketType { get; set; }
+        public virtual int TicketTypeID { get; set; }
         public virtual TicketType TicketType { get; set; }
 
         [DisplayName("Basic Price")]

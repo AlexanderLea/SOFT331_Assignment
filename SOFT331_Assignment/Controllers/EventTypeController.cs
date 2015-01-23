@@ -27,7 +27,7 @@ namespace SOFT331_Assignment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventType eventtype = db.EventTypes.Find(id);
+            TicketType eventtype = db.EventTypes.Find(id);
             if (eventtype == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="EventTypeID,EventName,EventDescription")] EventType eventtype)
+        public ActionResult Create([Bind(Include="EventTypeID,EventName,EventDescription")] TicketType eventtype)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace SOFT331_Assignment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventType eventtype = db.EventTypes.Find(id);
+            TicketType eventtype = db.EventTypes.Find(id);
             if (eventtype == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="EventTypeID,EventName,EventDescription")] EventType eventtype)
+        public ActionResult Edit([Bind(Include="EventTypeID,EventName,EventDescription")] TicketType eventtype)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace SOFT331_Assignment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventType eventtype = db.EventTypes.Find(id);
+            TicketType eventtype = db.EventTypes.Find(id);
             if (eventtype == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace SOFT331_Assignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EventType eventtype = db.EventTypes.Find(id);
+            TicketType eventtype = db.EventTypes.Find(id);
             db.EventTypes.Remove(eventtype);
             db.SaveChanges();
             return RedirectToAction("Index");

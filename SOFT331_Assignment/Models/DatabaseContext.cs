@@ -8,7 +8,7 @@ namespace SOFT331_Assignment.Models
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<EventType> EventTypes { get; set; }
+        public DbSet<TicketType> EventTypes { get; set; }
         public DbSet<Fare> Fares { get; set; }
         public DbSet<FareType> FareTypes { get; set; }
         public DbSet<Journey> Journies { get; set; }
@@ -21,15 +21,15 @@ namespace SOFT331_Assignment.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Journey>()
+            modelBuilder.Entity<TicketType>()
                     .HasRequired(m => m.ArrivalStation)
-                    .WithMany(t => t.arrivalJournies)
+                    .WithMany(t => t.arrivalTicketTypes)
                     .HasForeignKey(m => m.ArrivalStationID)
                     .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Journey>()
+            modelBuilder.Entity<TicketType>()
                     .HasRequired(m => m.DepartureStation)
-                    .WithMany(t => t.departureJournies)
+                    .WithMany(t => t.departureTicketTypes)
                     .HasForeignKey(m => m.DepartureStationID)
                     .WillCascadeOnDelete(false);
 
