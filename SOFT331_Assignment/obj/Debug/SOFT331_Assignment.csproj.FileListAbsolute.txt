@@ -224,3 +224,5 @@ C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\De
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.dll
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.pdb
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.Changedticketbacktowhatitwasbefore.resources

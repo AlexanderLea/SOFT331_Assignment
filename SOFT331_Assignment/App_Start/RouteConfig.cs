@@ -19,30 +19,28 @@ namespace SOFT331_Assignment
             //    defaults: new { controller = "Timetable", action = "Details", date = UrlParameter.Optional }
             //);
 
+            routes.MapRoute(
+                name: "Date",
+                url: "{controller}/{action}/{year}/{month}/{day}",
+                defaults: new { controller = "Home", action = "Index", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
+            );
 
+            //routes.MapRoute(
+            //    name: "DateTicket",
+            //    url: "{controller}/{action}/{year}/{month}/{day}",
+            //    defaults: new { controller = "Tickets", action = "Book", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
+            //);
+
+            //routes.MapRoute(
+            //    name: "CreateTimetable",
+            //    url: "{controller}/{action}/{year}/{month}/{day}",
+            //    defaults: new { controller = "Timetable", action = "Create", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Date",
-                url: "{controller}/{action}/{year}/{month}/{day}",
-                defaults: new { controller = "Timetable", action = "Details", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional}
-            );
-
-            routes.MapRoute(
-                name: "DateTicket",
-                url: "{controller}/{action}/{year}/{month}/{day}",
-                defaults: new { controller = "Tickets", action = "Book", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "CreateTimetable",
-                url: "{controller}/{action}/{year}/{month}/{day}",
-                defaults: new { controller = "Timetable", action = "Create", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
             );
         }
     }

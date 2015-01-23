@@ -34,9 +34,9 @@ namespace SOFT331_Assignment.Controllers
             
             Timetable t = new Timetable(date);
 
-            if (t.Journeys == null)
+            if (t.Journeys.Count() < 1)
             {
-                return HttpNotFound();
+                return new HttpStatusCodeResult(204);
             }
 
             ViewBag.Date = date.ToShortDateString();
@@ -109,10 +109,12 @@ namespace SOFT331_Assignment.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Journey journey = db.Journies.Find(id);
+
             if (journey == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.ArrivalStationID = new SelectList(db.Stations, "StationID", "StationName", journey.ArrivalStationID);
             ViewBag.DepartureStationID = new SelectList(db.Stations, "StationID", "StationName", journey.DepartureStationID);
             ViewBag.JourneyTypeID = new SelectList(db.JourneyTypes, "JourneyTypeID", "JourneyTypeName", journey.JourneyTypeID);

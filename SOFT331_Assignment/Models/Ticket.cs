@@ -22,7 +22,7 @@ namespace SOFT331_Assignment.Models
 
         [Required]
         [ForeignKey("Traveller")]
-        public virtual int TravellerID { get; set; }
+        public virtual int? TravellerID { get; set; }
         public virtual Traveller Traveller { get; set; }
 
         [Required]
@@ -31,17 +31,13 @@ namespace SOFT331_Assignment.Models
         public DateTime TicketDate { get; set; }
 
         [Required]
-        [DisplayName("Fare Type")]
-        public string FareType { get; set; }
+        [DisplayName("Fare")]
+        public virtual int FareID { get; set; }
+        public virtual Fare Fare { get; set; }
 
         [Required]
-        [DisplayName("Ticket Type")]
-        public string EventType { get; set; }
-
-        [Required]
-        [DisplayName("Ticket Price")]
-        [Range(0.00, 100.00, ErrorMessage="Ticket price must be greater than 0, and less than 100")]
-        public double TicketPrice { get; set; }
+        [DisplayName("Gift Aid")]
+        public bool GiftAid { get; set; }
 
         public Ticket()
         {

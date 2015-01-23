@@ -3,7 +3,8 @@
 <h4>Fares</h4>
 <table class="table">
     <tr>
-        <th></th>
+        <th># Tickets</th>
+        <th>GiftAid</th>
         <th>
             @Html.DisplayNameFor(model => model.EventType.EventName)
         </th>
@@ -26,15 +27,9 @@
     {
         <tr>
             <td>
-                <select name="ticketQ">
-                    <option>None</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+                <input id="numberTickets" type="number" min="0" max="10" />
             </td>
+            <td><input id="giftAid" type="checkbox" /></td>
             <td>
                 @Html.DisplayFor(modelItem => item.EventType.EventName)
             </td>
