@@ -12,8 +12,8 @@ namespace SOFT331_Assignment.Models
         [Key]
         public int FaretypeID { get; set; }
 
-        [DisplayName("Fare")]
-        [Required]
+        [Required(ErrorMessage="Must have a fare type")]
+        [DisplayName("Fare Type (e.g. Adult, Child, Student)")]        
         public string FareTypeDescription { get; set; }
                
         public FareType()
