@@ -10,23 +10,31 @@ namespace SOFT331_Assignment.Models
 {
     public class Fare
     {
+        //+ FareID: int
+        //+ FareTypeID: int
+        //+ FareType: FareType
+        //+ TicketTypeID: int
+        //+ TicketType: TicketType
+        //+ Name: string
+        //+ BasePrice: double
+        //+ GiftAidPrice: double                 
+                                                  
         [Key]
         public int FareID { get; set; }
-
-        [Required]
-        public string Description { get; set; }
 
         [ForeignKey("FareType")]
         public virtual int FareTypeID { get; set; }
         public virtual FareType FareType { get; set; }
 
-        [ForeignKey("EventType")]
-        public virtual int EventTypeID { get; set; }
-        public virtual EventType EventType { get; set; }
+        [ForeignKey("TicketType")]
+        public virtual int TicketType { get; set; }
+        public virtual TicketType TicketType { get; set; }
 
         [DisplayName("Basic Price")]
         [Required(ErrorMessage = "Fare must have a basic price")]
 
+        [Required(ErrorMessage="Must have a basic price")]
+        [DisplayName("Gift Aid Price")]
         public double BasicPrice { get; set; }
 
         [DisplayName("Gift Aid Price")]
@@ -42,9 +50,8 @@ namespace SOFT331_Assignment.Models
 
         public override string ToString()
         {
-
             return 
-                this.EventType.EventName 
+                this.TicketType.Name 
                 + " - " 
                 + this.FareType.FareTypeDescription;
         }
