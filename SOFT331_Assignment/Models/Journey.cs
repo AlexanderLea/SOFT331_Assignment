@@ -59,22 +59,22 @@ namespace SOFT331_Assignment.Models
 
         public int getAvailableSeats()
         {
-            return -1;
+            throw new NotImplementedException();
         }
 
         public int getAvailableSeatsBetween(Station _depart, Station _arrive)
         {
-            return -1;
+            throw new NotImplementedException();
         }
 
         public bool canBookWheelchair(Station _depart, Station _arrive)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public bool bookTickets(Station _depart, Station _arrive, int _noTickets)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public void allocateAdvanceTickets(int _noTickets)
