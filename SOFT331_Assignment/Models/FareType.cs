@@ -16,7 +16,6 @@ namespace SOFT331_Assignment.Models
         [Required]
         public string FareTypeDescription { get; set; }
                
-
         public FareType()
         {
       

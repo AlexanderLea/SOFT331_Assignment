@@ -7,7 +7,15 @@ namespace SOFT331_Assignment.Models
 {
     public class Train
     {
-        #region instance variables
+        //+ TrainID: int
+        //+ Number: int
+        //+ Name: int
+        //+ Description: string
+        //+ Year: int
+        //+ WorksNo: int
+        //+ Make: string
+        //+ Type: string
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TrainID { get; set; }
@@ -24,8 +32,6 @@ namespace SOFT331_Assignment.Models
         [Required(ErrorMessage = "Train must have a description")]        
         public string Description { get; set; }
 
-        public string Image { get; set; } //TODO:??
-
         [DisplayName("Train Maker")]
         public string Maker { get; set; }
 
@@ -39,38 +45,6 @@ namespace SOFT331_Assignment.Models
         
         [DisplayName("Train Type")]
         public string Type { get; set; }
-
-        [DisplayName("Driving Wheel Diameter")]
-        public double DrivingWheelDiameter { get; set; }
-
-        [DisplayName("Trailing Wheel Diameter")]
-        public double TrailingWheelDiameter { get; set; }
-
-        [DisplayName("Total Wheel Base")]
-        public double TotalWheelbase { get; set; }
-
-        [DisplayName("Cylinder size (bore/stroke)")]
-        public double CylinderSize { get; set; }
-
-        [DisplayName("Heating surface (sq. ft)")]
-        public double HeatingSurface { get; set; }
-
-        [DisplayName("Working pressure (psi)")]
-        public double WorkingPressure { get; set; }
-
-        [DisplayName("Tractive effort @ 85% BP (lbs)")]
-        public double TractiveEffort { get; set; }
-
-        [DisplayName("Weight (tons)")]
-        public double Weight { get; set; }
-
-        [DisplayName("Length over buffers")]
-        public double LengthOverBuffers { get; set; }
-
-        [DisplayName("Donor Locomotive")]
-        public string DonorLoco { get; set; }
-
-        #endregion
 
         //default constructor
         public Train()
