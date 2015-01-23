@@ -10,13 +10,16 @@ namespace SOFT331_Assignment.Models
 {
     public class Ticket
     {
-        //ticketID
-        //traveller
-        //Date
-        //Fare Type
-        //Event Type
-        //Price paid
-        //
+        //+ TicketID: int
+        //+ CustomerID: int
+        //+ Customer: Customer
+        //+ FareID: int
+        //+ Fare: Fare
+        //+ GiftAid: bool
+        //+ Wheelchair: bool
+        //+ Carer: bool
+        //+ Book(): bool
+
         [Key]
         public int TicketID { get; set; }
 
@@ -24,11 +27,6 @@ namespace SOFT331_Assignment.Models
         [ForeignKey("Traveller")]
         public virtual int? TravellerID { get; set; }
         public virtual Traveller Traveller { get; set; }
-
-        [Required]
-        [DisplayName("Date of Travel")]
-        [DataType(DataType.Date)]
-        public DateTime TicketDate { get; set; }
 
         [Required]
         [DisplayName("Fare")]
@@ -39,11 +37,23 @@ namespace SOFT331_Assignment.Models
         [DisplayName("Gift Aid")]
         public bool GiftAid { get; set; }
 
+        [Required]
+        [DisplayName("Wheelchair")]
+        public bool Wheelchair { get; set; }
+
+        [Required]
+        [DisplayName("Carer")]
+        public bool Carer { get; set; }
+
         public Ticket()
         {
+            this.Wheelchair = false;
+            this.Carer = false;
+        }
 
-
-
+        public bool book()
+        {
+            throw new NotImplementedException();
         }
 
 
