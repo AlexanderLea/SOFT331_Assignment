@@ -10,7 +10,16 @@ namespace SOFT331_Assignment.Models
 {
     public class Journey
     {
-        #region instance variables
+        //+ JourneyID: int
+        //+ LocomotiveID: int
+        //+ Locomotive: Locomotive
+        //+ EventID: int
+        //+ Event: Event
+        //+ NoSeats: int
+        //+ AdvanceTickets: int
+        //+ FirstClassTickets: int
+        //+ Stops: List<Stop>
+
         [Key]
         public int JourneyID { get; set; }
 
@@ -20,40 +29,52 @@ namespace SOFT331_Assignment.Models
         public virtual Train Train { get; set; }
 
         [Required]
-        public virtual int DepartureStationID { get; set; }
-        public virtual Station DepartureStation { get; set; }
+        [ForeignKey("Event")]
+        public virtual int EventID { get; set; }
+        public virtual Event Event { get; set; }
 
         [Required]
-        public virtual int ArrivalStationID { get; set; }
-        public virtual Station ArrivalStation { get; set; }
-
-        [DisplayName("Departure Time")]
-        [Required]
-        public DateTime DepartureTime { get; set; }
-
-        [DisplayName("Arrival Time")]
-        [Required]
-        public DateTime ArrivalTime { get; set; }
-
-        [ForeignKey("JourneyType")]
-        //[DisplayName("Journey Type")]
-        public virtual int JourneyTypeID { get; set; } //E.g. "Christmas", "Super special awesome journey" etc
-        public virtual JourneyType JourneyType { get; set; }
-        
-        [Required]
-        [DisplayName("Advance Tickets")]
+        [DisplayName("Advance Tickets (defaults to 150)")]
         public int AdvanceTickets { get; set; }
+
+        [Required]
+        [DisplayName("First Class Tickets")]
+        public int FirstClassTickets { get; set; }
 
         [DisplayName("# Seats")]
         public int NumberOfSeats { get; set; }
 
-        public virtual ICollection<Ticket> Tickets { get; set; }
-
-        #endregion
+        public virtual ICollection<Stop> Stops { get; set; }
 
         public Journey()
         {
             NumberOfSeats = 150;
+        }
+
+
+//        + GetAvailableSeats(): int
+//+ GetAvailableSeatsBetween(_depart: Station, _arrive: Station): int
+//+ CanBookWheelchair(_depart: Station, _arrive: Station): bool
+//+ BookTickets(_depart: Station, _arrive: Station, _noTickets: int:): bool
+
+        public int getAvailableSeats()
+        {
+            return -1;
+        }
+
+        public int getAvailableSeatsBetween(Station _depart, Station _arrive)
+        {
+            return -1;
+        }
+
+        public bool canBookWheelchair(Station _depart, Station _arrive)
+        {
+            return false;
+        }
+
+        public bool bookTickets(Station _depart, Station _arrive, int _noTickets)
+        {
+            return false;
         }
 
         public void allocateAdvanceTickets(int _noTickets)
@@ -62,47 +83,6 @@ namespace SOFT331_Assignment.Models
             {
                 AdvanceTickets = +_noTickets;
             }
-        }
-
-        public bool areTicketsAvailable(int _quantity)
-        {
-            if ((this.AdvanceTickets - _quantity) > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool bookTickets(int _quantity)
-        {
-            if (areTicketsAvailable(_quantity))
-            {
-                AdvanceTickets = AdvanceTickets - _quantity;
-                return true;
-            }
-            else return false;
-        }
-
-        public bool canBookDisabled()
-        {
-            DatabaseContext db = new DatabaseContext();
-
-            throw new NotImplementedException();
-
-            return true;
-        }
-
-        public override string ToString()
-        {
-            return
-                DepartureStation.StationName
-                + " to "
-                + ArrivalStation.StationName
-                + " on "
-                + DepartureTime.ToShortDateString();
         }
     }
 }
