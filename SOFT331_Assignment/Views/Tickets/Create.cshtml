@@ -1,24 +1,30 @@
-﻿@model SOFT331_Assignment.Models.Ticket
+﻿@model SOFT331_Assignment.Models.Journey
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Book  new Ticket";
 }
 
 <h2>Create</h2>
+
+Between @ViewBag.MinDate
+and @ViewBag.MaxDate
+
+<!--Get journey, and stops-->
+@{Html.RenderPartial("_viewJourneysPartial", Model); }
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    @*<div class="form-horizontal">
         <h4>Ticket</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(model => model.TravellerID, "TravellerID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => Model.Traveller.TravellerID, "TravellerID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TravellerID", String.Empty)
-                @Html.ValidationMessageFor(model => model.TravellerID)
+                @Html.ValidationMessageFor(model => Model.Traveller.TravellerID)
             </div>
         </div>
 
@@ -59,7 +65,7 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-    </div>
+    </div>*@
 }
 
 <div>
