@@ -121,6 +121,7 @@ namespace SOFT331_Assignment.Models
                     {
                         temp.Add(s);
                     }
+                    break;
                 }
             }
 
