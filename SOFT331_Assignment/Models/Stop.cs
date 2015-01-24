@@ -39,15 +39,11 @@ namespace SOFT331_Assignment.Models
         [DisplayName("Arrival Date/Time")]
         [DataType(DataType.DateTime, ErrorMessage = "Please enter a valid date and time in the format dd/mm/yyyy hh:mm")]
         [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy hh:mm}", ApplyFormatInEditMode = true)]
-        [DisplayName("Arrival Time")]
-        [Range(typeof(DateTime), DateTime.Today.ToString(), DateTime.MaxValue.ToString())]
         public DateTime? ArrivalTime { get; set; }
 
         [DisplayName("Departure Date/Time")]
         [DataType(DataType.DateTime, ErrorMessage = "Please enter a valid date and time in the format dd/mm/yyyy hh:mm")]
         [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy hh:mm}", ApplyFormatInEditMode = true)]
-        [DisplayName("Arrival Time")]
-        [Range(typeof(DateTime), DateTime.Today.ToString(), DateTime.MaxValue.ToString())]
         public DateTime? DepartureTime { get; set; }
 
         [DisplayName("Has a wheelchair ticket been booked?")]

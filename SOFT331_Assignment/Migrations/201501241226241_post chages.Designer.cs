@@ -7,13 +7,13 @@ namespace SOFT331_Assignment.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class Changedticketbacktowhatitwasbefore : IMigrationMetadata
+    public sealed partial class postchages : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Changedticketbacktowhatitwasbefore));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(postchages));
         
         string IMigrationMetadata.Id
         {
-            get { return "201501231523517_Changed ticket back to what it was before"; }
+            get { return "201501241226241_post chages"; }
         }
         
         string IMigrationMetadata.Source

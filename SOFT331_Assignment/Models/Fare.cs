@@ -33,8 +33,6 @@ namespace SOFT331_Assignment.Models
         [DisplayName("Basic Price")]
         [Required(ErrorMessage = "Fare must have a basic price")]
 
-        [Required(ErrorMessage="Must have a basic price")]
-        [DisplayName("Gift Aid Price")]
         public double BasicPrice { get; set; }
 
         [DisplayName("Gift Aid Price")]
@@ -50,10 +48,11 @@ namespace SOFT331_Assignment.Models
 
         public override string ToString()
         {
-            return 
-                this.TicketType.Name 
-                + " - " 
-                + this.FareType.FareTypeDescription;
+            //return 
+            //    this.TicketType.Name 
+            //    + " - " 
+            //    + this.FareType.FareTypeDescription;
+            return "blah blah blah";
         }
     }
 }

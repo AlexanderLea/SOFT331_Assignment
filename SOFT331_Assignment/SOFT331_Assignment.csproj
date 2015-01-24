@@ -161,26 +161,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\EventTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201411241648470_initial.cs" />
-    <Compile Include="Migrations\201411241648470_initial.Designer.cs">
-      <DependentUpon>201411241648470_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201411241651453_addedSeed.cs" />
-    <Compile Include="Migrations\201411241651453_addedSeed.Designer.cs">
-      <DependentUpon>201411241651453_addedSeed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501211647395_Changed ticket to work properly.cs" />
-    <Compile Include="Migrations\201501211647395_Changed ticket to work properly.Designer.cs">
-      <DependentUpon>201501211647395_Changed ticket to work properly.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501231523517_Changed ticket back to what it was before.cs" />
-    <Compile Include="Migrations\201501231523517_Changed ticket back to what it was before.Designer.cs">
-      <DependentUpon>201501231523517_Changed ticket back to what it was before.cs</DependentUpon>
+    <Compile Include="Migrations\201501241226241_post chages.cs" />
+    <Compile Include="Migrations\201501241226241_post chages.Designer.cs">
+      <DependentUpon>201501241226241_post chages.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -275,17 +262,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201411241648470_initial.resx">
-      <DependentUpon>201411241648470_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201411241651453_addedSeed.resx">
-      <DependentUpon>201411241651453_addedSeed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501211647395_Changed ticket to work properly.resx">
-      <DependentUpon>201501211647395_Changed ticket to work properly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501231523517_Changed ticket back to what it was before.resx">
-      <DependentUpon>201501231523517_Changed ticket back to what it was before.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201501241226241_post chages.resx">
+      <DependentUpon>201501241226241_post chages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
