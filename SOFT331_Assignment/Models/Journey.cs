@@ -94,24 +94,37 @@ namespace SOFT331_Assignment.Models
             {
                 minSeats = this.AdvanceTickets;
 
-                //Order stops by arrival time (null first?), to ensure that we are checking in order
-                List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
+                //get ordered list of stops between _depart and _arrive
+                List<Stop> stopsBetween = getStopsBetween(_depart, _arrive);
 
-                //Loop through stops
-                foreach (Stop s in orderedStops)
+                foreach (var s in stopsBetween)
                 {
-                    //if stop is departure (i.e. could be first stop, when arrival is null)
-                    if (s.Station == _depart)
-                    {
-                        while (s.Station != _arrive)
-                        {
-                            minSeats = returnSmallestNumber(s.NoOnwardSeats - s.NoBookedSeats, minSeats);
-                        }
-                    }
+                    minSeats = returnSmallestNumber(s.NoOnwardSeats - s.NoBookedSeats, minSeats);
                 }
             }
 
             return minSeats;
+        }
+
+        private List<Stop> getStopsBetween(Station _depart, Station _arrive)
+        {
+            List<Stop> temp = new List<Stop>();
+            //Order stops by arrival time (null first?), to ensure that we are checking in order
+            List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
+
+            foreach (Stop s in orderedStops)
+            {
+                //if stop is departure (i.e. could be first stop, when arrival is null)
+                if (s.Station == _depart)
+                {
+                    while (s.Station != _arrive)
+                    {
+                        temp.Add(s);
+                    }
+                }
+            }
+
+            return temp;
         }
 
         /// <summary>
@@ -125,19 +138,12 @@ namespace SOFT331_Assignment.Models
             bool wheelchairAvailable = true;
 
             //Order stops by arrival time (null first?), to ensure that we are checking in order
-            List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
+            List<Stop> orderedStops = getStopsBetween(_depart, _arrive);
 
             //Loop through stops
             foreach (Stop s in orderedStops)
             {
-                //if stop is departure (i.e. could be first stop, when arrival is null)
-                if (s.Station == _depart)
-                {
-                    while (s.Station != _arrive)
-                    {
-                        wheelchairAvailable = !s.WheelchairBooked;
-                    }
-                }
+                wheelchairAvailable = !s.WheelchairBooked;
             }
 
             return wheelchairAvailable;
@@ -157,19 +163,12 @@ namespace SOFT331_Assignment.Models
             if (this.AdvanceTickets - _noTickets > 0)
             {
                 //Order stops by arrival time (null first?), to ensure that we are checking in order
-                List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
+                List<Stop> orderedStops = getStopsBetween(_depart, _arrive);
 
                 //Loop through stops
                 foreach (Stop s in orderedStops)
                 {
-                    //if stop is departure (i.e. could be first stop, when arrival is null)
-                    if (s.Station == _depart)
-                    {
-                        while (s.Station != _arrive)
-                        {
-                            success = s.bookTickets(_noTickets);
-                        }
-                    }
+                    success = s.bookTickets(_noTickets);
                 }
             }
             return success;
