@@ -65,7 +65,15 @@ namespace SOFT331_Assignment.Models
 
         public int getAvailableSeats()
         {
-            throw new NotImplementedException();
+            int minSeats = this.NumberOfSeats;
+
+            foreach (Stop s in this.Stops)
+            {
+                if (s.NoOnwardSeats < minSeats)
+                    minSeats = s.NoOnwardSeats;
+            }
+
+            return minSeats;
         }
 
         public int getAvailableSeatsBetween(Station _depart, Station _arrive)

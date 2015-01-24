@@ -27,11 +27,11 @@ namespace SOFT331_Assignment.Models
 
         [Required]
         public int StationID { get; set; }
-        public Station Station { get; set; }
+        public virtual Station Station { get; set; }
 
         [Required]
         public int JourneyID { get; set; }
-        public Journey Journey { get; set; }
+        public virtual Journey Journey { get; set; }
 
         [DisplayName("# Seats")]
         public int NoOnwardSeats { get; set; }
