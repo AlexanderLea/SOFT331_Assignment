@@ -51,6 +51,12 @@ namespace SOFT331_Assignment.Models
             NumberOfSeats = 150;
         }
 
+        public override string ToString()
+        {
+            string x = Event.Name + ", on " + Train.Name;
+
+            return x;
+        }
 
 //        + GetAvailableSeats(): int
 //+ GetAvailableSeatsBetween(_depart: Station, _arrive: Station): int

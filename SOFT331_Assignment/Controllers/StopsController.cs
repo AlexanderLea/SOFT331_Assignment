@@ -39,7 +39,7 @@ namespace SOFT331_Assignment.Controllers
         // GET: Stops/Create
         public ActionResult Create()
         {
-            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID");
+            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "Journey");
             ViewBag.StationID = new SelectList(db.Stations, "StationID", "StationName");
             return View();
         }
@@ -49,10 +49,14 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StopID,StationID,JourneyID,NoOnwardSeats,ArrivalTime,DepartureTime,WheelchairBooked")] Stop stop)
+        public ActionResult Create([Bind(Include = "StopID,StationID,JourneyID,ArrivalTime,DepartureTime,WheelchairBooked")] Stop stop)
         {
             if (ModelState.IsValid)
             {
+                //get journey
+                Journey j = db.Journies.Find(stop.JourneyID);
+                stop.NoOnwardSeats = j.NumberOfSeats;
+
                 db.Stops.Add(stop);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +64,7 @@ namespace SOFT331_Assignment.Controllers
 
             ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID", stop.JourneyID);
             ViewBag.StationID = new SelectList(db.Stations, "StationID", "StationName", stop.StationID);
+
             return View(stop);
         }
 

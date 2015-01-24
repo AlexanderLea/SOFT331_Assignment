@@ -51,7 +51,7 @@ namespace SOFT331_Assignment.Models
 
         public Stop()
         {
-            this.NoOnwardSeats = Journey.NumberOfSeats;
+            //this.NoOnwardSeats = Journey.NumberOfSeats;
             this.WheelchairBooked = false;
         }
         public int getAvailableSeats()
