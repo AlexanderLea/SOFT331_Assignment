@@ -17,7 +17,7 @@ namespace SOFT331_Assignment.Controllers
         // GET: Tickets
         public ActionResult Index()
         {
-            var tickets = db.Tickets.Include(t => t.Fare).Include(t => t.Journey).Include(t => t.Traveller);
+            var tickets = db.Tickets.Include(t => t.Fare).Include(t => t.Traveller);
             return View(tickets.ToList());
         }
 
@@ -40,7 +40,6 @@ namespace SOFT331_Assignment.Controllers
         public ActionResult Create()
         {
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID");
-            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID");
             ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName");
             return View();
         }
@@ -50,7 +49,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TicketID,TravellerID,FareID,JourneyID,GiftAid,Wheelchair,Carer")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "TicketID,TravellerID,FareID,GiftAid,Wheelchair,Carer")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +59,6 @@ namespace SOFT331_Assignment.Controllers
             }
 
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID", ticket.FareID);
-            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID", ticket.JourneyID);
             ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName", ticket.TravellerID);
             return View(ticket);
         }
@@ -78,7 +76,6 @@ namespace SOFT331_Assignment.Controllers
                 return HttpNotFound();
             }
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID", ticket.FareID);
-            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID", ticket.JourneyID);
             ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName", ticket.TravellerID);
             return View(ticket);
         }
@@ -88,7 +85,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TicketID,TravellerID,FareID,JourneyID,GiftAid,Wheelchair,Carer")] Ticket ticket)
+        public ActionResult Edit([Bind(Include = "TicketID,TravellerID,FareID,GiftAid,Wheelchair,Carer")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +94,6 @@ namespace SOFT331_Assignment.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID", ticket.FareID);
-            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID", ticket.JourneyID);
             ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName", ticket.TravellerID);
             return View(ticket);
         }

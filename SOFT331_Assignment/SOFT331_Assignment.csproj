@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201501241226241_post chages.Designer.cs">
       <DependentUpon>201501241226241_post chages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501241508345_remove journey from ticket.cs" />
+    <Compile Include="Migrations\201501241508345_remove journey from ticket.Designer.cs">
+      <DependentUpon>201501241508345_remove journey from ticket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookTicketCollection.cs" />
@@ -247,10 +251,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_createTravellerPartial.cshtml" />
     <Content Include="Views\Shared\_viewFaresPartial.cshtml" />
-    <Content Include="Views\Tickets\Create.cshtml" />
-    <Content Include="Views\Tickets\Delete.cshtml" />
-    <Content Include="Views\Tickets\Index.cshtml" />
-    <Content Include="Views\Tickets\Book.cshtml" />
     <Content Include="Views\Shared\_viewJourneysPartial.cshtml" />
     <Content Include="Views\Shared\_createJourneyPartial.cshtml" />
     <Content Include="Views\Shared\_editJourneysPartial.cshtml" />
@@ -280,8 +280,6 @@
     <Content Include="Views\Stations\Details.cshtml" />
     <Content Include="Views\Stations\Edit.cshtml" />
     <Content Include="Views\Stations\Index.cshtml" />
-    <Content Include="Views\Tickets\Details.cshtml" />
-    <Content Include="Views\Tickets\Edit.cshtml" />
     <Content Include="Views\TicketTypes\Create.cshtml" />
     <Content Include="Views\TicketTypes\Delete.cshtml" />
     <Content Include="Views\TicketTypes\Details.cshtml" />
@@ -302,6 +300,11 @@
     <Content Include="Views\Stops\Details.cshtml" />
     <Content Include="Views\Stops\Edit.cshtml" />
     <Content Include="Views\Stops\Index.cshtml" />
+    <Content Include="Views\Tickets\Create.cshtml" />
+    <Content Include="Views\Tickets\Delete.cshtml" />
+    <Content Include="Views\Tickets\Details.cshtml" />
+    <Content Include="Views\Tickets\Edit.cshtml" />
+    <Content Include="Views\Tickets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +319,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501241226241_post chages.resx">
       <DependentUpon>201501241226241_post chages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501241508345_remove journey from ticket.resx">
+      <DependentUpon>201501241508345_remove journey from ticket.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
