@@ -29,29 +29,45 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Event.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Train.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdvanceTickets)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstClassTickets)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfSeats)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.JourneyID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.JourneyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.JourneyID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Train.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdvanceTickets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstClassTickets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSeats)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JourneyID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JourneyID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JourneyID })
+            </td>
+
+        </tr>
+        foreach (var stop in item.Stops)
+        {
+            <tr>
+                <td colspan="3">
+                    TODO: Station Name
+                    @Html.DisplayFor(blah => stop.Station.StationName)
+                    &nbsp; <strong>Arriving:</strong>
+                    @Html.DisplayFor(blah => stop.ArrivalTime)
+                    &nbsp; <strong>Departing:</strong>
+                    @Html.DisplayFor(blah => stop.DepartureTime)
+                </td>
+            </tr>
+        }
+
+    }
 
 </table>
