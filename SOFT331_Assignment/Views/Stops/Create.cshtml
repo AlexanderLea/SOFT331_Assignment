@@ -25,19 +25,18 @@
         <div class="form-group">
             @Html.LabelFor(model => model.JourneyID, "JourneyID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-  //ERROR HERE
                 @Html.DropDownList("JourneyID", String.Empty)
                 @Html.ValidationMessageFor(model => model.JourneyID)
             </div>
         </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.NoOnwardSeats, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NoOnwardSeats)
                 @Html.ValidationMessageFor(model => model.NoOnwardSeats)
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ArrivalTime, htmlAttributes: new { @class = "control-label col-md-2" })

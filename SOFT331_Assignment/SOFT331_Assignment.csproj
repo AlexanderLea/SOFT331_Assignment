@@ -280,11 +280,6 @@
     <Content Include="Views\Stations\Details.cshtml" />
     <Content Include="Views\Stations\Edit.cshtml" />
     <Content Include="Views\Stations\Index.cshtml" />
-    <Content Include="Views\Stops\Create.cshtml" />
-    <Content Include="Views\Stops\Delete.cshtml" />
-    <Content Include="Views\Stops\Details.cshtml" />
-    <Content Include="Views\Stops\Edit.cshtml" />
-    <Content Include="Views\Stops\Index.cshtml" />
     <Content Include="Views\Tickets\Details.cshtml" />
     <Content Include="Views\Tickets\Edit.cshtml" />
     <Content Include="Views\TicketTypes\Create.cshtml" />
@@ -302,6 +297,11 @@
     <Content Include="Views\Travellers\Details.cshtml" />
     <Content Include="Views\Travellers\Edit.cshtml" />
     <Content Include="Views\Travellers\Index.cshtml" />
+    <Content Include="Views\Stops\Create.cshtml" />
+    <Content Include="Views\Stops\Delete.cshtml" />
+    <Content Include="Views\Stops\Details.cshtml" />
+    <Content Include="Views\Stops\Edit.cshtml" />
+    <Content Include="Views\Stops\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
