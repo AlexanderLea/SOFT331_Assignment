@@ -1,0 +1,50 @@
+﻿@model SOFT331_Assignment.Models.Fare
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fare</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FareType.FareTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FareType.FareTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BasicPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BasicPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftAidPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftAidPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FareID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

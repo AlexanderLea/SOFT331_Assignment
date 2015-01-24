@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\FaresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -236,11 +237,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\EventType\Create.cshtml" />
-    <Content Include="Views\EventType\Delete.cshtml" />
-    <Content Include="Views\EventType\Details.cshtml" />
-    <Content Include="Views\EventType\Edit.cshtml" />
-    <Content Include="Views\EventType\Index.cshtml" />
     <Content Include="Views\Shared\_createTravellerPartial.cshtml" />
     <Content Include="Views\Shared\_viewFaresPartial.cshtml" />
     <Content Include="Views\Tickets\Create.cshtml" />
@@ -256,6 +252,11 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Fares\Create.cshtml" />
+    <Content Include="Views\Fares\Delete.cshtml" />
+    <Content Include="Views\Fares\Details.cshtml" />
+    <Content Include="Views\Fares\Edit.cshtml" />
+    <Content Include="Views\Fares\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
