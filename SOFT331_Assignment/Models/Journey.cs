@@ -58,26 +58,26 @@ namespace SOFT331_Assignment.Models
             return x;
         }
 
-        //        + GetAvailableSeats(): int
+        //+ GetAvailableSeats(): int
         //+ GetAvailableSeatsBetween(_depart: Station, _arrive: Station): int
         //+ CanBookWheelchair(_depart: Station, _arrive: Station): bool
         //+ BookTickets(_depart: Station, _arrive: Station, _noTickets: int:): bool
 
-        /// <summary>
-        /// Gets the maximum number of seats that can be booked for a complete journey
-        /// </summary>
-        /// <returns>maximum # seats for whole journey</returns>
-        public int getAvailableSeats()
-        {
-            int minSeats = this.NumberOfSeats;
+        ///// <summary>
+        ///// Gets the maximum number of seats that can be booked for a complete journey
+        ///// </summary>
+        ///// <returns>maximum # seats for whole journey</returns>
+        //public int getAvailableSeats()
+        //{
+        //    int minSeats = this.NumberOfSeats;
 
-            foreach (Stop s in this.Stops)
-            {
-                minSeats = returnSmallestNumber(s.NoOnwardSeats, minSeats);
-            }
+        //    foreach (Stop s in this.Stops)
+        //    {
+        //        minSeats = returnSmallestNumber(s.NoOnwardSeats - s.NoBookedSeats, minSeats);
+        //    }
 
-            return minSeats;
-        }
+        //    return minSeats;
+        //}
 
         /// <summary>
         /// Gets the number of bookable seats between the departure and arrival stations
@@ -88,8 +88,42 @@ namespace SOFT331_Assignment.Models
         /// <returns>Number of available seats</returns>
         public int getAvailableSeatsBetween(Station _depart, Station _arrive)
         {
-            int minSeats = this.NumberOfSeats;
-            
+            int minSeats = 0;
+
+            if (AdvanceTickets > 0)
+            {
+                minSeats = this.AdvanceTickets;
+
+                //Order stops by arrival time (null first?), to ensure that we are checking in order
+                List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
+
+                //Loop through stops
+                foreach (Stop s in orderedStops)
+                {
+                    //if stop is departure (i.e. could be first stop, when arrival is null)
+                    if (s.Station == _depart)
+                    {
+                        while (s.Station != _arrive)
+                        {
+                            minSeats = returnSmallestNumber(s.NoOnwardSeats - s.NoBookedSeats, minSeats);
+                        }
+                    }
+                }
+            }
+
+            return minSeats;
+        }
+
+        /// <summary>
+        /// Checks if there's already a wheelchair booked between the two specified stations
+        /// </summary>
+        /// <param name="_depart">Departure station for overall ticket-journey </param>
+        /// <param name="_arrive">Arrival station for overall ticket-journey</param>
+        /// <returns>TRUE/FALSE based on whether a wheelchair ticket can be booked</returns>
+        public bool canBookWheelchair(Station _depart, Station _arrive)
+        {
+            bool wheelchairAvailable = true;
+
             //Order stops by arrival time (null first?), to ensure that we are checking in order
             List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
 
@@ -98,25 +132,47 @@ namespace SOFT331_Assignment.Models
             {
                 //if stop is departure (i.e. could be first stop, when arrival is null)
                 if (s.Station == _depart)
-                {                    
+                {
                     while (s.Station != _arrive)
                     {
-                        minSeats = returnSmallestNumber(s.NoOnwardSeats, minSeats);
+                        wheelchairAvailable = !s.WheelchairBooked;
                     }
                 }
             }
 
-            return minSeats;
+            return wheelchairAvailable;
         }
 
-        public bool canBookWheelchair(Station _depart, Station _arrive)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Book tickets
+        /// </summary>
+        /// <param name="_depart">Departure Station for overall ticket-journey</param>
+        /// <param name="_arrive">Arrival Station for overall ticket-journey</param>
+        /// <param name="_noTickets">Number of tickets being booked</param>
+        /// <returns>TRUE/FALSE representing transaction success/failure</returns>
         public bool bookTickets(Station _depart, Station _arrive, int _noTickets)
         {
-            throw new NotImplementedException();
+            bool success = false;
+
+            if (this.AdvanceTickets - _noTickets > 0)
+            {
+                //Order stops by arrival time (null first?), to ensure that we are checking in order
+                List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
+
+                //Loop through stops
+                foreach (Stop s in orderedStops)
+                {
+                    //if stop is departure (i.e. could be first stop, when arrival is null)
+                    if (s.Station == _depart)
+                    {
+                        while (s.Station != _arrive)
+                        {
+                            success = s.bookTickets(_noTickets);
+                        }
+                    }
+                }
+            }
+            return success;
         }
 
         public void allocateAdvanceTickets(int _noTickets)

@@ -49,24 +49,25 @@ namespace SOFT331_Assignment.Models
         [DisplayName("Has a wheelchair ticket been booked?")]
         public bool WheelchairBooked { get; set; }
 
+        [Required]
+        [DisplayName("Number of booked tickets")]
+        public int NoBookedSeats { get; set; }
+
         public Stop()
         {
             //this.NoOnwardSeats = Journey.NumberOfSeats;
             this.WheelchairBooked = false;
         }
-        public int getAvailableSeats()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool canBookWheelChair()
-        {
-            throw new NotImplementedException();
-        }
 
         public bool bookTickets(int _noTickets)
         {
-            throw new NotImplementedException();
+            if ((NoBookedSeats + _noTickets) <= NoOnwardSeats)
+            {
+                NoBookedSeats += _noTickets;
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
