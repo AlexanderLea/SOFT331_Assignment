@@ -163,7 +163,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\FaresController.cs" />
+    <Compile Include="Controllers\FareTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JourneysController.cs" />
+    <Compile Include="Controllers\StationsController.cs" />
+    <Compile Include="Controllers\StopsController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
+    <Compile Include="Controllers\TicketTypesController.cs" />
+    <Compile Include="Controllers\TrainsController.cs" />
+    <Compile Include="Controllers\TravellersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +265,43 @@
     <Content Include="Views\Fares\Details.cshtml" />
     <Content Include="Views\Fares\Edit.cshtml" />
     <Content Include="Views\Fares\Index.cshtml" />
+    <Content Include="Views\FareTypes\Create.cshtml" />
+    <Content Include="Views\FareTypes\Delete.cshtml" />
+    <Content Include="Views\FareTypes\Details.cshtml" />
+    <Content Include="Views\FareTypes\Edit.cshtml" />
+    <Content Include="Views\FareTypes\Index.cshtml" />
+    <Content Include="Views\Journeys\Create.cshtml" />
+    <Content Include="Views\Journeys\Delete.cshtml" />
+    <Content Include="Views\Journeys\Details.cshtml" />
+    <Content Include="Views\Journeys\Edit.cshtml" />
+    <Content Include="Views\Journeys\Index.cshtml" />
+    <Content Include="Views\Stations\Create.cshtml" />
+    <Content Include="Views\Stations\Delete.cshtml" />
+    <Content Include="Views\Stations\Details.cshtml" />
+    <Content Include="Views\Stations\Edit.cshtml" />
+    <Content Include="Views\Stations\Index.cshtml" />
+    <Content Include="Views\Stops\Create.cshtml" />
+    <Content Include="Views\Stops\Delete.cshtml" />
+    <Content Include="Views\Stops\Details.cshtml" />
+    <Content Include="Views\Stops\Edit.cshtml" />
+    <Content Include="Views\Stops\Index.cshtml" />
+    <Content Include="Views\Tickets\Details.cshtml" />
+    <Content Include="Views\Tickets\Edit.cshtml" />
+    <Content Include="Views\TicketTypes\Create.cshtml" />
+    <Content Include="Views\TicketTypes\Delete.cshtml" />
+    <Content Include="Views\TicketTypes\Details.cshtml" />
+    <Content Include="Views\TicketTypes\Edit.cshtml" />
+    <Content Include="Views\TicketTypes\Index.cshtml" />
+    <Content Include="Views\Trains\Create.cshtml" />
+    <Content Include="Views\Trains\Delete.cshtml" />
+    <Content Include="Views\Trains\Details.cshtml" />
+    <Content Include="Views\Trains\Edit.cshtml" />
+    <Content Include="Views\Trains\Index.cshtml" />
+    <Content Include="Views\Travellers\Create.cshtml" />
+    <Content Include="Views\Travellers\Delete.cshtml" />
+    <Content Include="Views\Travellers\Details.cshtml" />
+    <Content Include="Views\Travellers\Edit.cshtml" />
+    <Content Include="Views\Travellers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
