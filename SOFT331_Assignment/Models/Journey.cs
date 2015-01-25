@@ -33,22 +33,24 @@ namespace SOFT331_Assignment.Models
         public virtual int EventID { get; set; }
         public virtual Event Event { get; set; }
 
-        [Required]
-        [DisplayName("Advance Tickets (defaults to 150)")]
+        [DisplayName("Advance Tickets (defaults to 100)")]
         public int AdvanceTickets { get; set; }
 
         [Required]
         [DisplayName("First Class Tickets")]
         public int FirstClassTickets { get; set; }
 
-        [DisplayName("# Seats")]
+        [DisplayName("# Seats (defaults to 150)")]
         public int NumberOfSeats { get; set; }
 
         public virtual ICollection<Stop> Stops { get; set; }
 
+        public virtual ICollection<Ticket> Tickets { get; set; }
+
         public Journey()
         {
             NumberOfSeats = 150;
+            AdvanceTickets = 100;
         }
 
         public override string ToString()
@@ -157,11 +159,12 @@ namespace SOFT331_Assignment.Models
         /// <param name="_arrive">Arrival Station for overall ticket-journey</param>
         /// <param name="_noTickets">Number of tickets being booked</param>
         /// <returns>TRUE/FALSE representing transaction success/failure</returns>
-        public bool bookTickets(Station _depart, Station _arrive, int _noTickets)
+        public bool bookTickets(Station _depart, Station _arrive, bool _wheelchair)
         {
+            DatabaseContext db = new DatabaseContext();
             bool success = false;
 
-            if (this.AdvanceTickets - _noTickets > 0)
+            if (this.AdvanceTickets - 1 > 0)
             {
                 //Order stops by arrival time (null first?), to ensure that we are checking in order
                 List<Stop> orderedStops = getStopsBetween(_depart, _arrive);
@@ -169,7 +172,8 @@ namespace SOFT331_Assignment.Models
                 //Loop through stops
                 foreach (Stop s in orderedStops)
                 {
-                    success = s.bookTickets(_noTickets);
+                    success = s.bookTicket(_wheelchair);
+                    db.SaveChanges();
                 }
             }
             return success;

@@ -36,12 +36,72 @@ namespace SOFT331_Assignment.Controllers
             return View(ticket);
         }
 
-        // GET: Tickets/Create
-        public ActionResult Create()
+        // GET: Tickets/Create/JourneyID
+        public ActionResult Create(int? id)//string year, string month, string day)
         {
+            //Construct date objects for searching
+            //DateTime minDate = DateTime.MinValue;
+            //DateTime maxDate = DateTime.MaxValue;
+
+            //if (year == null && month == null && day == null)
+            //{
+            //    //show everything
+            //    minDate = DateTime.MinValue;
+            //} 
+            //else if (month == null && day == null)
+            //{ 
+            //    //show year 
+            //    minDate = new DateTime(Convert.ToInt32(year), 1, 1);
+            //    maxDate = minDate.AddYears(1);
+            //}
+            //else if (day == null)
+            //{
+            //    //show year and month
+            //    minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), 1);
+            //    maxDate = minDate.AddMonths(1);
+            //}
+            //else
+            //{
+            //    //show everything
+            //    minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+            //    maxDate = minDate.AddDays(1);
+            //}
+          
+            ////return valid journies
+            //List<Journey> journies = db.Journies.ToList(); //.Where(j => j.Stops. >= minDate && j.ArrivalTime < maxDate)
+
+            //List<Fare> fares = db.Fares.ToList();
+
+            //if (journies.Count() < 1 || fares.Count() < 1)
+            //{
+            //    return new HttpStatusCodeResult(204);
+            //}
+
+            ////create collection for combined view
+            //var model = new BookTicketCollection
+            //{
+            //    Fares = fares,
+            //    Traveller = new Traveller(),
+            //    Journeys = journies
+            //};
+
+            //ViewBag.MinDate = minDate;
+            //ViewBag.MaxDate = maxDate;
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Journey journey = db.Journies.Find(id);
+
+            if (journey == null)
+            {
+                return HttpNotFound();
+            }
+
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID");
             ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName");
-            return View();
+            return View(journey);
         }
 
         // POST: Tickets/Create

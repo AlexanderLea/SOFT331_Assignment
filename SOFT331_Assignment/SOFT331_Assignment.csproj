@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201501241508345_remove journey from ticket.Designer.cs">
       <DependentUpon>201501241508345_remove journey from ticket.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501241923211_Readded journey to ticket.cs" />
+    <Compile Include="Migrations\201501241923211_Readded journey to ticket.Designer.cs">
+      <DependentUpon>201501241923211_Readded journey to ticket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookTicketCollection.cs" />
@@ -322,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501241508345_remove journey from ticket.resx">
       <DependentUpon>201501241508345_remove journey from ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501241923211_Readded journey to ticket.resx">
+      <DependentUpon>201501241923211_Readded journey to ticket.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

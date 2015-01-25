@@ -59,11 +59,18 @@ namespace SOFT331_Assignment.Models
             this.WheelchairBooked = false;
         }
 
-        public bool bookTickets(int _noTickets)
+        public bool bookTicket(bool _wheelchair)
         {
-            if ((NoBookedSeats + _noTickets) <= NoOnwardSeats)
+            DatabaseContext db = new DatabaseContext();
+
+            //TODO: replace with cout of journey.tickets
+            if ((NoBookedSeats + 1) <= NoOnwardSeats)
             {
-                NoBookedSeats += _noTickets;
+                NoBookedSeats --;
+                WheelchairBooked = _wheelchair;
+
+                db.SaveChanges();
+
                 return true;
             }
             else

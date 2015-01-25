@@ -34,6 +34,11 @@ namespace SOFT331_Assignment.Models
         public virtual Fare Fare { get; set; }
 
         [Required]
+        [DisplayName("Journey")]
+        public virtual int JourneyID { get; set; }
+        public virtual Journey Journey { get; set; }
+
+        [Required]
         [DisplayName("Gift Aid")]
         public bool GiftAid { get; set; }
 
@@ -53,9 +58,7 @@ namespace SOFT331_Assignment.Models
 
         public bool book()
         {
-            throw new NotImplementedException();
+            return Journey.bookTickets(Fare.TicketType.DepartureStation, Fare.TicketType.ArrivalStation, Wheelchair);
         }
-
-
     }
 }

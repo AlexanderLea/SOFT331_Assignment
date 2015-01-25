@@ -20,6 +20,12 @@ namespace SOFT331_Assignment
             //);
 
             routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Date",
                 url: "{controller}/{action}/{year}/{month}/{day}",
                 defaults: new { controller = "Home", action = "Index", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
@@ -37,11 +43,7 @@ namespace SOFT331_Assignment
             //    defaults: new { controller = "Timetable", action = "Create", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
             //);
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            
         }
     }
 }

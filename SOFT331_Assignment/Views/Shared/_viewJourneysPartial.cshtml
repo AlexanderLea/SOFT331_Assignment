@@ -3,14 +3,14 @@
 
 <!-- Assuming there are journeys, display train and journey name at top of page-->
 @{
-    if (Model.Count() > 0)
+    if (Model != null)
     {
-        string trainName = Model.FirstOrDefault().Train.ToString();
-        string journeyType = Model.FirstOrDefault().Event.Name;
+        string trainName = Model.Train.ToString();
+        string journeyType = Model.Event.Name;
 
         <table>
             <tr>
-                <td><strong>@Html.DisplayNameFor(model => .Name)</strong>:</td>
+                <td><strong>@Html.DisplayNameFor(model => model.Train.Name)</strong>:</td>
                 <td>@Html.DisplayFor(modelItem => trainName)</td>
             </tr>
             <tr>
@@ -37,37 +37,34 @@
         </th>
     </tr>
 
-    @foreach (var item in Model)
-    {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Event.Name)
+                @Html.DisplayFor(modelItem => Model.Event.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AdvanceTickets)
+                @Html.DisplayFor(modelItem => Model.AdvanceTickets)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstClassTickets)
+                @Html.DisplayFor(modelItem => Model.FirstClassTickets)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberOfSeats)
+                @Html.DisplayFor(modelItem => Model.NumberOfSeats)
             </td>
 
         </tr>
-        foreach (var stop in item.Stops)
-        {
-            <tr>
-                <td><strong>Stopping at:</strong></td>
-                <td colspan="3">
-                    @Html.DisplayFor(blah => stop.Station.StationName)
-                    &nbsp; <strong>Arriving:</strong>
-                    @Html.DisplayFor(blah => stop.ArrivalTime)
-                    &nbsp; <strong>Departing:</strong>
-                    @Html.DisplayFor(blah => stop.DepartureTime)
-                </td>
-            </tr>
-        }
 
+    @foreach (var stop in Model.Stops)
+    {
+        <tr>
+            <td>Hello</td>
+            <td colspan="3">
+                @Html.DisplayFor(s => stop.Station.StationName)
+                &nbsp; <strong>Arriving:</strong>
+                @Html.DisplayFor(s => stop.ArrivalTime)
+                &nbsp; <strong>Departing:</strong>
+                @Html.DisplayFor(s => stop.DepartureTime)
+            </td>
+        </tr>
     }
 
 </table>

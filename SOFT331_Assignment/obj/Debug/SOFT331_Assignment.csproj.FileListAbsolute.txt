@@ -218,9 +218,9 @@ C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\Mi
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.postchages.resources
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.removejourneyfromticket.resources
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.Readdedjourneytoticket.resources
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.dll
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.pdb
-C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csprojResolveAssemblyReference.cache
-C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.postchages.resources
-C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.csproj.GenerateResource.Cache
-C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.removejourneyfromticket.resources
