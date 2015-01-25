@@ -117,10 +117,8 @@ namespace SOFT331_Assignment.Controllers
         public ActionResult Create([Bind(Include = "TicketID,TravellerID,FareID,JourneyID,GiftAid,Wheelchair,Carer")] Ticket ticket)
         {
             if (ModelState.IsValid)
-            {
-                db.Tickets.Add(ticket);
-
-
+            {                
+                //All the includes counteract lazy loading
                 ticket.Fare = db.Fares
                     .Include(f => f.TicketType)
                     .Include(f => f.TicketType.ArrivalStation)
@@ -132,10 +130,14 @@ namespace SOFT331_Assignment.Controllers
                 ticket.Journey = db.Journies.Find(ticket.JourneyID);
                 ticket.Traveller = db.Travellers.Find(ticket.TravellerID);
 
-                ticket.book();
-
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ticket.book())
+                {
+                    db.Tickets.Add(ticket);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                //else
+                    //ERROR                
             }
 
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID", ticket.FareID);

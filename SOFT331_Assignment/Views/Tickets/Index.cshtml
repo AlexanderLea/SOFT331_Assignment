@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.Fare.FareID)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Journey.JourneyID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Traveller.FirstName)
         </th>
         <th>
@@ -33,6 +36,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Fare.FareID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Journey.JourneyID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Traveller.FirstName)

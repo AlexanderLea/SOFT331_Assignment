@@ -61,27 +61,6 @@ namespace SOFT331_Assignment.Models
             return x;
         }
 
-        //+ GetAvailableSeats(): int
-        //+ GetAvailableSeatsBetween(_depart: Station, _arrive: Station): int
-        //+ CanBookWheelchair(_depart: Station, _arrive: Station): bool
-        //+ BookTickets(_depart: Station, _arrive: Station, _noTickets: int:): bool
-
-        ///// <summary>
-        ///// Gets the maximum number of seats that can be booked for a complete journey
-        ///// </summary>
-        ///// <returns>maximum # seats for whole journey</returns>
-        //public int getAvailableSeats()
-        //{
-        //    int minSeats = this.NumberOfSeats;
-
-        //    foreach (Stop s in this.Stops)
-        //    {
-        //        minSeats = returnSmallestNumber(s.NoOnwardSeats - s.NoBookedSeats, minSeats);
-        //    }
-
-        //    return minSeats;
-        //}
-
         /// <summary>
         /// Gets the number of bookable seats between the departure and arrival stations
         /// specified
@@ -151,7 +130,12 @@ namespace SOFT331_Assignment.Models
             //Loop through stops
             foreach (Stop s in orderedStops)
             {
-                wheelchairAvailable = !s.WheelchairBooked;
+                //only need one station to not have wheelchair available
+                if (s.WheelchairBooked)
+                {
+                    wheelchairAvailable = false;
+                    break;
+                }
             }
 
             return wheelchairAvailable;
@@ -166,7 +150,6 @@ namespace SOFT331_Assignment.Models
         /// <returns>TRUE/FALSE representing transaction success/failure</returns>
         public bool bookTickets(Station _depart, Station _arrive, bool _wheelchair)
         {
-            DatabaseContext db = new DatabaseContext();
             bool success = false;
 
             if (this.AdvanceTickets - this.Tickets.Count > 0)
@@ -178,7 +161,6 @@ namespace SOFT331_Assignment.Models
                 foreach (Stop s in orderedStops)
                 {
                     success = s.bookTicket(_wheelchair);
-                    db.SaveChanges();
                 }
             }
             return success;

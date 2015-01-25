@@ -58,7 +58,20 @@ namespace SOFT331_Assignment.Models
 
         public bool book()
         {
-            return Journey.bookTickets(Fare.TicketType.DepartureStation, Fare.TicketType.ArrivalStation, Wheelchair);
+            bool success = false;
+
+            if(this.Wheelchair)
+            {
+                if (this.Journey.canBookWheelchair(this.Fare.TicketType.DepartureStation, this.Fare.TicketType.ArrivalStation))
+                {
+                    success = this.Journey.bookTickets(this.Fare.TicketType.DepartureStation, this.Fare.TicketType.ArrivalStation, this.Wheelchair);
+                }
+            }
+            else
+            {
+                success = this.Journey.bookTickets(this.Fare.TicketType.DepartureStation, this.Fare.TicketType.ArrivalStation, this.Wheelchair);
+            }
+            return success;
         }
     }
 }
