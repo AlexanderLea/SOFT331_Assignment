@@ -66,7 +66,7 @@ namespace SOFT331_Assignment.Controllers
             //    minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
             //    maxDate = minDate.AddDays(1);
             //}
-          
+
             ////return valid journies
             //List<Journey> journies = db.Journies.ToList(); //.Where(j => j.Stops. >= minDate && j.ArrivalTime < maxDate)
 
@@ -96,12 +96,17 @@ namespace SOFT331_Assignment.Controllers
 
             if (journey == null)
             {
-                return HttpNotFound();
+                ModelState.AddModelError("", String.Format("Item with id {0} was not found", id));
+                return View();
             }
+
+            ViewData["Journey"] = journey;
 
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID");
             ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName");
-            return View(journey);
+            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID");
+
+            return View();
         }
 
         // POST: Tickets/Create
@@ -109,11 +114,26 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TicketID,TravellerID,FareID,GiftAid,Wheelchair,Carer")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "TicketID,TravellerID,FareID,JourneyID,GiftAid,Wheelchair,Carer")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
                 db.Tickets.Add(ticket);
+
+
+                ticket.Fare = db.Fares
+                    .Include(f => f.TicketType)
+                    .Include(f => f.TicketType.ArrivalStation)
+                    .Include(f => f.TicketType.DepartureStation)
+                    .Include(f => f.FareType)
+                    .Where(f => f.FareID == ticket.FareID)
+                    .First();
+
+                ticket.Journey = db.Journies.Find(ticket.JourneyID);
+                ticket.Traveller = db.Travellers.Find(ticket.TravellerID);
+
+                ticket.book();
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

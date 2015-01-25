@@ -50,6 +50,7 @@ namespace SOFT331_Assignment.Models
         public Journey()
         {
             NumberOfSeats = 150;
+
             AdvanceTickets = 100;
         }
 
@@ -110,6 +111,7 @@ namespace SOFT331_Assignment.Models
 
         private List<Stop> getStopsBetween(Station _depart, Station _arrive)
         {
+            bool go = false;
             List<Stop> temp = new List<Stop>();
             //Order stops by arrival time (null first?), to ensure that we are checking in order
             List<Stop> orderedStops = this.Stops.OrderBy(s => s.ArrivalTime).ToList();
@@ -118,11 +120,14 @@ namespace SOFT331_Assignment.Models
             {
                 //if stop is departure (i.e. could be first stop, when arrival is null)
                 if (s.Station == _depart)
+                    go = true;
+
+                if (go)
+                    temp.Add(s);
+
+                if (s.Station == _arrive)
                 {
-                    while (s.Station != _arrive)
-                    {
-                        temp.Add(s);
-                    }
+                    go = false;
                     break;
                 }
             }
@@ -164,7 +169,7 @@ namespace SOFT331_Assignment.Models
             DatabaseContext db = new DatabaseContext();
             bool success = false;
 
-            if (this.AdvanceTickets - 1 > 0)
+            if (this.AdvanceTickets - this.Tickets.Count > 0)
             {
                 //Order stops by arrival time (null first?), to ensure that we are checking in order
                 List<Stop> orderedStops = getStopsBetween(_depart, _arrive);

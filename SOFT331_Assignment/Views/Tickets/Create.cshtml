@@ -1,27 +1,27 @@
-﻿@model SOFT331_Assignment.Models.Journey
+﻿@model SOFT331_Assignment.Models.Ticket
 
 @{
     ViewBag.Title = "Book  new Ticket";
 }
 
-<h2>Create</h2>
+<h2>Book Ticket</h2>
 
 <!--Get journey, and stops-->
-@{Html.RenderPartial("_viewJourneysPartial", Model); }
+@{Html.RenderPartial("_viewJourneysPartial", ViewData["Journey"]); }
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    @*<div class="form-horizontal">
-        <h4>Ticket</h4>
+    <div class="form-horizontal">
+        <h3>Ticket</h3>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(model => Model.Traveller.TravellerID, "TravellerID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TravellerID, "TravellerID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TravellerID", String.Empty)
-                @Html.ValidationMessageFor(model => Model.Traveller.TravellerID)
+                @Html.ValidationMessageFor(model => model.TravellerID)
             </div>
         </div>
 
@@ -30,6 +30,14 @@
             <div class="col-md-10">
                 @Html.DropDownList("FareID", String.Empty)
                 @Html.ValidationMessageFor(model => model.FareID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JourneyID, "JourneyID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("JourneyID", String.Empty)
+                @Html.ValidationMessageFor(model => model.JourneyID)
             </div>
         </div>
 
@@ -62,7 +70,7 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-    </div>*@
+    </div>
 }
 
 <div>

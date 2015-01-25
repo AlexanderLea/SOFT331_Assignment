@@ -66,7 +66,7 @@ namespace SOFT331_Assignment.Models
             //TODO: replace with cout of journey.tickets
             if ((NoBookedSeats + 1) <= NoOnwardSeats)
             {
-                NoBookedSeats --;
+                NoBookedSeats ++;
                 WheelchairBooked = _wheelchair;
 
                 db.SaveChanges();
