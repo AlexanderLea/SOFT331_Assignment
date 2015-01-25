@@ -75,7 +75,10 @@
 
 <div id="createTravller" style="display:none;">
     In order to gift aid a ticket, you must
-    @Html.ActionLink("create a traveller", "Create", "Travellers")
+    @Html.ActionLink("create a traveller", "Create", "Travellers").
+
+    Might be elegent here, to redirect to the create traveller page, storing the ticket as a session,
+    then, once traveller is created, redirect to a "make booking" page?
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
