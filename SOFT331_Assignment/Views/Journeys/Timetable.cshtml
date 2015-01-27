@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Timetable";
+}
+
+<h2>Timetable</h2>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="~/Scripts/SOFT331_scripts.js"></script>
+
+<input type="text" id="datepicker">
+
+<hr />
+@{Html.RenderPartial("_viewJourneysPartial", ViewData["Journeys"]); }
+
+
+
+

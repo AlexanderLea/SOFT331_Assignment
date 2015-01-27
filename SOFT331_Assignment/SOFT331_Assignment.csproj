@@ -264,7 +264,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_createTravellerPartial.cshtml" />
     <Content Include="Views\Shared\_viewFaresPartial.cshtml" />
-    <Content Include="Views\Shared\_viewJourneysPartial.cshtml" />
+    <Content Include="Views\Shared\_viewJourneyPartial.cshtml" />
     <Content Include="Views\Shared\_createJourneyPartial.cshtml" />
     <Content Include="Views\Shared\_editJourneysPartial.cshtml" />
     <Content Include="Views\Shared\_editJourneyPartial.cshtml" />
@@ -318,6 +318,8 @@
     <Content Include="Views\Tickets\Details.cshtml" />
     <Content Include="Views\Tickets\Edit.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
+    <Content Include="Views\Journeys\Timetable.cshtml" />
+    <Content Include="Views\Shared\_ViewJourneysPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,7 +28,7 @@ namespace SOFT331_Assignment
             routes.MapRoute(
                 name: "Date",
                 url: "{controller}/{action}/{year}/{month}/{day}",
-                defaults: new { controller = "Home", action = "Index", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
+                defaults: new { controller = "Journeys", action = "Timetable", year = UrlParameter.Optional, month = UrlParameter.Optional, day = UrlParameter.Optional }
             );
 
             //routes.MapRoute(

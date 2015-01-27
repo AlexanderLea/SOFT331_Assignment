@@ -15,6 +15,51 @@ namespace SOFT331_Assignment.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Journeys
+        public ActionResult Timetable(string year, string month, string day)
+        {
+            //Construct date objects for searching
+            DateTime minDate = DateTime.MinValue;
+            DateTime maxDate = DateTime.MaxValue;
+
+            if (year == null && month == null && day == null)
+            {
+                //show everything
+                minDate = DateTime.MinValue;
+            }
+            else if (month == null && day == null)
+            {
+                //show year 
+                minDate = new DateTime(Convert.ToInt32(year), 1, 1);
+                maxDate = minDate.AddYears(1);
+            }
+            else if (day == null)
+            {
+                //show year and month
+                minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), 1);
+                maxDate = minDate.AddMonths(1);
+            }
+            else
+            {
+                //show everything
+                minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                maxDate = minDate.AddDays(1);
+            }
+
+            //return valid journies
+            ViewData["Journeys"] = db.Journies.ToList();//.Where(j => j.Stops >= minDate && j.ArrivalTime < maxDate)
+            List<Fare> fares = db.Fares.ToList();
+
+            ViewBag.MinDate = minDate;
+            ViewBag.MaxDate = maxDate;
+            //if (journies.Count() < 1 || fares.Count() < 1)
+            //{
+            //    return new HttpStatusCodeResult(204);
+            //}
+
+            return View();
+        }
+
+        // GET: Journeys
         public ActionResult Index()
         {
             var journies = db.Journies.Include(j => j.Event).Include(j => j.Train);

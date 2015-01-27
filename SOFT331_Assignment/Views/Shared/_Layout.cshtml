@@ -22,16 +22,24 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Trains", "Index", "Trains")</li>
-                    <li>@Html.ActionLink("Fares", "Index", "Fares")</li>
-                    <li>@Html.ActionLink("Stations", "Index", "Stations")</li>
-                    <li>@Html.ActionLink("Journeys", "Index", "Journeys")</li>
+                    @if (User.IsInRole("ADMIN"))
+                    {
+                        <li>@Html.ActionLink("Trains", "Index", "Trains")</li>
+                        <li>@Html.ActionLink("Fares", "Index", "Fares")</li>
+                        <li>@Html.ActionLink("Stations", "Index", "Stations")</li>
+                        <li>@Html.ActionLink("Journeys", "Index", "Journeys")</li>
+                    } else
+                    {
+                        <li>@Html.ActionLink("Timetable", "Timetable", "Journeys", new { year = DateTime.Now.Year }, null)</li>
+                    }
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
+ 
         @RenderBody()
         <hr />
         <footer>
@@ -42,5 +50,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
