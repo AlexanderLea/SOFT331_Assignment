@@ -11,7 +11,7 @@
     <h3>Statistics</h3>
     <hr />
 
-    <table>
+    <table class="table">
         <tr>
             <th>@Html.DisplayNameFor(model => model.AdvanceTickets)</th>
             <th>@Html.DisplayNameFor(model => model.FirstClassTickets)</th>
@@ -28,6 +28,40 @@
             <td>@Html.DisplayFor(modelItem => modelItem.Tickets.Count)</td>
     </table>
     <br />
+    <table class="table-condensed">
+        <tr>
+            <th>Ticket Group</th>
+            <th>Number of tickets booked</th>
+        </tr>
+        @{
+            foreach (KeyValuePair<string, int> tg in (Dictionary<string, int>)ViewData["TicketGroups"])
+            {
+                <tr>
+                    <td>@Html.DisplayFor(t => tg.Key)</td>
+                    <td>@Html.DisplayFor(t => tg.Value)</td>
+                </tr>
+            }
+        }
+    </table>
+    <br />
+    <table class="table-condensed">
+        <tr>
+            <th>Ticket Group</th>
+            <th>Number of tickets booked</th>
+        </tr>
+        @{
+            foreach (KeyValuePair<string, int> ft in (Dictionary<string, int>)ViewData["FareTypes"])
+            {
+                <tr>
+                    <td>@Html.DisplayFor(t => ft.Key)</td>
+                    <td>@Html.DisplayFor(t => ft.Value)</td>
+                </tr>
+            }
+        }
+    </table>
+    <h3>Service Information</h3>
+    <hr />
+ 
     @{
         string trainName = Model.Train.ToString();
         string journeyType = Model.Event.Name;
@@ -43,9 +77,9 @@
 
         </table>
 
-        <h3>Calling at:</h3>
+        <h4>Calling at:</h4>
         <hr />
-        <table>
+        <table class="table-condensed">
             <tr>
                 <th>Station</th>
                 <th>Arrival Time</th>

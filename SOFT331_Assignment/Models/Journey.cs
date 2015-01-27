@@ -174,6 +174,54 @@ namespace SOFT331_Assignment.Models
             }
         }
 
+        public Dictionary<String, int> getNumberFareTypes()
+        {
+            Dictionary<string, int> dic = new Dictionary<string,int>();
+
+            //loop through tickets
+            foreach (Ticket t in this.Tickets)
+            {
+                //if fare type is in list
+                if (dic.ContainsKey(t.Fare.FareType.FareTypeDescription))
+                {
+                    //increment value
+                    dic[t.Fare.FareType.FareTypeDescription]++;
+                }
+                else
+                {
+                    //add fare type to dictionary
+                    dic.Add(t.Fare.FareType.FareTypeDescription, 1);
+                }
+                    
+            }
+
+            return dic;
+        }
+
+        public Dictionary<String, int> getNumberTicketGroups()
+        {
+            Dictionary<string, int> dic = new Dictionary<string, int>();
+
+            //loop through tickets
+            foreach (Ticket t in this.Tickets)
+            {
+                //if fare type is in list
+                if (dic.ContainsKey(t.Fare.TicketType.Name))
+                {
+                    //increment value
+                    dic[t.Fare.TicketType.Name]++;
+                }
+                else
+                {
+                    //add fare type to dictionary
+                    dic.Add(t.Fare.TicketType.Name, 1);
+                }
+
+            }
+
+            return dic;
+        }
+
         private int returnSmallestNumber(int _a, int _b)
         {
             if (_a < _b)

@@ -64,6 +64,7 @@ namespace SOFT331_Assignment.Controllers
         public ActionResult Index()
         {
             var journies = db.Journies.Include(j => j.Event).Include(j => j.Train);
+            
             return View(journies.ToList());
         }
 
@@ -82,9 +83,10 @@ namespace SOFT331_Assignment.Controllers
             }
 
             //work out types of fare
+            ViewData["FareTypes"] = journey.getNumberFareTypes();
 
             //work out ticket groups
-
+            ViewData["TicketGroups"] = journey.getNumberTicketGroups();
 
             return View(journey);
         }
