@@ -82,10 +82,6 @@ namespace SOFT331_Assignment.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    var currentUser = UserManager.FindByName(user.UserName);
-
-                    var roleresult = UserManager.AddToRole(currentUser.Id, "Clerk");
-
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -382,7 +378,8 @@ namespace SOFT331_Assignment.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 

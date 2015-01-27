@@ -15,6 +15,7 @@ namespace SOFT331_Assignment.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Trains
+        Authorization[]
         public ActionResult Index()
         {
             return View(db.Trains.ToList());
