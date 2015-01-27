@@ -43,10 +43,9 @@
             }
         }
     </table>
-    <br />
     <table class="table-condensed">
         <tr>
-            <th>Ticket Group</th>
+            <th>Fare Type</th>
             <th>Number of tickets booked</th>
         </tr>
         @{
@@ -59,9 +58,22 @@
             }
         }
     </table>
+    <table class="table-condensed">
+        <tr>
+            <th>Number of gift aid tickets</th>
+            <th>Total value of gift aid</th>
+        </tr>
+        @{
+            KeyValuePair<int, double> k = (KeyValuePair<int, double>)ViewData["GiftAidInfo"];
+            <tr>
+                <td>@Html.DisplayFor(t => k.Key)</td>
+                <td>@Html.DisplayFor(t => k.Value)</td>
+            </tr>
+        }
+    </table>
     <h3>Service Information</h3>
     <hr />
- 
+
     @{
         string trainName = Model.Train.ToString();
         string journeyType = Model.Event.Name;

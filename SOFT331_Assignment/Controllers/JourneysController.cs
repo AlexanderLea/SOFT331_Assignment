@@ -88,6 +88,8 @@ namespace SOFT331_Assignment.Controllers
             //work out ticket groups
             ViewData["TicketGroups"] = journey.getNumberTicketGroups();
 
+            ViewData["GiftAidInfo"] = journey.getGiftAidSummary();
+
             return View(journey);
         }
 

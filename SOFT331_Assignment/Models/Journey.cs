@@ -205,7 +205,7 @@ namespace SOFT331_Assignment.Models
             //loop through tickets
             foreach (Ticket t in this.Tickets)
             {
-                //if fare type is in list
+                //if ticket group is in list
                 if (dic.ContainsKey(t.Fare.TicketType.Name))
                 {
                     //increment value
@@ -213,7 +213,7 @@ namespace SOFT331_Assignment.Models
                 }
                 else
                 {
-                    //add fare type to dictionary
+                    //add ticket group to dictionary
                     dic.Add(t.Fare.TicketType.Name, 1);
                 }
 
@@ -222,6 +222,24 @@ namespace SOFT331_Assignment.Models
             return dic;
         }
 
+
+        public KeyValuePair<int, double> getGiftAidSummary()
+        {
+            double totalPrice = 0;
+            int numberTickets = 0;
+
+            //loop through tickets
+            foreach (Ticket t in this.Tickets)
+            {
+                if (t.GiftAid)
+                {
+                    totalPrice = totalPrice + t.Fare.GiftAidPrice;
+                    numberTickets++;
+                }
+            }
+            
+            return new KeyValuePair<int,double>(numberTickets,totalPrice);
+        }
         private int returnSmallestNumber(int _a, int _b)
         {
             if (_a < _b)
