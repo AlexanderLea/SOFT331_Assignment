@@ -64,7 +64,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/14/2015 15:06:15</publishTime>
     </File>
     <File Include="bin/SOFT331_Assignment.dll">
-      <publishTime>01/27/2015 13:18:47</publishTime>
+      <publishTime>01/27/2015 15:29:51</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/14/2015 15:06:15</publishTime>
@@ -382,7 +382,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/14/2015 15:06:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/27/2015 13:18:50</publishTime>
+      <publishTime>01/27/2015 15:29:51</publishTime>
     </File>
   </ItemGroup>
 </Project>

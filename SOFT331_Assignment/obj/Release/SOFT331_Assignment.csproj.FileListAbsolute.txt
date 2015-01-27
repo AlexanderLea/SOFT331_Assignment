@@ -57,3 +57,5 @@ C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Re
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Release\SOFT331_Assignment.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Release\SOFT331_Assignment.dll
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Release\SOFT331_Assignment.pdb
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Release\SOFT331_Assignment.Migrations.renametickettypetoticketgroup.resources
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Release\SOFT331_Assignment.Migrations.blah.resources
