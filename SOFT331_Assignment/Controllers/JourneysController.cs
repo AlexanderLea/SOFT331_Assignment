@@ -59,6 +59,7 @@ namespace SOFT331_Assignment.Controllers
             return View();
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // GET: Journeys
         public ActionResult Index()
         {
@@ -66,6 +67,7 @@ namespace SOFT331_Assignment.Controllers
             return View(journies.ToList());
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // GET: Journeys/Details/5
         public ActionResult Details(int? id)
         {
@@ -81,6 +83,7 @@ namespace SOFT331_Assignment.Controllers
             return View(journey);
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // GET: Journeys/Create
         public ActionResult Create()
         {
@@ -89,9 +92,11 @@ namespace SOFT331_Assignment.Controllers
             return View();
         }
 
+
         // POST: Journeys/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "CLERK, ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "JourneyID,TrainID,EventID,AdvanceTickets,FirstClassTickets,NumberOfSeats")] Journey journey)
@@ -109,6 +114,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Journeys/Edit/5
+        [Authorize(Roles = "CLERK, ADMIN")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -130,6 +136,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "CLERK, ADMIN")]
         public ActionResult Edit([Bind(Include = "JourneyID,TrainID,EventID,AdvanceTickets,FirstClassTickets,NumberOfSeats")] Journey journey)
         {
             if (ModelState.IsValid)
@@ -144,6 +151,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Journeys/Delete/5
+        [Authorize(Roles = "CLERK, ADMIN")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -161,6 +169,7 @@ namespace SOFT331_Assignment.Controllers
         // POST: Journeys/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "CLERK, ADMIN")]
         public ActionResult DeleteConfirmed(int id)
         {
             Journey journey = db.Journies.Find(id);

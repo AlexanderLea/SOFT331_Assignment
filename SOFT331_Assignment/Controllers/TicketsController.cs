@@ -15,12 +15,14 @@ namespace SOFT331_Assignment.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Tickets
+        [Authorize(Roles = "CLERK, ADMIN")]
         public ActionResult Index()
         {
             var tickets = db.Tickets.Include(t => t.Fare).Include(t => t.Traveller);
             return View(tickets.ToList());
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // GET: Tickets/Details/5
         public ActionResult Details(int? id)
         {
@@ -39,55 +41,6 @@ namespace SOFT331_Assignment.Controllers
         // GET: Tickets/Create/JourneyID
         public ActionResult Create(int? id)//string year, string month, string day)
         {
-            //Construct date objects for searching
-            //DateTime minDate = DateTime.MinValue;
-            //DateTime maxDate = DateTime.MaxValue;
-
-            //if (year == null && month == null && day == null)
-            //{
-            //    //show everything
-            //    minDate = DateTime.MinValue;
-            //} 
-            //else if (month == null && day == null)
-            //{ 
-            //    //show year 
-            //    minDate = new DateTime(Convert.ToInt32(year), 1, 1);
-            //    maxDate = minDate.AddYears(1);
-            //}
-            //else if (day == null)
-            //{
-            //    //show year and month
-            //    minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), 1);
-            //    maxDate = minDate.AddMonths(1);
-            //}
-            //else
-            //{
-            //    //show everything
-            //    minDate = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
-            //    maxDate = minDate.AddDays(1);
-            //}
-
-            ////return valid journies
-            //List<Journey> journies = db.Journies.ToList(); //.Where(j => j.Stops. >= minDate && j.ArrivalTime < maxDate)
-
-            //List<Fare> fares = db.Fares.ToList();
-
-            //if (journies.Count() < 1 || fares.Count() < 1)
-            //{
-            //    return new HttpStatusCodeResult(204);
-            //}
-
-            ////create collection for combined view
-            //var model = new BookTicketCollection
-            //{
-            //    Fares = fares,
-            //    Traveller = new Traveller(),
-            //    Journeys = journies
-            //};
-
-            //ViewBag.MinDate = minDate;
-            //ViewBag.MaxDate = maxDate;
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -145,6 +98,7 @@ namespace SOFT331_Assignment.Controllers
             return View(ticket);
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // GET: Tickets/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -162,6 +116,7 @@ namespace SOFT331_Assignment.Controllers
             return View(ticket);
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // POST: Tickets/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -180,6 +135,7 @@ namespace SOFT331_Assignment.Controllers
             return View(ticket);
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // GET: Tickets/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -195,6 +151,7 @@ namespace SOFT331_Assignment.Controllers
             return View(ticket);
         }
 
+        [Authorize(Roles = "CLERK, ADMIN")]
         // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
