@@ -1,56 +1,77 @@
 ﻿@model SOFT331_Assignment.Models.Journey
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Journey Details";
 }
 
-<h2>Details</h2>
+<h2>Journey Details</h2>
 
 <div>
-    <h4>Journey</h4>
+
+    <h3>Statistics</h3>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Event.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Event.Name)
-        </dd>
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.AdvanceTickets)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstClassTickets)</th>
+            <th>@Html.DisplayNameFor(model => model.NumberOfSeats)</th>
+            <th>Total Tickets Booked</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(modelItem => modelItem.AdvanceTickets)</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Train.Name)
-        </dt>
+            <td>@Html.DisplayFor(modelItem => modelItem.FirstClassTickets)</td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Train.Name)
-        </dd>
+            <td>@Html.DisplayFor(modelItem => modelItem.NumberOfSeats)</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AdvanceTickets)
-        </dt>
+            <td>@Html.DisplayFor(modelItem => modelItem.Tickets.Count)</td>
+    </table>
+    <br />
+    @{
+        string trainName = Model.Train.ToString();
+        string journeyType = Model.Event.Name;
+        <table>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.Train.Name)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => trainName)</td>
+            </tr>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.Event.Name)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => journeyType)</td>
+            </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.AdvanceTickets)
-        </dd>
+        </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstClassTickets)
-        </dt>
+        <h3>Calling at:</h3>
+        <hr />
+        <table>
+            <tr>
+                <th>Station</th>
+                <th>Arrival Time</th>
+                <th>Departure Time</th>
+                <th>Tickets Booked</th>
+            </tr>
+            @foreach (var stop in Model.Stops)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(s => stop.Station.StationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => stop.ArrivalTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => stop.DepartureTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => stop.NoBookedSeats)
+                    </td>
+                </tr>
+            }
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstClassTickets)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfSeats)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfSeats)
-        </dd>
-
-    </dl>
+        </table>
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |

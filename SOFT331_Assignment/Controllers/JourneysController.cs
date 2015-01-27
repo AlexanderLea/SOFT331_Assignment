@@ -58,9 +58,9 @@ namespace SOFT331_Assignment.Controllers
 
             return View();
         }
-
-        [Authorize(Roles = "CLERK, ADMIN")]
+        
         // GET: Journeys
+        [Authorize(Roles = "CLERK, ADMIN")]
         public ActionResult Index()
         {
             var journies = db.Journies.Include(j => j.Event).Include(j => j.Train);
@@ -80,6 +80,12 @@ namespace SOFT331_Assignment.Controllers
             {
                 return HttpNotFound();
             }
+
+            //work out types of fare
+
+            //work out ticket groups
+
+
             return View(journey);
         }
 
