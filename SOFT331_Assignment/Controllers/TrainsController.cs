@@ -10,12 +10,12 @@ using SOFT331_Assignment.Models;
 
 namespace SOFT331_Assignment.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class TrainsController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Trains
-        Authorization[]
         public ActionResult Index()
         {
             return View(db.Trains.ToList());

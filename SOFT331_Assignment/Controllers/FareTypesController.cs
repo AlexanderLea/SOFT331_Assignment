@@ -10,6 +10,7 @@ using SOFT331_Assignment.Models;
 
 namespace SOFT331_Assignment.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class FareTypesController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
