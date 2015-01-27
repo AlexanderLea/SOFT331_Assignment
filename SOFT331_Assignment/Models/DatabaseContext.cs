@@ -16,19 +16,19 @@ namespace SOFT331_Assignment.Models
         public DbSet<Station> Stations { get; set; }
         public DbSet<Stop> Stops { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
-        public DbSet<TicketType> TicketTypes { get; set; }
+        public DbSet<TicketGroup> TicketTypes { get; set; }
         public DbSet<Train> Trains { get; set; }
         public DbSet<Traveller> Travellers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TicketType>()
+            modelBuilder.Entity<TicketGroup>()
                     .HasRequired(m => m.ArrivalStation)
                     .WithMany(t => t.arrivalTicketTypes)
                     .HasForeignKey(m => m.ArrivalStationID)
                     .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<TicketType>()
+            modelBuilder.Entity<TicketGroup>()
                     .HasRequired(m => m.DepartureStation)
                     .WithMany(t => t.departureTicketTypes)
                     .HasForeignKey(m => m.DepartureStationID)

@@ -10,7 +10,25 @@ namespace SOFT331_Assignment.Models
     {
 
         protected override void Seed(DatabaseContext context)
-        {
+        {           
+            //var stations = new List<Station>{
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //    new Station { StationName="", StationDescription="", MainlineStationNear=false, RefreshmentsAvailable=false, RequestStop=false, ToiletAvailable=false, WheelchairAccessible=false, CarPark=false }
+            //};
+            //stations.ForEach(s => context.Stations.Add(s));
+            //context.SaveChanges();
+
+            //var ticketGroups = new List<TicketGroup> {
+            //    new TicketGroup { }
+            //};
+
             //var fareTypes = new List<FareType> {           
             //    new FareType { FareTypeDescription = "Adult"},
             //    new FareType { FareTypeDescription = "Over 60"},

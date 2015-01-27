@@ -1,0 +1,58 @@
+﻿@model SOFT331_Assignment.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fare.FareID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fare.FareID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Traveller.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Traveller.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftAid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftAid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wheelchair)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wheelchair)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TicketID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,66 @@
+﻿@model SOFT331_Assignment.Models.Journey
+
+
+<!-- Assuming there are journeys, display train and journey name at top of page-->
+@{
+    if (Model != null)
+    {
+        string trainName = Model.Train.ToString();
+        string journeyType = Model.Event.Name;
+
+        <table>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.Train.Name)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => trainName)</td>
+            </tr>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.Event.Name)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => journeyType)</td>
+            </tr>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.AdvanceTickets)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => Model.AdvanceTickets)</td>
+            </tr>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.FirstClassTickets)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => Model.FirstClassTickets)</td>
+            </tr>
+            <tr>
+                <td><strong>@Html.DisplayNameFor(model => model.NumberOfSeats)</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => Model.NumberOfSeats)</td>
+            </tr>
+            <tr>
+                <td><strong>Tickets Booked</strong>:</td>
+                <td>@Html.DisplayFor(modelItem => Model.Tickets.Count)</td>
+            </tr>
+        </table>
+    }
+}
+<h3>Calling at:</h3>
+<hr />
+<table>
+    <tr>
+        <th>Station</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Tickets Booked</th>
+    </tr>
+    @foreach (var stop in Model.Stops)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(s => stop.Station.StationName)
+            </td>
+            <td>
+                @Html.DisplayFor(s => stop.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(s => stop.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(s => stop.NoBookedSeats)
+            </td>
+        </tr>
+    }
+
+</table>

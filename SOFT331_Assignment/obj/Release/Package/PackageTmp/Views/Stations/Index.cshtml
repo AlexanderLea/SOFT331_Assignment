@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SOFT331_Assignment.Models.Station>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StationDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestStop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WheelchairAccessible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarPark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RefreshmentsAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToiletAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainlineStationNear)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StationDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestStop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WheelchairAccessible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarPark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RefreshmentsAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToiletAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainlineStationNear)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StationID })
+        </td>
+    </tr>
+}
+
+</table>

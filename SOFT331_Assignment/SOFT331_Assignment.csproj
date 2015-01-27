@@ -187,6 +187,10 @@
     <Compile Include="Migrations\201501241923211_Readded journey to ticket.Designer.cs">
       <DependentUpon>201501241923211_Readded journey to ticket.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501271328458_rename tickettype to ticketgroup.cs" />
+    <Compile Include="Migrations\201501271328458_rename tickettype to ticketgroup.Designer.cs">
+      <DependentUpon>201501271328458_rename tickettype to ticketgroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookTicketCollection.cs" />
@@ -198,7 +202,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Journey.cs" />
     <Compile Include="Models\Station.cs" />
-    <Compile Include="Models\TicketType.cs" />
+    <Compile Include="Models\TicketGroup.cs" />
     <Compile Include="Models\Stop.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\Train.cs" />
@@ -216,6 +220,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ClassDiagram1.cd" />
+    <None Include="Properties\PublishProfiles\SOFT331 xserve.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -329,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501241923211_Readded journey to ticket.resx">
       <DependentUpon>201501241923211_Readded journey to ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501271328458_rename tickettype to ticketgroup.resx">
+      <DependentUpon>201501271328458_rename tickettype to ticketgroup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

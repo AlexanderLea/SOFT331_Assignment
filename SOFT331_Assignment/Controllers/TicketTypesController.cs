@@ -28,7 +28,7 @@ namespace SOFT331_Assignment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TicketType ticketType = db.TicketTypes.Find(id);
+            TicketGroup ticketType = db.TicketTypes.Find(id);
             if (ticketType == null)
             {
                 return HttpNotFound();
@@ -49,7 +49,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TicketTypeID,Name,Description,DepartureStationID,ArrivalStationID")] TicketType ticketType)
+        public ActionResult Create([Bind(Include = "TicketTypeID,Name,Description,DepartureStationID,ArrivalStationID")] TicketGroup ticketType)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace SOFT331_Assignment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TicketType ticketType = db.TicketTypes.Find(id);
+            TicketGroup ticketType = db.TicketTypes.Find(id);
             if (ticketType == null)
             {
                 return HttpNotFound();
@@ -85,7 +85,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TicketTypeID,Name,Description,DepartureStationID,ArrivalStationID")] TicketType ticketType)
+        public ActionResult Edit([Bind(Include = "TicketTypeID,Name,Description,DepartureStationID,ArrivalStationID")] TicketGroup ticketType)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +105,7 @@ namespace SOFT331_Assignment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TicketType ticketType = db.TicketTypes.Find(id);
+            TicketGroup ticketType = db.TicketTypes.Find(id);
             if (ticketType == null)
             {
                 return HttpNotFound();
@@ -118,7 +118,7 @@ namespace SOFT331_Assignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TicketType ticketType = db.TicketTypes.Find(id);
+            TicketGroup ticketType = db.TicketTypes.Find(id);
             db.TicketTypes.Remove(ticketType);
             db.SaveChanges();
             return RedirectToAction("Index");

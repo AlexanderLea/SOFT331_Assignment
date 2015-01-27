@@ -28,7 +28,7 @@ namespace SOFT331_Assignment.Models
 
         [ForeignKey("TicketType")]
         public virtual int TicketTypeID { get; set; }
-        public virtual TicketType TicketType { get; set; }
+        public virtual TicketGroup TicketType { get; set; }
 
         [DisplayName("Basic Price")]
         [Required(ErrorMessage = "Fare must have a basic price")]

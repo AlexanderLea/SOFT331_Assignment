@@ -1,0 +1,101 @@
+﻿@model SOFT331_Assignment.Models.Ticket
+
+@{
+    ViewBag.Title = "Book  new Ticket";
+}
+
+<h2>Book Ticket</h2>
+
+<!--Get journey, and stops-->
+@{Html.RenderPartial("_viewJourneysPartial", ViewData["Journey"]); }
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>Ticket</h3>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.TravellerID, "TravellerID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TravellerID", String.Empty)
+                @Html.ValidationMessageFor(model => model.TravellerID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FareID, "FareID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FareID", String.Empty)
+                @Html.ValidationMessageFor(model => model.FareID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JourneyID, "JourneyID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("JourneyID", String.Empty)
+                @Html.ValidationMessageFor(model => model.JourneyID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiftAid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.GiftAid)
+                @Html.ValidationMessageFor(model => model.GiftAid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Wheelchair, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Wheelchair)
+                @Html.ValidationMessageFor(model => model.Wheelchair)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Carer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Carer)
+                @Html.ValidationMessageFor(model => model.Carer)
+            </div>
+        </div>
+
+        <div id="submitButton" class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div id="createTravller" style="display:none;">
+    In order to gift aid a ticket, you must
+    @Html.ActionLink("create a traveller", "Create", "Travellers").
+
+    Might be elegent here, to redirect to the create traveller page, storing the ticket as a session,
+    then, once traveller is created, redirect to a "make booking" page?
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $("#GiftAid").click(function () {
+        if (this.checked)
+        {
+            $("#createTravller").show();
+            $("#submitButton").hide();
+        }
+
+        if (!this.checked)
+        {
+            $("#createTravller").hide();
+            $("#submitButton").show();
+        }
+    });
+
+</script>

@@ -1,0 +1,66 @@
+﻿@model SOFT331_Assignment.Models.Stop
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stop</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Journey.JourneyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Journey.JourneyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Station.StationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Station.StationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOnwardSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOnwardSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WheelchairBooked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WheelchairBooked)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StopID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

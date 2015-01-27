@@ -1,0 +1,64 @@
+﻿@model SOFT331_Assignment.Models.Ticket
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fare.FareID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fare.FareID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Traveller.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Traveller.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftAid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftAid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wheelchair)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wheelchair)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

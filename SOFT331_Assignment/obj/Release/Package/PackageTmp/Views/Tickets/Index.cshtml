@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SOFT331_Assignment.Models.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fare.FareID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journey.JourneyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Traveller.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiftAid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wheelchair)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carer)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fare.FareID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Journey.JourneyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Traveller.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiftAid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wheelchair)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carer)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TicketID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TicketID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TicketID })
+        </td>
+    </tr>
+}
+
+</table>
