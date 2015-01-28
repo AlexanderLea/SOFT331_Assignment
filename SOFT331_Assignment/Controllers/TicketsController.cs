@@ -141,17 +141,18 @@ namespace SOFT331_Assignment.Controllers
                     .Where(s => s.JourneyID == ticket.JourneyID)
                     .Include(s => s.Station)
                     .ToList();
-
-                if (ticket.GiftAid)
+                if (ticket.Journey.getJourneyDate() > DateTime.Today)
                 {
-                    //redirect to create traveller
-                    TempData["Ticket"] = ticket;
-                    return RedirectToAction("Create", "Travellers");
-                }
-                else
-                {
-                    //if (ticket.book())
-                    //{
+                    if (ticket.GiftAid)
+                    {
+                        //redirect to create traveller
+                        TempData["Ticket"] = ticket;
+                        return RedirectToAction("Create", "Travellers");
+                    }
+                    else
+                    {
+                        //if (ticket.book())
+                        //{
                         //Hack to book tickets without travellers
                         //ticket.TravellerID = 1;
 
@@ -160,9 +161,14 @@ namespace SOFT331_Assignment.Controllers
                         //db.Tickets.Add(ticket);
                         //db.SaveChanges();
                         //return RedirectToAction("Index", "Journeys", new { year = DateTime.Now.Year } );
-                  //  }
+                        //  }
+                    }
                 }
-
+                else
+                {
+                    ModelState.AddModelError("", String.Format("You cannot book a ticket for today!"));
+                    return View();
+                }
                 //else
                 //ERROR                
             }

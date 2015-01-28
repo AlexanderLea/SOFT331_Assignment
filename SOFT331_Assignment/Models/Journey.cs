@@ -234,7 +234,7 @@ namespace SOFT331_Assignment.Models
 
         public DateTime getJourneyDate()
         {
-            return (DateTime)this.Stops.Min(s => s.DepartureTime);
+            return ((DateTime)this.Stops.Min(s => s.DepartureTime)).Date;
         }
 
         private int returnSmallestNumber(int _a, int _b)

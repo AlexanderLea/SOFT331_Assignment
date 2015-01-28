@@ -3,16 +3,20 @@
 <!-- Assuming there are journeys, display train and journey name at top of page-->
 @foreach (var j in Model)
 {
+
     <div class="row">
         <div class="col-md-8">
             @{Html.RenderPartial("_viewJourneyPartial", j);
             }
         </div>
 
-        <div class="col-md-2">
-            @Html.ActionLink("Book this journey", "Create", "Tickets", new { id = j.JourneyID }, null)
-        </div>
+        @{ DateTime x = j.getJourneyDate();
+         if (x > DateTime.Today)
+         {
+            <div class="col-md-2">
+                @Html.ActionLink("Book this journey", "Create", "Tickets", new { id = j.JourneyID }, null)
+            </div>
+         }
+        }
     </div>
 }
-
-
