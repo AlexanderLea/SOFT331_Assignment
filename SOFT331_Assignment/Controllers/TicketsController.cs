@@ -62,12 +62,64 @@ namespace SOFT331_Assignment.Controllers
             return View();
         }
 
+        // GET: Tickets
+        public ActionResult Confirm()
+        {
+            ViewData["Ticket"] = TempData["Ticket"];
+            ViewData["Traveller"] = TempData["Traveller"];
+            TempData.Keep();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Confirm([Bind()] Object xyz)
+        {
+            if (ModelState.IsValid)
+            {
+                //get traveller
+                Traveller t = (Traveller)TempData["Traveller"];
+
+                //chceck traveller exists
+                if (t != null)
+                {
+                    //get ticket
+                    Ticket ti = (Ticket)TempData["Ticket"];
+
+                    //check ticket exists
+                    if (ti != null)
+                    {                        //save traveller
+                        int tID = t.save();
+
+                        //Is Traveller ID null???
+                        if (tID > 0)
+                        {
+                            ti.TravellerID = tID;
+
+                            //save ticket
+                            if (ti.book())
+                            {
+                                ti.Journey = null;
+                                ti.Fare = null;
+
+                                db.Tickets.Add(ti);
+                                db.SaveChanges();
+                                return RedirectToAction("Index", new { whoop = "whoop" });
+                            }
+                        }
+                    }
+                }
+            }
+
+            return View();
+        }
+
         // POST: Tickets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TicketID,TravellerID,FareID,JourneyID,GiftAid,Wheelchair,Carer")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "TicketID,FareID,JourneyID,GiftAid,Wheelchair,Carer")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -80,22 +132,40 @@ namespace SOFT331_Assignment.Controllers
                     .Where(f => f.FareID == ticket.FareID)
                     .First();
 
-                ticket.Journey = db.Journies.Find(ticket.JourneyID);
+                ticket.Journey = db.Journies
+                    .Include(t => t.Tickets)
+                    .Include(t => t.Stops)
+                    .Include(t => t.Event)
+                    .FirstOrDefault();
+
+                ticket.Journey.Stops = db.Stops
+                    .Where(s => s.JourneyID == ticket.JourneyID)
+                    .Include(s => s.Station)
+                    .ToList();
+
                 ticket.Traveller = db.Travellers.Find(ticket.TravellerID);
 
-                if (ticket.book())
+                if (ticket.GiftAid)
                 {
-                    db.Tickets.Add(ticket);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    //redirect to create traveller
+                    TempData["Ticket"] = ticket;
+                    return RedirectToAction("Create", "Travellers");
                 }
+                else
+                {
+                    if (ticket.book())
+                    {
+                        db.Tickets.Add(ticket);
+                        db.SaveChanges();
+                        return RedirectToAction("Index", "Journeys", new { year = DateTime.Now.Year } );
+                    }
+                }
+
                 //else
                 //ERROR                
             }
-
-            ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID", ticket.FareID);
-            ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName", ticket.TravellerID);
-            return View(ticket);
+            ModelState.AddModelError("", String.Format("You have not filled in all the fields!"));
+            return View();
         }
 
         [Authorize(Roles = "CLERK, ADMIN")]

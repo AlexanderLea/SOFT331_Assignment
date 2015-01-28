@@ -83,10 +83,10 @@ namespace SOFT331_Assignment.Controllers
             }
 
             //work out types of fare
-            ViewData["FareTypes"] = journey.getNumberFareTypes();
+            ViewData["FareTypes"] = journey.getFareTypesSummary();
 
             //work out ticket groups
-            ViewData["TicketGroups"] = journey.getNumberTicketGroups();
+            ViewData["TicketGroups"] = journey.getTicketGroupsSummary();
 
             ViewData["GiftAidInfo"] = journey.getGiftAidSummary();
 

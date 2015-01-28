@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201501271528526_blah.Designer.cs">
       <DependentUpon>201501271528526_blah.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501281728084_changed-traveller-required.cs" />
+    <Compile Include="Migrations\201501281728084_changed-traveller-required.Designer.cs">
+      <DependentUpon>201501281728084_changed-traveller-required.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookTicketCollection.cs" />
@@ -323,6 +327,7 @@
     <Content Include="Views\Tickets\Index.cshtml" />
     <Content Include="Views\Journeys\Timetable.cshtml" />
     <Content Include="Views\Shared\_ViewJourneysPartial.cshtml" />
+    <Content Include="Views\Tickets\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -349,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501271528526_blah.resx">
       <DependentUpon>201501271528526_blah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501281728084_changed-traveller-required.resx">
+      <DependentUpon>201501281728084_changed-traveller-required.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -62,6 +62,9 @@ namespace SOFT331_Assignment.Models
 
         public bool bookTicket(bool _wheelchair)
         {
+            this.Station = null;
+            this.Journey = null;
+            
             DatabaseContext db = new DatabaseContext();
 
             //TODO: replace with cout of journey.tickets

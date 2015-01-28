@@ -38,6 +38,8 @@ namespace SOFT331_Assignment.Controllers
         // GET: Travellers/Create
         public ActionResult Create()
         {
+            ViewData["Ticket"] = TempData["Ticket"];
+            TempData.Keep();
             return View();
         }
 
@@ -50,9 +52,19 @@ namespace SOFT331_Assignment.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Travellers.Add(traveller);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (TempData["Ticket"] != null)
+                {
+                    //TempData["Ticket"] = TempData["Ticket"];
+                    TempData["Traveller"] = traveller;
+                    TempData.Keep();
+                    return RedirectToAction("Confirm", "Tickets");
+                }
+                else
+                {
+                    db.Travellers.Add(traveller);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(traveller);

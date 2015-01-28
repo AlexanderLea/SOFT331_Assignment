@@ -33,5 +33,15 @@ namespace SOFT331_Assignment.Models
         {
 
         }
+
+        public int save()
+        {
+            DatabaseContext db = new DatabaseContext();
+
+            db.Travellers.Add(this);
+            db.SaveChanges();
+            
+            return this.TravellerID;
+        }
     }
 }

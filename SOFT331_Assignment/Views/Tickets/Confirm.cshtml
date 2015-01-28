@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Confirm Booking";
+}
+
+<h2>Confirm Booking</h2>
+<hr />
+<h3>Ticket Info</h3>
+
+<h3>Traveller Info</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Confirm Booking" class="btn btn-default" />
+        </div>
+    </div>
+}

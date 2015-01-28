@@ -174,7 +174,7 @@ namespace SOFT331_Assignment.Models
             }
         }
 
-        public Dictionary<String, int> getNumberFareTypes()
+        public Dictionary<String, int> getFareTypesSummary()
         {
             Dictionary<string, int> dic = new Dictionary<string,int>();
 
@@ -198,7 +198,7 @@ namespace SOFT331_Assignment.Models
             return dic;
         }
 
-        public Dictionary<String, int> getNumberTicketGroups()
+        public Dictionary<String, int> getTicketGroupsSummary()
         {
             Dictionary<string, int> dic = new Dictionary<string, int>();
 
@@ -222,7 +222,6 @@ namespace SOFT331_Assignment.Models
             return dic;
         }
 
-
         public KeyValuePair<int, double> getGiftAidSummary()
         {
             double totalPrice = 0;
@@ -240,6 +239,12 @@ namespace SOFT331_Assignment.Models
             
             return new KeyValuePair<int,double>(numberTickets,totalPrice);
         }
+
+        public DateTime getJourneyDate()
+        {
+            return (DateTime)this.Stops.Min(s => s.DepartureTime);
+        }
+
         private int returnSmallestNumber(int _a, int _b)
         {
             if (_a < _b)
