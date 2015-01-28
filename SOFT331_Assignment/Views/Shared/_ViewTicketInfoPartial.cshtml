@@ -1,7 +1,7 @@
 ﻿@model SOFT331_Assignment.Models.Ticket
 
 <table class="table-condensed">
-    
+
     <tr>
         <th>@Html.DisplayNameFor(model => model.Fare.TicketType.Name)</th>
         <th>@Html.DisplayNameFor(model => model.Fare.FareType.FareTypeDescription)</th>
@@ -10,6 +10,7 @@
         <th>@Html.DisplayNameFor(model => model.Wheelchair)</th>
         <th>@Html.DisplayNameFor(model => model.Carer)</th>
         <th>@Html.DisplayNameFor(model => model.GiftAid)</th>
+        <th>Price</th>
     </tr>
     <tr>
         <td>@Html.DisplayFor(model => model.Fare.TicketType.Name)</td>
@@ -19,8 +20,17 @@
         <td>@Html.DisplayFor(model => model.Wheelchair)</td>
         <td>@Html.DisplayFor(model => model.Carer)</td>
         <td>@Html.DisplayFor(model => model.GiftAid)</td>
+        @{ if (Model.GiftAid)
+         {
+            <th>@Html.DisplayFor(model => model.Fare.GiftAidPrice)</th>
+         }
+         else
+         {
+            <th>@Html.DisplayFor(model => model.Fare.BasicPrice)</th>
+         }
+        }
     </tr>
 
-    
+
 
 </table>

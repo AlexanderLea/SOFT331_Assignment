@@ -6,9 +6,10 @@
 
 <h2>Book Ticket</h2>
 
-<!--Get journey, and stops-->
-@{Html.RenderPartial("_viewJourneyPartial", ViewData["Journey"]); }
-
+<div class="row">
+    <!--Get journey, and stops-->
+    @{Html.RenderPartial("_viewJourneyPartial", ViewData["Journey"]); }
+</div>
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
