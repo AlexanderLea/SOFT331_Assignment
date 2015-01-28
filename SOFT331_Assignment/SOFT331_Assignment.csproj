@@ -320,6 +320,8 @@
     <Content Include="Views\Journeys\Timetable.cshtml" />
     <Content Include="Views\Shared\_ViewJourneysPartial.cshtml" />
     <Content Include="Views\Tickets\Confirm.cshtml" />
+    <Content Include="Views\Shared\_ViewTicketInfoPartial.cshtml" />
+    <Content Include="Views\Shared\_ViewTravellerInfoPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

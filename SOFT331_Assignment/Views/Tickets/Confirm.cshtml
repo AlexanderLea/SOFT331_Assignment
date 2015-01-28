@@ -4,17 +4,33 @@
 
 <h2>Confirm Booking</h2>
 <hr />
-<h3>Ticket Info</h3>
 
-<h3>Traveller Info</h3>
+@{ if (TempData["Ticket"] != null)
+ {
+    <h3>Ticket Info</h3>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+     Html.RenderPartial("_ViewTicketInfoPartial", ViewData["Ticket"]);
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Confirm Booking" class="btn btn-default" />
-        </div>
-    </div>
+     if (TempData["Traveller"] != null)
+     {
+        <h3>Traveller Info</h3>
+
+         Html.RenderPartial("_ViewTravellerInfoPartial", ViewData["Traveller"]);
+     }
+
+
+     using (Html.BeginForm())
+     {
+        @Html.AntiForgeryToken()
+        <br />
+        <p>Clicking "confirm booking" confirms your booking, and payment for the booking.</p>
+        <br />
+        <input type="submit" value="Confirm Booking" class="btn btn-default" />
+
+     }
+ }
+ else
+ {
+    <h3>You have not selected any tickets! - please @Html.ActionLink("view timetables", "Index", "Journeys", new { year = DateTime.Now.Year })</h3>
+ }
 }
