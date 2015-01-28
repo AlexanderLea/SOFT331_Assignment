@@ -74,8 +74,6 @@ namespace SOFT331_Assignment.Models
                 this.WheelchairBooked = _wheelchair;
 
                // db.Entry(this).State = EntityState.Modified;
-                db.SaveChanges();
-
                 return true;
             }
             else

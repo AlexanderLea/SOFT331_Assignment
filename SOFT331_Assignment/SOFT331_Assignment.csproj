@@ -199,6 +199,14 @@
     <Compile Include="Migrations\201501281728084_changed-traveller-required.Designer.cs">
       <DependentUpon>201501281728084_changed-traveller-required.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501281742029_f.cs" />
+    <Compile Include="Migrations\201501281742029_f.Designer.cs">
+      <DependentUpon>201501281742029_f.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501281828550_htdf.cs" />
+    <Compile Include="Migrations\201501281828550_htdf.Designer.cs">
+      <DependentUpon>201501281828550_htdf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookTicketCollection.cs" />
@@ -219,6 +227,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DefaultConnection.mdf" />
+    <Content Include="App_Data\DefaultConnection_log.ldf">
+      <DependentUpon>DefaultConnection.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -329,9 +341,7 @@
     <Content Include="Views\Shared\_ViewJourneysPartial.cshtml" />
     <Content Include="Views\Tickets\Confirm.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -357,6 +367,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501281728084_changed-traveller-required.resx">
       <DependentUpon>201501281728084_changed-traveller-required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501281742029_f.resx">
+      <DependentUpon>201501281742029_f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501281828550_htdf.resx">
+      <DependentUpon>201501281828550_htdf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

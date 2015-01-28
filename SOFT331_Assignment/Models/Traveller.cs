@@ -21,13 +21,12 @@ namespace SOFT331_Assignment.Models
 
         //[Required(ErrorMessage = "You must enter the first line of your address")]
         [DisplayName("Address Line 1")]
+
         public string Address1 { get; set; }
  
         //[Required(ErrorMessage = "You must enter a postcode")]
         [DisplayName("Postcode")]
         public string PostCode { get; set; }
-
-        public virtual ICollection<Ticket> Tickets { get; set; }
 
         public Traveller()
         {

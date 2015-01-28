@@ -228,3 +228,4 @@ C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\De
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.renametickettypetoticketgroup.resources
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.blah.resources
 C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.changedtravellerrequired.resources
+C:\Users\Alexander\Documents\GitHub\SOFT331_Assignment\SOFT331_Assignment\obj\Debug\SOFT331_Assignment.Migrations.f.resources

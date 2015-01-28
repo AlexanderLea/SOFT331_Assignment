@@ -24,12 +24,12 @@ namespace SOFT331_Assignment.Models
         public int TicketID { get; set; }
 
         [ForeignKey("Traveller")]
-        public virtual int? TravellerID { get; set; }
+        public int? TravellerID { get; set; }
         public virtual Traveller Traveller { get; set; }
 
         [Required]
         [DisplayName("Fare")]
-        public virtual int FareID { get; set; }
+        public int FareID { get; set; }
         public virtual Fare Fare { get; set; }
 
         [Required]
