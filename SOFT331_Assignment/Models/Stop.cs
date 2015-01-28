@@ -66,14 +66,16 @@ namespace SOFT331_Assignment.Models
             this.Journey = null;
             
             DatabaseContext db = new DatabaseContext();
-
-            //TODO: replace with cout of journey.tickets
+           
             if ((NoBookedSeats + 1) <= NoOnwardSeats)
             {
                 this.NoBookedSeats ++;
                 this.WheelchairBooked = _wheelchair;
 
-               // db.Entry(this).State = EntityState.Modified;
+                var temp = this;
+
+                db.Entry(temp).State = EntityState.Modified;
+                db.SaveChanges();
                 return true;
             }
             else

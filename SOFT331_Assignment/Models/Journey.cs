@@ -10,16 +10,6 @@ namespace SOFT331_Assignment.Models
 {
     public class Journey
     {
-        //+ JourneyID: int
-        //+ LocomotiveID: int
-        //+ Locomotive: Locomotive
-        //+ EventID: int
-        //+ Event: Event
-        //+ NoSeats: int
-        //+ AdvanceTickets: int
-        //+ FirstClassTickets: int
-        //+ Stops: List<Stop>
-
         [Key]
         public int JourneyID { get; set; }
 
@@ -33,12 +23,14 @@ namespace SOFT331_Assignment.Models
         public virtual int EventID { get; set; }
         public virtual Event Event { get; set; }
 
+
         [DisplayName("Advance Tickets (defaults to 100)")]
         public int AdvanceTickets { get; set; }
 
         [Required]
         [DisplayName("First Class Tickets")]
         public int FirstClassTickets { get; set; }
+
 
         [DisplayName("# Seats (defaults to 150)")]
         public int NumberOfSeats { get; set; }

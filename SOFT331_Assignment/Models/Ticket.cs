@@ -10,16 +10,6 @@ namespace SOFT331_Assignment.Models
 {
     public class Ticket
     {
-        //+ TicketID: int
-        //+ CustomerID: int
-        //+ Customer: Customer
-        //+ FareID: int
-        //+ Fare: Fare
-        //+ GiftAid: bool
-        //+ Wheelchair: bool
-        //+ Carer: bool
-        //+ Book(): bool
-
         [Key]
         public int TicketID { get; set; }
         

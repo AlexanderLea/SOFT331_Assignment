@@ -79,34 +79,33 @@ namespace SOFT331_Assignment.Controllers
             {
                 //get traveller
                 Traveller t = (Traveller)TempData["Traveller"];
-
-                //chceck traveller exists
+                //get ticket
+                Ticket ti = (Ticket)TempData["Ticket"];
+                int tID = -1;
                 if (t != null)
                 {
-                    //get ticket
-                    Ticket ti = (Ticket)TempData["Ticket"];
+                    //save traveller
+                    tID = t.save();
+                }
 
-                    //check ticket exists
-                    if (ti != null)
-                    {                        //save traveller
-                        int tID = t.save();
+                //check ticket exists
+                if (ti != null)
+                {
+                    //Is Traveller ID null???
+                    if (tID > 0)
+                    {
+                        ti.TravellerID = tID;
+                    }
 
-                        //Is Traveller ID null???
-                        if (tID > 0)
-                        {
-                            ti.TravellerID = tID;
+                    //save ticket
+                    if (ti.book())
+                    {
+                        ti.Journey = null;
+                        ti.Fare = null;
 
-                            //save ticket
-                            if (ti.book())
-                            {
-                                ti.Journey = null;
-                                ti.Fare = null;
-
-                                db.Tickets.Add(ti);
-                                db.SaveChanges();
-                                return RedirectToAction("Index", new { whoop = "whoop" });
-                            }
-                        }
+                        db.Tickets.Add(ti);
+                        db.SaveChanges();
+                        return RedirectToAction("Index", new { whoop = "whoop" });
                     }
                 }
             }
@@ -151,12 +150,17 @@ namespace SOFT331_Assignment.Controllers
                 }
                 else
                 {
-                    if (ticket.book())
-                    {
-                        db.Tickets.Add(ticket);
-                        db.SaveChanges();
-                        return RedirectToAction("Index", "Journeys", new { year = DateTime.Now.Year } );
-                    }
+                    //if (ticket.book())
+                    //{
+                        //Hack to book tickets without travellers
+                        //ticket.TravellerID = 1;
+
+                        TempData["Ticket"] = ticket;
+                        return RedirectToAction("Confirm");
+                        //db.Tickets.Add(ticket);
+                        //db.SaveChanges();
+                        //return RedirectToAction("Index", "Journeys", new { year = DateTime.Now.Year } );
+                  //  }
                 }
 
                 //else
