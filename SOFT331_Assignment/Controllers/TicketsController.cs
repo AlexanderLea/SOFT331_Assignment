@@ -55,8 +55,8 @@ namespace SOFT331_Assignment.Controllers
 
             ViewData["Journey"] = journey;
 
+            ViewBag.TicketGroup = new SelectList(db.TicketTypes, "TicketTypeID", "Name");
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID");
-            ViewBag.TravellerID = new SelectList(db.Travellers, "TravellerID", "FirstName");
             ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID");
 
             return View();

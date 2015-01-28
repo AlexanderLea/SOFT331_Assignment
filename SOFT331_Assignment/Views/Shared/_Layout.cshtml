@@ -28,18 +28,17 @@
                         <li>@Html.ActionLink("Fares", "Index", "Fares")</li>
                         <li>@Html.ActionLink("Stations", "Index", "Stations")</li>
                         <li>@Html.ActionLink("Journeys", "Index", "Journeys")</li>
-                    } else
-                    {
-                        <li>@Html.ActionLink("Timetable", "Timetable", "Journeys", new { year = DateTime.Now.Year }, null)</li>
                     }
-                    
+                    <li>@Html.ActionLink("Timetable", "Timetable", "Journeys", new { year = DateTime.Now.Year }, null)</li>
+
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
- 
+
         @RenderBody()
         <hr />
         <footer>

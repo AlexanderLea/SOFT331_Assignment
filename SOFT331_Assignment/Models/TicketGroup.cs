@@ -9,14 +9,6 @@ namespace SOFT331_Assignment.Models
 {
     public class TicketGroup
     {
-        //+ TicketTypeID: int
-        //+ Name: string
-        //+ Description: string
-        //+ DepartureStationID: int
-        //+ DepartureStation: Station
-        //+ ArrivalStationID: int
-        //+ ArrivalStation: Station
-
         [Key]
         public int TicketTypeID { get; set; }
 
