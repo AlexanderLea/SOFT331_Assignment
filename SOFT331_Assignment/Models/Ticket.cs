@@ -22,7 +22,7 @@ namespace SOFT331_Assignment.Models
 
         [Key]
         public int TicketID { get; set; }
-
+        
         [ForeignKey("Traveller")]
         public int? TravellerID { get; set; }
         public virtual Traveller Traveller { get; set; }

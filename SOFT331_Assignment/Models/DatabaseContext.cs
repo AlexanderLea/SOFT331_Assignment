@@ -8,6 +8,10 @@ namespace SOFT331_Assignment.Models
 {
     public class DatabaseContext : DbContext
     {
+        public DatabaseContext()
+            : base("SOFT331Assignment")
+        {
+        }
 
         public DbSet<Fare> Fares { get; set; }
         public DbSet<Event> Events { get; set; }

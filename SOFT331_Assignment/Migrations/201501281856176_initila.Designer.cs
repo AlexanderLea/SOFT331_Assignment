@@ -7,13 +7,13 @@ namespace SOFT331_Assignment.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class htdf : IMigrationMetadata
+    public sealed partial class initila : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(htdf));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initila));
         
         string IMigrationMetadata.Id
         {
-            get { return "201501281828550_htdf"; }
+            get { return "201501281856176_initila"; }
         }
         
         string IMigrationMetadata.Source

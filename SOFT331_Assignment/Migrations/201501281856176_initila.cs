@@ -3,7 +3,7 @@ namespace SOFT331_Assignment.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class postchages : DbMigration
+    public partial class initila : DbMigration
     {
         public override void Up()
         {
@@ -29,7 +29,7 @@ namespace SOFT331_Assignment.Migrations
                     })
                 .PrimaryKey(t => t.FareID)
                 .ForeignKey("dbo.FareTypes", t => t.FareTypeID, cascadeDelete: true)
-                .ForeignKey("dbo.TicketTypes", t => t.TicketTypeID, cascadeDelete: true)
+                .ForeignKey("dbo.TicketGroups", t => t.TicketTypeID, cascadeDelete: true)
                 .Index(t => t.FareTypeID)
                 .Index(t => t.TicketTypeID);
             
@@ -43,7 +43,7 @@ namespace SOFT331_Assignment.Migrations
                 .PrimaryKey(t => t.FaretypeID);
             
             CreateTable(
-                "dbo.TicketTypes",
+                "dbo.TicketGroups",
                 c => new
                     {
                         TicketTypeID = c.Int(nullable: false, identity: true),
@@ -102,6 +102,7 @@ namespace SOFT331_Assignment.Migrations
                         ArrivalTime = c.DateTime(),
                         DepartureTime = c.DateTime(),
                         WheelchairBooked = c.Boolean(nullable: false),
+                        NoBookedSeats = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.StopID)
                 .ForeignKey("dbo.Journeys", t => t.JourneyID, cascadeDelete: true)
@@ -110,26 +111,11 @@ namespace SOFT331_Assignment.Migrations
                 .Index(t => t.JourneyID);
             
             CreateTable(
-                "dbo.Trains",
-                c => new
-                    {
-                        TrainID = c.Int(nullable: false, identity: true),
-                        TrainNumber = c.Int(nullable: false),
-                        Name = c.String(nullable: false),
-                        Description = c.String(nullable: false),
-                        Maker = c.String(),
-                        Year = c.String(nullable: false),
-                        WorksNumber = c.Int(nullable: false),
-                        Type = c.String(),
-                    })
-                .PrimaryKey(t => t.TrainID);
-            
-            CreateTable(
                 "dbo.Tickets",
                 c => new
                     {
                         TicketID = c.Int(nullable: false, identity: true),
-                        TravellerID = c.Int(nullable: false),
+                        TravellerID = c.Int(),
                         FareID = c.Int(nullable: false),
                         JourneyID = c.Int(nullable: false),
                         GiftAid = c.Boolean(nullable: false),
@@ -139,7 +125,7 @@ namespace SOFT331_Assignment.Migrations
                 .PrimaryKey(t => t.TicketID)
                 .ForeignKey("dbo.Fares", t => t.FareID, cascadeDelete: true)
                 .ForeignKey("dbo.Journeys", t => t.JourneyID, cascadeDelete: true)
-                .ForeignKey("dbo.Travellers", t => t.TravellerID, cascadeDelete: true)
+                .ForeignKey("dbo.Travellers", t => t.TravellerID)
                 .Index(t => t.TravellerID)
                 .Index(t => t.FareID)
                 .Index(t => t.JourneyID);
@@ -156,20 +142,35 @@ namespace SOFT331_Assignment.Migrations
                     })
                 .PrimaryKey(t => t.TravellerID);
             
+            CreateTable(
+                "dbo.Trains",
+                c => new
+                    {
+                        TrainID = c.Int(nullable: false, identity: true),
+                        TrainNumber = c.Int(nullable: false),
+                        Name = c.String(nullable: false),
+                        Description = c.String(nullable: false),
+                        Maker = c.String(),
+                        Year = c.String(nullable: false),
+                        WorksNumber = c.Int(nullable: false),
+                        Type = c.String(),
+                    })
+                .PrimaryKey(t => t.TrainID);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Journeys", "TrainID", "dbo.Trains");
             DropForeignKey("dbo.Tickets", "TravellerID", "dbo.Travellers");
             DropForeignKey("dbo.Tickets", "JourneyID", "dbo.Journeys");
             DropForeignKey("dbo.Tickets", "FareID", "dbo.Fares");
-            DropForeignKey("dbo.Journeys", "TrainID", "dbo.Trains");
             DropForeignKey("dbo.Stops", "StationID", "dbo.Stations");
             DropForeignKey("dbo.Stops", "JourneyID", "dbo.Journeys");
             DropForeignKey("dbo.Journeys", "EventID", "dbo.Events");
-            DropForeignKey("dbo.Fares", "TicketTypeID", "dbo.TicketTypes");
-            DropForeignKey("dbo.TicketTypes", "DepartureStationID", "dbo.Stations");
-            DropForeignKey("dbo.TicketTypes", "ArrivalStationID", "dbo.Stations");
+            DropForeignKey("dbo.Fares", "TicketTypeID", "dbo.TicketGroups");
+            DropForeignKey("dbo.TicketGroups", "DepartureStationID", "dbo.Stations");
+            DropForeignKey("dbo.TicketGroups", "ArrivalStationID", "dbo.Stations");
             DropForeignKey("dbo.Fares", "FareTypeID", "dbo.FareTypes");
             DropIndex("dbo.Tickets", new[] { "JourneyID" });
             DropIndex("dbo.Tickets", new[] { "FareID" });
@@ -178,17 +179,17 @@ namespace SOFT331_Assignment.Migrations
             DropIndex("dbo.Stops", new[] { "StationID" });
             DropIndex("dbo.Journeys", new[] { "EventID" });
             DropIndex("dbo.Journeys", new[] { "TrainID" });
-            DropIndex("dbo.TicketTypes", new[] { "ArrivalStationID" });
-            DropIndex("dbo.TicketTypes", new[] { "DepartureStationID" });
+            DropIndex("dbo.TicketGroups", new[] { "ArrivalStationID" });
+            DropIndex("dbo.TicketGroups", new[] { "DepartureStationID" });
             DropIndex("dbo.Fares", new[] { "TicketTypeID" });
             DropIndex("dbo.Fares", new[] { "FareTypeID" });
+            DropTable("dbo.Trains");
             DropTable("dbo.Travellers");
             DropTable("dbo.Tickets");
-            DropTable("dbo.Trains");
             DropTable("dbo.Stops");
             DropTable("dbo.Journeys");
             DropTable("dbo.Stations");
-            DropTable("dbo.TicketTypes");
+            DropTable("dbo.TicketGroups");
             DropTable("dbo.FareTypes");
             DropTable("dbo.Fares");
             DropTable("dbo.Events");

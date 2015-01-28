@@ -143,8 +143,6 @@ namespace SOFT331_Assignment.Controllers
                     .Include(s => s.Station)
                     .ToList();
 
-                //ticket.Traveller = db.Travellers.Find(ticket.TravellerID);
-
                 if (ticket.GiftAid)
                 {
                     //redirect to create traveller

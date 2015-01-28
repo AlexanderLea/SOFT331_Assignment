@@ -175,37 +175,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201501241226241_post chages.cs" />
-    <Compile Include="Migrations\201501241226241_post chages.Designer.cs">
-      <DependentUpon>201501241226241_post chages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501241508345_remove journey from ticket.cs" />
-    <Compile Include="Migrations\201501241508345_remove journey from ticket.Designer.cs">
-      <DependentUpon>201501241508345_remove journey from ticket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501241923211_Readded journey to ticket.cs" />
-    <Compile Include="Migrations\201501241923211_Readded journey to ticket.Designer.cs">
-      <DependentUpon>201501241923211_Readded journey to ticket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501271328458_rename tickettype to ticketgroup.cs" />
-    <Compile Include="Migrations\201501271328458_rename tickettype to ticketgroup.Designer.cs">
-      <DependentUpon>201501271328458_rename tickettype to ticketgroup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501271528526_blah.cs" />
-    <Compile Include="Migrations\201501271528526_blah.Designer.cs">
-      <DependentUpon>201501271528526_blah.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501281728084_changed-traveller-required.cs" />
-    <Compile Include="Migrations\201501281728084_changed-traveller-required.Designer.cs">
-      <DependentUpon>201501281728084_changed-traveller-required.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501281742029_f.cs" />
-    <Compile Include="Migrations\201501281742029_f.Designer.cs">
-      <DependentUpon>201501281742029_f.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501281828550_htdf.cs" />
-    <Compile Include="Migrations\201501281828550_htdf.Designer.cs">
-      <DependentUpon>201501281828550_htdf.cs</DependentUpon>
+    <Compile Include="Migrations\201501281856176_initila.cs" />
+    <Compile Include="Migrations\201501281856176_initila.Designer.cs">
+      <DependentUpon>201501281856176_initila.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -230,6 +202,10 @@
     <Content Include="App_Data\DefaultConnection.mdf" />
     <Content Include="App_Data\DefaultConnection_log.ldf">
       <DependentUpon>DefaultConnection.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SOFT331Assignment.mdf" />
+    <Content Include="App_Data\SOFT331Assignment_log.ldf">
+      <DependentUpon>SOFT331Assignment.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -341,7 +317,6 @@
     <Content Include="Views\Shared\_ViewJourneysPartial.cshtml" />
     <Content Include="Views\Tickets\Confirm.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -349,30 +324,10 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501241226241_post chages.resx">
-      <DependentUpon>201501241226241_post chages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501241508345_remove journey from ticket.resx">
-      <DependentUpon>201501241508345_remove journey from ticket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501241923211_Readded journey to ticket.resx">
-      <DependentUpon>201501241923211_Readded journey to ticket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501271328458_rename tickettype to ticketgroup.resx">
-      <DependentUpon>201501271328458_rename tickettype to ticketgroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501271528526_blah.resx">
-      <DependentUpon>201501271528526_blah.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501281728084_changed-traveller-required.resx">
-      <DependentUpon>201501281728084_changed-traveller-required.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501281742029_f.resx">
-      <DependentUpon>201501281742029_f.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501281828550_htdf.resx">
-      <DependentUpon>201501281828550_htdf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201501281856176_initila.resx">
+      <DependentUpon>201501281856176_initila.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
