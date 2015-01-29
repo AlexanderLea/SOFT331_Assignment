@@ -35,14 +35,14 @@
         </table>
     }
 }
-<div class="col-md-offset-1 col-md-9">
+<div class="col-md-offset-1 col-md-7">
     <h3>Calling at:</h3>
     <table class="table-condensed">
         <tr>
             <th>Station</th>
             <th>Arrival Time</th>
             <th>Departure Time</th>
-            <th>Tickets Booked</th>
+            @*<th>Tickets Booked</th>*@
         </tr>
         @foreach (var stop in Model.Stops)
         {
@@ -56,9 +56,9 @@
                 <td>
                     @Html.DisplayFor(s => stop.DepartureTime)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(s => stop.NoBookedSeats)
-                </td>
+                </td>*@
             </tr>
         }
 

@@ -1,0 +1,14 @@
+﻿@model SOFT331_Assignment.Models.Ticket
+
+@{
+    ViewBag.Title = "Booking Success";
+}
+
+<h2>Thank you for your booking!</h2>
+<h3>Your booking number is: <strong>@Model.TicketID</strong>. 
+    <br />Please keep this for your records, as you will need it to collect your ticket.</h3>
+<br />
+<h4>Ticket Information</h4>
+@{Html.RenderPartial("_ViewTicketInfoPartial", Model);}
+
+

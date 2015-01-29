@@ -10,7 +10,7 @@ using SOFT331_Assignment.Models;
 
 namespace SOFT331_Assignment.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
+    
     public class TrainsController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
@@ -22,6 +22,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Trains/Details/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +38,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Trains/Create
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +49,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Create([Bind(Include = "TrainID,TrainNumber,Name,Description,Maker,Year,WorksNumber,Type")] Train train)
         {
             if (ModelState.IsValid)
@@ -60,6 +63,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Trains/Edit/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +83,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Edit([Bind(Include = "TrainID,TrainNumber,Name,Description,Maker,Year,WorksNumber,Type")] Train train)
         {
             if (ModelState.IsValid)
@@ -91,6 +96,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Trains/Delete/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +114,7 @@ namespace SOFT331_Assignment.Controllers
         // POST: Trains/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult DeleteConfirmed(int id)
         {
             Train train = db.Trains.Find(id);

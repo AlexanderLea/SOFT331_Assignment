@@ -54,6 +54,7 @@ namespace SOFT331_Assignment.Controllers
             }
 
             ViewData["Journey"] = journey;
+            ViewData["Fares"] = db.Fares.ToList();
 
             ViewBag.TicketGroup = new SelectList(db.TicketTypes, "TicketTypeID", "Name");
             ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID");
@@ -105,7 +106,7 @@ namespace SOFT331_Assignment.Controllers
 
                         db.Tickets.Add(ti);
                         db.SaveChanges();
-                        return RedirectToAction("Index", new { whoop = "whoop" });
+                        return RedirectToAction("Success", new { id = ti.TicketID });
                     }
                 }
             }
@@ -221,6 +222,22 @@ namespace SOFT331_Assignment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Ticket ticket = db.Tickets.Find(id);
+            if (ticket == null)
+            {
+                return HttpNotFound();
+            }
+            return View(ticket);
+        }
+
+        // GET: Tickets/Delete/5
+        public ActionResult Success(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             Ticket ticket = db.Tickets.Find(id);
             if (ticket == null)
             {

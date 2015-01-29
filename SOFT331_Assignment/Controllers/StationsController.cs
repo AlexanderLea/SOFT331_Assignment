@@ -9,8 +9,7 @@ using System.Web.Mvc;
 using SOFT331_Assignment.Models;
 
 namespace SOFT331_Assignment.Controllers
-{
-    [Authorize(Roles = "ADMIN")]
+{    
     public class StationsController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
@@ -22,6 +21,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Stations/Details/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +37,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Stations/Create
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Create([Bind(Include = "StationID,StationName,StationDescription,RequestStop,WheelchairAccessible,CarPark,RefreshmentsAvailable,ToiletAvailable,MainlineStationNear")] Station station)
         {
             if (ModelState.IsValid)
@@ -60,6 +62,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Stations/Edit/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +82,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Edit([Bind(Include = "StationID,StationName,StationDescription,RequestStop,WheelchairAccessible,CarPark,RefreshmentsAvailable,ToiletAvailable,MainlineStationNear")] Station station)
         {
             if (ModelState.IsValid)
@@ -91,6 +95,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Stations/Delete/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +113,7 @@ namespace SOFT331_Assignment.Controllers
         // POST: Stations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult DeleteConfirmed(int id)
         {
             Station station = db.Stations.Find(id);

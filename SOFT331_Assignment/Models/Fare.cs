@@ -9,16 +9,7 @@ using System.Web;
 namespace SOFT331_Assignment.Models
 {
     public class Fare
-    {
-        //+ FareID: int
-        //+ FareTypeID: int
-        //+ FareType: FareType
-        //+ TicketTypeID: int
-        //+ TicketType: TicketType
-        //+ Name: string
-        //+ BasePrice: double
-        //+ GiftAidPrice: double                 
-                                                  
+    {                                
         [Key]
         public int FareID { get; set; }
 
@@ -32,10 +23,11 @@ namespace SOFT331_Assignment.Models
 
         [DisplayName("Basic Price")]
         [Required(ErrorMessage = "Fare must have a basic price")]
-
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public double BasicPrice { get; set; }
 
         [DisplayName("Gift Aid Price")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public double GiftAidPrice { get; set; }
 
         public Fare()

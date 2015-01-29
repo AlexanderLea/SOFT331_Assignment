@@ -9,8 +9,7 @@ using System.Web.Mvc;
 using SOFT331_Assignment.Models;
 
 namespace SOFT331_Assignment.Controllers
-{
-    [Authorize(Roles = "ADMIN")]
+{    
     public class FaresController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
@@ -23,6 +22,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Fares/Details/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,6 +38,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Fares/Create
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Create()
         {
             ViewBag.FareTypeID = new SelectList(db.FareTypes, "FaretypeID", "FareTypeDescription");
@@ -50,6 +51,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Create([Bind(Include = "FareID,FareTypeID,TicketTypeID,BasicPrice,GiftAidPrice")] Fare fare)
         {
             if (ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Fares/Edit/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,6 +89,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Edit([Bind(Include = "FareID,FareTypeID,TicketTypeID,BasicPrice,GiftAidPrice")] Fare fare)
         {
             if (ModelState.IsValid)
@@ -100,6 +104,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Fares/Delete/5
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,6 +122,7 @@ namespace SOFT331_Assignment.Controllers
         // POST: Fares/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult DeleteConfirmed(int id)
         {
             Fare fare = db.Fares.Find(id);
