@@ -98,7 +98,6 @@ namespace SOFT331_Assignment.Controllers
                         ti.TravellerID = tID;
                     }
 
-                    //save ticket
                     if (ti.book())
                     {
                         ti.Journey = null;
@@ -107,6 +106,10 @@ namespace SOFT331_Assignment.Controllers
                         db.Tickets.Add(ti);
                         db.SaveChanges();
                         return RedirectToAction("Success", new { id = ti.TicketID });
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Cannot book ticket", "There was an error processing your booking, and it cannot be completed at this time.");
                     }
                 }
             }
@@ -121,6 +124,36 @@ namespace SOFT331_Assignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TicketID,FareID,JourneyID,GiftAid,Wheelchair,Carer")] Ticket ticket)
         {
+            //All the includes counteract lazy loading
+            ticket.Fare = db.Fares
+                .Include(f => f.TicketType)
+                .Include(f => f.TicketType.ArrivalStation)
+                .Include(f => f.TicketType.DepartureStation)
+                .Include(f => f.FareType)
+                .Where(f => f.FareID == ticket.FareID)
+                .First();
+
+            ticket.Journey = db.Journies
+                .Include(t => t.Tickets)
+                .Include(t => t.Stops)
+                .Include(t => t.Event)
+                .FirstOrDefault();
+
+            ticket.Journey.Stops = db.Stops
+                .Where(s => s.JourneyID == ticket.JourneyID)
+                .Include(s => s.Station)
+                .ToList();
+
+            //save ticket
+            if (ticket.Wheelchair)
+            {
+                if (!ticket.Journey.canBookWheelchair(ticket.Fare.TicketType.DepartureStation, ticket.Fare.TicketType.ArrivalStation))
+                {
+                    ModelState.AddModelError("Cannot book wheelchair", "Unfortunately, a wheelchair has already been booked on this train, and there can only be one wheelchair at a time.");
+                }
+            }
+
+
             if (ModelState.IsValid)
             {
                 //All the includes counteract lazy loading
@@ -145,6 +178,12 @@ namespace SOFT331_Assignment.Controllers
 
                 if (ticket.Journey.getJourneyDate() > DateTime.Today)
                 {
+                    if (ticket.Carer)
+                    {
+                        ticket.Fare.GiftAidPrice = ticket.Fare.GiftAidPrice * 0.8;
+                        ticket.Fare.BasicPrice = ticket.Fare.BasicPrice * 0.8;
+                    }
+
                     if (ticket.GiftAid)
                     {
                         //redirect to create traveller
@@ -153,17 +192,8 @@ namespace SOFT331_Assignment.Controllers
                     }
                     else
                     {
-                        //if (ticket.book())
-                        //{
-                        //Hack to book tickets without travellers
-                        //ticket.TravellerID = 1;
-
                         TempData["Ticket"] = ticket;
                         return RedirectToAction("Confirm");
-                        //db.Tickets.Add(ticket);
-                        //db.SaveChanges();
-                        //return RedirectToAction("Index", "Journeys", new { year = DateTime.Now.Year } );
-                        //  }
                     }
                 }
                 else
@@ -174,7 +204,14 @@ namespace SOFT331_Assignment.Controllers
                 //else
                 //ERROR                
             }
-            ModelState.AddModelError("", String.Format("You have not filled in all the fields!"));
+            //ModelState.AddModelError("", String.Format("You have not filled in all the fields!"));
+
+            ViewData["Journey"] = ticket.Journey;
+            ViewData["Fares"] = db.Fares.ToList();
+
+            ViewBag.TicketGroup = new SelectList(db.TicketTypes, "TicketTypeID", "Name");
+            ViewBag.FareID = new SelectList(db.Fares, "FareID", "FareID");
+            ViewBag.JourneyID = new SelectList(db.Journies, "JourneyID", "JourneyID");
             return View();
         }
 
