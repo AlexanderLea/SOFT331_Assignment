@@ -7,15 +7,6 @@ namespace SOFT331_Assignment.Models
 {
     public class Train
     {
-        //+ TrainID: int
-        //+ Number: int
-        //+ Name: int
-        //+ Description: string
-        //+ Year: int
-        //+ WorksNo: int
-        //+ Make: string
-        //+ Type: string
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TrainID { get; set; }

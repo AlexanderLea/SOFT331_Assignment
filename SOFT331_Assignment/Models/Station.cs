@@ -9,16 +9,6 @@ namespace SOFT331_Assignment.Models
 {
     public class Station
     {
-        //+ StationID: int
-        //+ Name: string
-        //+ Description: string
-        //+ WheelchairAccessible: bool
-        //+ RequestStop: bool
-        //+ Carpark: bool
-        //+ RefreshmentsAvailable: bool
-        //+ ToiletAvailable: bool
-        //+ MainlineStationNear: bool
-
         [Key]
         public int StationID { get; set; }
         
