@@ -151,6 +151,14 @@ namespace SOFT331_Assignment.Controllers
         {
             if (ModelState.IsValid)
             {
+                journey.Stops = db.Stops.Where(s => s.JourneyID == journey.JourneyID).ToList();
+
+                //TODO: Check if this is possible!
+                foreach (Stop s in journey.Stops)
+                {
+                    s.NoOnwardSeats = journey.NumberOfSeats;
+                }
+
                 db.Entry(journey).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
