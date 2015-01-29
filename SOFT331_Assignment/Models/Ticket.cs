@@ -68,20 +68,6 @@ namespace SOFT331_Assignment.Models
             return success;
         }
 
-        public bool checkTravellerExists()
-        {
-            bool exists = false;
-
-            if (this.GiftAid)
-            {
-                //ensure traveller exists
-                if (this.TravellerID.HasValue)
-                    exists = true;
-                else
-                    exists = false;
-            }
-
-            return exists;
-        }
+        
     }
 }

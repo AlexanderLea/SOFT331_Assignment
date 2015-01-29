@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SOFT331_Assignment.Models.Event">
+    <Position X="11" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.Fare">
+    <Position X="12.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACgAACEAAAABAABAAAAAACAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\Fare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.FareType">
+    <Position X="14.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FareType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.Journey">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKRhAIAAAACAgEAEIgIAAAAAAgAAAAAQAChABgAEAAA=</HashCode>
+      <FileName>Models\Journey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.Station">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAEAAgAgAAAQBAAoAAAgACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Station.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.Ticket">
+    <Position X="9.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAACCAAAAICAIRQAAAAEAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Models\Ticket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.TicketGroup">
+    <Position X="0.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAgAggAAAAAAAQBAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\TicketGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.Train">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABACgAAAEAAAAAAQAAAAAAAAAAQAACgAAAAQ=</HashCode>
+      <FileName>Models\Train.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SOFT331_Assignment.Models.Traveller">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACCAAAAAAAEAAAAAAAAAAAAAAAAgAAAAAg=</HashCode>
+      <FileName>Models\Traveller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
