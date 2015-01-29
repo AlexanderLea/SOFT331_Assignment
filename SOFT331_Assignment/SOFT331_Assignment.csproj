@@ -323,6 +323,7 @@
     <Content Include="Views\Shared\_ViewTicketInfoPartial.cshtml" />
     <Content Include="Views\Shared\_ViewTravellerInfoPartial.cshtml" />
     <Content Include="Views\Tickets\Success.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

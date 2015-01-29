@@ -9,20 +9,7 @@ using System.Web;
 namespace SOFT331_Assignment.Models
 {
     public class Stop
-    {
-        //+ StopID: int
-        //+ StationID: int
-        //+ Station: Station
-        //+ JourneyID: int
-        //+ Journey: Journey
-        //+ NoOnwardSeats: int
-        //+ ArrivalTime: DateTime?
-        //+ DepartureTime: DateTime?
-        //+ WheelchairBooked: bool
-        //+ GetAvailableSeats(): int
-        //+ CanBookWheelchair(): bool
-        //+ BookTickets(_tickets: int): bool
-
+    {   
         [Key]
         public int StopID { get; set; }
 
@@ -80,6 +67,23 @@ namespace SOFT331_Assignment.Models
             }
             else
                 return false;
+        }
+
+        internal void deleteTicket(bool _wheelchair)
+        {
+            DatabaseContext db = new DatabaseContext();
+
+            if ((NoBookedSeats + 1) <= NoOnwardSeats)
+            {
+                this.NoBookedSeats--;
+                if(_wheelchair)
+                    this.WheelchairBooked = (!_wheelchair);
+
+                var temp = this;
+
+                //db.Entry(temp).State = EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

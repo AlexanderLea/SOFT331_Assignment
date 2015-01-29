@@ -45,6 +45,11 @@ namespace SOFT331_Assignment.Models
             this.Carer = false;
         }
 
+        public void delete()
+        {
+            this.Journey.deleteTicket(this.Fare.TicketType.DepartureStation, this.Fare.TicketType.ArrivalStation, this.Wheelchair);
+        }
+
         public bool book()
         {
             bool success = false;

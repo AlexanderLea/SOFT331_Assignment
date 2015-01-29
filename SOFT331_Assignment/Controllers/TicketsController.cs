@@ -142,6 +142,7 @@ namespace SOFT331_Assignment.Controllers
                     .Where(s => s.JourneyID == ticket.JourneyID)
                     .Include(s => s.Station)
                     .ToList();
+
                 if (ticket.Journey.getJourneyDate() > DateTime.Today)
                 {
                     if (ticket.GiftAid)
@@ -230,7 +231,7 @@ namespace SOFT331_Assignment.Controllers
             return View(ticket);
         }
 
-        // GET: Tickets/Delete/5
+        // GET: Tickets/Success/5
         public ActionResult Success(int? id)
         {
             if (id == null)
@@ -253,6 +254,30 @@ namespace SOFT331_Assignment.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Ticket ticket = db.Tickets.Find(id);
+
+            ticket.Fare = db.Fares
+                    .Include(f => f.TicketType)
+                    .Include(f => f.TicketType.ArrivalStation)
+                    .Include(f => f.TicketType.DepartureStation)
+                    .Include(f => f.FareType)
+                    .Where(f => f.FareID == ticket.FareID)
+                    .First();
+
+            ticket.Journey = db.Journies
+                .Include(t => t.Tickets)
+                .Include(t => t.Stops)
+                .Include(t => t.Event)
+                .FirstOrDefault();
+
+            ticket.Journey.Stops = db.Stops
+                .Where(s => s.JourneyID == ticket.JourneyID)
+                .Include(s => s.Station)
+                .ToList();
+
+            //delete from models
+            ticket.delete();
+
+            //delete from DB
             db.Tickets.Remove(ticket);
             db.SaveChanges();
             return RedirectToAction("Index");

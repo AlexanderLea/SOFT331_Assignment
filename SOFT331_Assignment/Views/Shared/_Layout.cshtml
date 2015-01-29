@@ -28,10 +28,17 @@
                     <li>@Html.ActionLink("Stations", "Index", "Stations")</li>
                     <li>@Html.ActionLink("Timetable", "Timetable", "Journeys", new { year = DateTime.Now.Year }, null)</li>
 
-                    @if (User.IsInRole("ADMIN, CLERK"))
-                    {
+                    @{ if (User.IsInRole("CLERK") || User.IsInRole("ADMIN"))
+                     {
                         <li>@Html.ActionLink("Journeys", "Index", "Journeys")</li>
+                        <li>@Html.ActionLink("Tickets", "Index", "Tickets")</li>
+                     }
+                     else if (User.IsInRole("ADMIN"))
+                     {
+                        <li>@Html.ActionLink("Stops", "Index", "Stops")</li>
                         <li>@Html.ActionLink("Events", "Index", "Events")</li>
+
+                     }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

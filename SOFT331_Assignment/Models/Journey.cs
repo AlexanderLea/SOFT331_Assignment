@@ -244,5 +244,17 @@ namespace SOFT331_Assignment.Models
             else
                 return _b;
         }
+
+        internal void deleteTicket(Station _depart, Station _arrive, bool _wheelchair)
+        {
+            //Order stops by arrival time (null first?), to ensure that we are checking in order
+            List<Stop> orderedStops = getStopsBetween(_depart, _arrive);
+
+            //Loop through stops
+            foreach (Stop s in orderedStops)
+            {
+                s.deleteTicket(_wheelchair);
+            }
+        }
     }
 }

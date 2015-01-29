@@ -5,11 +5,13 @@
 }
 
 <h2>Index</h2>
+@{ if (User.IsInRole("ADMIN"))
+ {
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+ }}
 <table class="table">
     <tr>
         <th>@Html.DisplayNameFor(model => model.Train.Name)</th>
@@ -18,7 +20,11 @@
         <th>@Html.DisplayNameFor(model => model.FirstClassTickets)</th>
         <th>@Html.DisplayNameFor(model => model.NumberOfSeats)</th>
         <th>Tickets Booked</th>
-        <th></th>
+        @{ if (User.IsInRole("ADMIN"))
+         {
+
+            <th></th>
+         }}
     </tr>
 
     @{ foreach (var j in Model)
@@ -37,11 +43,21 @@
             <td>@Html.DisplayFor(modelItem => j.NumberOfSeats)</td>
 
             <td>@Html.DisplayFor(modelItem => j.Tickets.Count)</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = j.JourneyID }) |
-                @Html.ActionLink("Details", "Details", new { id = j.JourneyID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = j.JourneyID })
-            </td>
+            @{ if (User.IsInRole("ADMIN"))
+             {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = j.JourneyID }) |
+                    @Html.ActionLink("Details", "Details", new { id = j.JourneyID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = j.JourneyID })
+                </td>
+             }
+               else if (User.IsInRole("CLERK"))
+               {
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = j.JourneyID })
+                </td>
+               }
+}
         </tr>
 
      }

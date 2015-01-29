@@ -7,15 +7,13 @@
 <h2>Journey Details</h2>
 
 <div>
-
     <h3>Statistics</h3>
-    <hr />
 
     <table class="table">
         <tr>
-            <th>@Html.DisplayNameFor(model => model.AdvanceTickets)</th>
+            <th>Advance Tickets</th>
             <th>@Html.DisplayNameFor(model => model.FirstClassTickets)</th>
-            <th>@Html.DisplayNameFor(model => model.NumberOfSeats)</th>
+            <th># Seats</th>
             <th>Total Tickets Booked</th>
         </tr>
         <tr>
@@ -27,7 +25,7 @@
 
             <td>@Html.DisplayFor(modelItem => modelItem.Tickets.Count)</td>
     </table>
-    <br />
+
     <table class="table-condensed">
         <tr>
             <th>Ticket Group</th>
@@ -42,8 +40,7 @@
                 </tr>
             }
         }
-    </table>
-    <table class="table-condensed">
+
         <tr>
             <th>Fare Type</th>
             <th>Number of tickets booked</th>
@@ -57,8 +54,7 @@
                 </tr>
             }
         }
-    </table>
-    <table class="table-condensed">
+
         <tr>
             <th>Number of gift aid tickets</th>
             <th>Total value of gift aid</th>
@@ -71,55 +67,17 @@
             </tr>
         }
     </table>
+
     <h3>Service Information</h3>
     <hr />
-    
-    @{
-        string trainName = Model.Train.ToString();
-        string journeyType = Model.Event.Name;
-        <table>
-            <tr>
-                <td><strong>@Html.DisplayNameFor(model => model.Train.Name)</strong>:</td>
-                <td>@Html.DisplayFor(modelItem => trainName)</td>
-            </tr>
-            <tr>
-                <td><strong>@Html.DisplayNameFor(model => model.Event.Name)</strong>:</td>
-                <td>@Html.DisplayFor(modelItem => journeyType)</td>
-            </tr>
 
-        </table>
-
-        <h4>Calling at:</h4>
-        <hr />
-        <table class="table-condensed">
-            <tr>
-                <th>Station</th>
-                <th>Arrival Time</th>
-                <th>Departure Time</th>
-                <th>Tickets Booked</th>
-            </tr>
-            @foreach (var stop in Model.Stops)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(s => stop.Station.StationName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(s => stop.ArrivalTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(s => stop.DepartureTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(s => stop.NoBookedSeats)
-                    </td>
-                </tr>
-            }
-
-        </table>
-    }
+    <div class="row">
+        @{Html.RenderPartial("_viewJourneyPartial", Model);
+        }
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.JourneyID }) |
+    @Html.ActionLink("Edit Stops", "Index", "Stops") |
     @Html.ActionLink("Back to List", "Index")
 </p>
