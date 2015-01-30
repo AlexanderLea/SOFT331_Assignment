@@ -24,8 +24,10 @@ namespace SOFT331_Assignment.Models
         public DbSet<Train> Trains { get; set; }
         public DbSet<Traveller> Travellers { get; set; }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //Map Station with TicketGroup.arrivalStation AND Station with TicketGroup.departureStation
             modelBuilder.Entity<TicketGroup>()
                     .HasRequired(m => m.ArrivalStation)
                     .WithMany(t => t.arrivalTicketTypes)
