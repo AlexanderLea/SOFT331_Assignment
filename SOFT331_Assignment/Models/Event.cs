@@ -9,10 +9,6 @@ namespace SOFT331_Assignment.Models
 {
     public class Event
     {
-        //+ EventID: int
-        //+ Name: string
-        //+ Description: string
-
         [Required]        
         public int EventID { get; set; }
 

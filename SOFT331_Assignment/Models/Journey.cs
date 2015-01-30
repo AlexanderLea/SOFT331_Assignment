@@ -46,7 +46,10 @@ namespace SOFT331_Assignment.Models
             AdvanceTickets = 100;
         }
 
-
+        /// <summary>
+        /// Overrides base toString and returns information about Journey
+        /// </summary>
+        /// <returns>this.date - Event.Name on Train.Name</returns>
         public override string ToString()
         {
             return this.getJourneyDate().Date + " - " +Event.Name + " on " + Train.Name;           
@@ -80,6 +83,12 @@ namespace SOFT331_Assignment.Models
             return minSeats;
         }
 
+        /// <summary>
+        /// Gets a list of hte stops between a departure and arrival station, in order
+        /// </summary>
+        /// <param name="_depart">Departure Station</param>
+        /// <param name="_arrive">Arrival Station</param>
+        /// <returns></returns>
         private List<Stop> getStopsBetween(Station _depart, Station _arrive)
         {
             bool go = false;
@@ -158,14 +167,10 @@ namespace SOFT331_Assignment.Models
             return success;
         }
 
-        public void allocateAdvanceTickets(int _noTickets)
-        {
-            if (NumberOfSeats - (AdvanceTickets + _noTickets) > 0)
-            {
-                AdvanceTickets = +_noTickets;
-            }
-        }
-
+        /// <summary>
+        /// Gets summary information about Fare Types and the # of tickets sold
+        /// </summary>
+        /// <returns>Returning dictionary (FareType, #Tickets)</returns>
         public Dictionary<String, int> getFareTypesSummary()
         {
             Dictionary<string, int> dic = new Dictionary<string,int>();
@@ -190,6 +195,10 @@ namespace SOFT331_Assignment.Models
             return dic;
         }
 
+        /// <summary>
+        /// Gets summary information about Ticket Groups and the # of tickets sold
+        /// </summary>
+        /// <returns>Returning dictionary (TicketGroup, #Tickets)</returns>
         public Dictionary<String, int> getTicketGroupsSummary()
         {
             Dictionary<string, int> dic = new Dictionary<string, int>();
@@ -214,6 +223,10 @@ namespace SOFT331_Assignment.Models
             return dic;
         }
 
+        /// <summary>
+        /// Gets summary information about gift aid and the # of tickets sold
+        /// </summary>
+        /// <returns>Returning key-pair (# tickets, value of sales)</returns>
         public KeyValuePair<int, double> getGiftAidSummary()
         {
             double totalPrice = 0;
@@ -245,6 +258,12 @@ namespace SOFT331_Assignment.Models
                 return _b;
         }
 
+        /// <summary>
+        /// Deletes a ticket from all stations in the booked journey
+        /// </summary>
+        /// <param name="_depart">Start of journey to delete</param>
+        /// <param name="_arrive">End of journey to delete</param>
+        /// <param name="_wheelchair">Is a wheelchair booked as part of this ticket</param>
         internal void deleteTicket(Station _depart, Station _arrive, bool _wheelchair)
         {
             //Order stops by arrival time (null first?), to ensure that we are checking in order

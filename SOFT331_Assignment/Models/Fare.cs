@@ -37,22 +37,5 @@ namespace SOFT331_Assignment.Models
                 GiftAidPrice = BasicPrice;
             }
         }
-
-        public override string ToString()
-        {
-            return
-                this.TicketType.Name
-                + " - "
-                + this.FareType.FareTypeDescription;
-            //return "blah blah blah";
-        }
-
-        public string GetString()
-        {
-            return
-                this.TicketType.Name
-                + " - "
-                + this.FareType.FareTypeDescription;
-        }
     }
 }
