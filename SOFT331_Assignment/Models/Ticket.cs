@@ -45,11 +45,18 @@ namespace SOFT331_Assignment.Models
             this.Carer = false;
         }
 
+        /// <summary>
+        /// Deletes all associated journeys and sub-classes of journey when this ticket is deleted
+        /// </summary>
         public void delete()
         {
             this.Journey.deleteTicket(this.Fare.TicketType.DepartureStation, this.Fare.TicketType.ArrivalStation, this.Wheelchair);
         }
 
+        /// <summary>
+        /// Books this ticket, and saves values against stops
+        /// </summary>
+        /// <returns>Boolean successful save</returns>
         public bool book()
         {
             bool success = false;

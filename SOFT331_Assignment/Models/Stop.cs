@@ -47,6 +47,11 @@ namespace SOFT331_Assignment.Models
             this.WheelchairBooked = false;
         }
 
+        /// <summary>
+        /// Books a ticket for this stop
+        /// </summary>
+        /// <param name="_wheelchair">Is the ticket booked a wheelchair ticket</param>
+        /// <returns>Boolean based on success of booking ticket</returns>
         public bool bookTicket(bool _wheelchair)
         {
             this.Station = null;
@@ -69,6 +74,10 @@ namespace SOFT331_Assignment.Models
                 return false;
         }
 
+        /// <summary>
+        /// Deletes ticket from stop
+        /// </summary>
+        /// <param name="_wheelchair">Does ticket to be deleted have a wheelchair?</param>
         internal void deleteTicket(bool _wheelchair)
         {
             DatabaseContext db = new DatabaseContext();

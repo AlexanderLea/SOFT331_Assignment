@@ -33,6 +33,10 @@ namespace SOFT331_Assignment.Models
 
         }
 
+        /// <summary>
+        /// Saves this traveller against a ticket
+        /// </summary>
+        /// <returns>The new ID of the newly created traveller</returns>
         public int save()
         {
             DatabaseContext db = new DatabaseContext();
