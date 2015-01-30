@@ -46,7 +46,7 @@ namespace SOFT331_Assignment.Controllers
             }
 
             //return valid journies
-            ViewData["Journeys"] = db.Journies.ToList();//.Where(j => j.Stops >= minDate && j.ArrivalTime < maxDate)
+            ViewData["Journeys"] = db.Journies.Include(j => j.Stops).ToList();//.Where(j => j.Stops >= minDate && j.ArrivalTime < maxDate)
             List<Fare> fares = db.Fares.ToList();
 
             ViewBag.MinDate = minDate;
@@ -124,7 +124,7 @@ namespace SOFT331_Assignment.Controllers
         }
 
         // GET: Journeys/Edit/5
-        [Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN, CLERK")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -146,7 +146,7 @@ namespace SOFT331_Assignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN, CLERK")]
         public ActionResult Edit([Bind(Include = "JourneyID,TrainID,EventID,AdvanceTickets,FirstClassTickets,NumberOfSeats")] Journey journey)
         {
             if (ModelState.IsValid)

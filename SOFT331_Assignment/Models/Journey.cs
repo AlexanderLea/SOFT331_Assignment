@@ -46,12 +46,12 @@ namespace SOFT331_Assignment.Models
             AdvanceTickets = 100;
         }
 
+
         public override string ToString()
         {
-            string x = Event.Name + ", on " + Train.Name;
-
-            return x;
+            return this.getJourneyDate().Date + " - " +Event.Name + " on " + Train.Name;           
         }
+
 
         /// <summary>
         /// Gets the number of bookable seats between the departure and arrival stations

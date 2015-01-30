@@ -324,7 +324,6 @@
     <Content Include="Views\Shared\_ViewTicketInfoPartial.cshtml" />
     <Content Include="Views\Shared\_ViewTravellerInfoPartial.cshtml" />
     <Content Include="Views\Tickets\Success.cshtml" />
-    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\Shared\_viewJourneyAdminPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>

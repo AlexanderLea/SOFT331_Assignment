@@ -16,84 +16,50 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.JourneyID)
 
+        @*@{
+            bool auth = Request.IsAuthenticated && User.IsInRole("CLERK");
 
-        @{
-    if (User.IsInRole("CLERK"))
-    {
+            object attribute = new { };
+            object attributeSelect = new { };
+
+            if (auth)
+            {
+                attribute = new { @readonly = "readonly" };
+                attributeSelect = new { @disabled = "disabled" };               
+            }
+        }*@
         <div class="form-group">
 
             @Html.LabelFor(model => model.TrainID, "TrainID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.DropDownList("TrainID", String.Empty)*@
-                @Html.DisplayFor(model => model.TrainID)
+                @Html.DropDownList("TrainID", String.Empty)@*, htmlAttributes: attributeSelect)*@
             </div>
         </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.EventID, "EventID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @*@Html.DropDownList("EventID", String.Empty)*@
-                    @Html.DisplayFor(model => model.EventID)
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FirstClassTickets, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @*@Html.EditorFor(model => model.FirstClassTickets)*@
-                    @Html.DisplayFor(model => model.FirstClassTickets)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.NumberOfSeats, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @*@Html.EditorFor(model => model.NumberOfSeats)*@
-                    @Html.DisplayFor(model => model.NumberOfSeats)
-                </div>
-            </div>
-    }
-    else
-    {
 
         <div class="form-group">
-
-            @Html.LabelFor(model => model.TrainID, "TrainID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EventID, "EventID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("TrainID", String.Empty)
-                @Html.ValidationMessageFor(model => model.TrainID)
+                @Html.DropDownList("EventID", String.Empty)@*, htmlAttributes: attributeSelect)*@
             </div>
         </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.EventID, "EventID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("EventID", String.Empty)
-                    @Html.ValidationMessageFor(model => model.EventID)
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstClassTickets, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstClassTickets)
+                @*@Html.DisplayFor(model => model.FirstClassTickets)*@
             </div>
+        </div>
 
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FirstClassTickets, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FirstClassTickets)
-                    @Html.ValidationMessageFor(model => model.FirstClassTickets)
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumberOfSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.NumberOfSeats)*@
+                @Html.DisplayFor(model => model.NumberOfSeats)
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.NumberOfSeats, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NumberOfSeats)
-                    @Html.ValidationMessageFor(model => model.NumberOfSeats)
-                </div>
-            </div>
-    }
-        }
+
         <div class="form-group">
             @Html.LabelFor(model => model.AdvanceTickets, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -108,6 +74,7 @@
         </div>
     </div>
 }
+
 
 <div>
     @Html.ActionLink("Edit Stops", "Index", "Stops") <br />
