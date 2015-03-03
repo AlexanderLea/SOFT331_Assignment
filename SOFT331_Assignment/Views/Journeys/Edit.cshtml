@@ -30,14 +30,14 @@
         }*@
         <div class="form-group">
 
-            @Html.LabelFor(model => model.TrainID, "TrainID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TrainID, "Train", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TrainID", String.Empty)@*, htmlAttributes: attributeSelect)*@
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EventID, "EventID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EventID, "Event", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("EventID", String.Empty)@*, htmlAttributes: attributeSelect)*@
             </div>
